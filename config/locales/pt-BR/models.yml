@@ -5,37 +5,13 @@ pt-BR:
 
   activerecord:
     models:
-      user:
-        one: Usuário
-        other: Usuários
+      job_seeker:
+        one: Candidato
+        other: Candidatos
 
-      manufacturer:
-        one: Fabricante
-        other: Fabricantes
-
-      car_category:
-        one: Categoria de Veículo
-        other: Categorias de Veículo
-
-      car_model:
-        one: Modelo de Veículo
-        other: Modelos de Veículo
-
-      car:
-        one: Carro
-        other: Carros
-
-      subsidiary:
-        one: Filial
-        other: Filiais
-
-      customer:
-        one: Cliente
-        other: Clientes
-
-      rental:
-        one: Locação
-        other: Locações
+      head_hunter:
+        one: Head Hunter
+        other: Head Hunters
 
     attributes:
       attr_defaults: &attr_defaults
@@ -45,48 +21,14 @@ pt-BR:
         updated_at: Alterado
         deleted_at: Excluído
 
-      user:
+      job_seeker:
         <<: *attr_defaults
         email: Email
         password: Senha
         password_confirmation: Confirmação de senha
 
-      manufacturer:
+      head_hunter:
         <<: *attr_defaults
-
-      car_category:
-        <<: *attr_defaults
-        daily_rate: "Diária"
-        insurance: "Seguro"
-        third_party_insurance: "Seguro de Terceiros"
-
-      car_model:
-        <<: *attr_defaults
-        year: "Ano"
-        engine: "Motor"
-        metric_horsepower: "Potência"
-        fuel_type: "Tipo de combustível"
-        metric_city_milage: "Quilometragem na cidade"
-        metric_highway_milage: "Quilometragem na estrada"
-
-      car:
-        <<: *attr_defaults
-        license_plate: Placa
-        color: Cor
-        metric_milage: Quilometragem
-  
-      subsidiary:
-        <<: *attr_defaults
-        cnpj: "CNPJ"
-        address: "Endereço"
-
-      customer:
-        <<: *attr_defaults
-        email: "Email"
-        cpf: "CPF"
-
-      rental:
-        <<: *attr_defaults
-        start_date: Data de início
-        end_date: Data de término
-        token: Token
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha

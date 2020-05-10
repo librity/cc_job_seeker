@@ -1,0 +1,12 @@
+<header class='main_headbar navbar navbar-light'>
+  <div class='container main_headbar_container'>
+    <div class="logo_container mb-2">
+      <%= link_to image_tag("full_logo.svg", alt: t('views.application_name'), width: "90"), root_path, class: 'logo_svg' %>
+      <%= link_to t('views.application_name'), root_path, class: 'logo_name' %>
+    </div>
+
+    <nav class='nav navbar-right'>
+      <li class='nav-item'><%= link_to t('views.navigation.home'), root_path, class: 'header_nav_link' %></li>
+    </nav>
+  </div>
+</header>

@@ -3,8 +3,8 @@ pt-BR:
   views:
     hello: "Olá mundo!"
 
-    application_name: "Car Rental System"
-    greeting: "Bem vindo ao sistema de gestão de locação de carros"
+    application_name: "Job Seeker"
+    greeting: "Bem vindo à applicação de busca de emprego."
 
     messages:
       arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
@@ -23,7 +23,6 @@ pt-BR:
       details: Detalhes
       new: Novo
       edit: Editar
-      search_rentals_by_token: Procurar locação pelo token
 
     actions:
       log_out: Sair
@@ -41,54 +40,15 @@ pt-BR:
       filter_customers: Filtre por nome ou cpf
 
     resources:
-      users:
-        description: "Todos os usuários cadastrados na plataforma."
-        empty_resource: "Nenhum usuário cadastrado"
-        create: "Criar um novo Usuário"
+      job_seeker:
+        description: "Todos os candidatos cadastrados na plataforma."
+        empty_resource: "Nenhum candidato cadastrado"
+        create: "Criar um novo Candidato"
 
-      manufacturers:
-        description: "Todos os fabricantes de carros cadastrados na plataforma."
-        empty_resource: "Nenhum fabricante cadastrado"
-        create: "Criar um novo Fabricante"
-
-      car_categories:
-        description: "Todos as categorias de veículo que oferecemos."
-        empty_resource: "Nenhuma categoria de veículo cadastrada"
-        create: "Criar uma nova Categoria de Veículo"
-
-      car_models:
-        description: "Todos os modelos de veículo que oferecemos."
-        empty_resource: "Nenhum modelo de veículo cadastrado"
-        create: "Criar um novo Modelo de Veículo"
-
-      cars:
-        description: "Todos os carros que oferecemos."
-        empty_resource: "Nenhum carro cadastrado"
-        create: "Criar um novo Carro"
-        show_header: "Carro com placa"
-
-      subsidiaries:
-        description: "Todas as nossas filiais."
-        empty_resource: "Nenhuma filial cadastrada"
-        create: "Criar uma nova Filial"
-
-      customers:
-        description: "Todos os nossos clientes."
-        empty_resource: "Nenhum cliente cadastrado"
-        create: "Cadastrar um novo Cliente"
-        filter_customers: "Filtrar por nome ou cpf"
-        customer_not_found: "Nenhum cliente encontrado por este nome ou cpf."
-        upcoming_rentals: Locações agendadas
-        past_rentals: Locações pasadas
-
-      rentals:
-        description: "Todos as locações de carro efetuadas."
-        empty_resource: "Nenhuma locação efetuada"
-        create: "Cadastrar uma nova Locação"
-        show_header: "Locação com token"
-        cant_edit_past_rental: "Não é permitida a edição de uma locação passada."
-        cant_delete_past_rental: "Não é permitida a remoção de uma locação passada."
-        rental_not_found: "Locação não encontrada, verifique seu token."
+      head_hunter:
+        description: "Todos os head hunters cadastrados na plataforma."
+        empty_resource: "Nenhum head hunter cadastrado"
+        create: "Criar um novo Head Hunters"
 
     footer:
       message_1: "Aplicação Rails desenvolvida por"
