@@ -7,7 +7,7 @@ feature 'Users views home page' do
     visit root_path
 
     expect(current_path).to eq root_path
-    expect(page).to have_link href: root_path, count: 3
+    expect(page).to have_link href: root_path, count: 2
 
     expect(page).to have_content I18n.t('views.application_name')
     expect(page).to have_content I18n.t('views.greeting')

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 feature 'User can signup' do
-  scenario 'successfully' do
+  xscenario 'successfully' do
     visit root_path
     click_on I18n.t('views.navigation.create_account')
 

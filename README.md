@@ -46,24 +46,25 @@
 
 ## 👀 About
 
-Part of [TreinaDev](https://treinadev.com.br/), by [Capus Code](https://campuscode.com.br/) São Paulo.
+**Part of [TreinaDev](https://treinadev.com.br/), by [Capus Code](https://campuscode.com.br/) São Paulo.**
 
 The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fcd713b8-7b9d-4e09-98a8-0cb5f32bbf4d/TDProjeto_Final_-_Etapa01.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200510T050439Z&X-Amz-Expires=86400&X-Amz-Signature=e806bb30607a428e907c3049af329c1e143f945849ce0595f16ae5c6513b1412&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%255BTD%255DProjeto%2520Final%2520-%2520Etapa01.pdf%22): a fully-featured, fully-tested employment-oriented application. It allows employers to publish and propose jobs offers to job seekers. They can then propose salaries, schedule interviews and chat with each other.
 
 - 🇳 [Notion Project](https://www.notion.so/Job-Seeker-App-d552bcce80d44ec6acca0cf9e0fa7177)
 - 🧠 [Mind Map](https://whimsical.com/YC614KMAmRZd2xQFVx5hej)
 
-<img alt="Application's Mind Map" title="Application's Mind Map" src=".github/mindmap_2020_05_10.png" width="500px" />
+<img alt="Application's Mind Map" title="Application's Mind Map" src=".github/mindmap_2020_05_10.png" />
 
 - ↪️ [Flow Chart](https://whimsical.com/DAm28ZodewYVsAwZ2aJ4va)
 
-<img alt="Application's Flowchart" title="Application's Flowchart" src=".github/flowchart_2020_05_10.png.png" width="500px" />
+<img alt="Application's Flowchart" title="Application's Flowchart" src=".github/flowchart_2020_05_10.png.png" />
 
 ## 💅 Layout
 
 - 🌈 [Colors](https://coolors.co/32292f-575366-777da7-23278a-d1e3dd)
 - 🌠 [Logo](https://www.figma.com/file/wKpOwyyQikL7DAhEkIY4mA/Job-Seeker-Logo?node-id=1%3A36)
 - 🚧 [Wire Frame](https://whimsical.com/MzhTuvjhYFbKREoBfBdnR8)
+- 📜 [Font](https://fonts.google.com/specimen/Raleway?selection.family=Raleway:400,700)
 
 ## 🤖 Requirements
 
@@ -106,7 +107,7 @@ Testing
 
 - [ ]
 
-## 📝 License
+## ⚖️ License
 
 This software is distributed under the MIT license. Read the [LICENSE](LICENSE.md) file for further details.
 

@@ -1,12 +1,11 @@
 .main_headbar {
-  margin-bottom: 30px;
-  background-color: #D1E3DD;
-}
-
-.main_headbar_container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: $pallette-light-cyan;
 }
 
 .logo_container {
