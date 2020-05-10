@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
 
 /* mixins, variables, etc. */
 
@@ -29,6 +30,7 @@ $state-danger-text: #eb4848;
 
 body {
   min-height: 90vh;
+  font-family: 'Raleway', sans-serif;
 }
 
 textarea {

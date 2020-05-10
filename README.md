@@ -1,9 +1,9 @@
 <h1 align="center">
-  <img alt="Job Seeker" title="Job Seeker" src=".github/full_logo.png" width="200px" />
+  <img alt="Job Seeker" title="Job Seeker" src=".github/full_logo_title.png" width="200px" />
 </h1>
 
 <h3 align="center">
-  TreinaDev Challenge: Job Seeker
+  Capus Code, TreinaDev Challenge: Job Seeker
 </h3>
 
 <p align="center">
@@ -29,19 +29,26 @@
 </p>
 
 <p align="center">
-  <a href="#about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#requirements">Requirements</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#instructions">Instructions</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#dependencies">Dependencies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#main-features">Main Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#bonus-features">Bonus Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#license">License</a>
+  <a href="#-deploys">Deploys</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-requirements">Requirements</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-instructions">Instructions</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-dependencies">Dependencies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-main-features">Main Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-bonus-features">Bonus Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
 </p>
+
+## 🏭 Deploys
+
+- Production URL: http://well_get_there_some_day.stub.xml
 
 ## 👀 About
 
-Part of TreinaDev's [final challenge](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fcd713b8-7b9d-4e09-98a8-0cb5f32bbf4d/TDProjeto_Final_-_Etapa01.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200510T050439Z&X-Amz-Expires=86400&X-Amz-Signature=e806bb30607a428e907c3049af329c1e143f945849ce0595f16ae5c6513b1412&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%255BTD%255DProjeto%2520Final%2520-%2520Etapa01.pdf%22), a fully-featured, fully-tested employment-oriented application. It allows employers to publish and propose jobs offers to job seekers. They can then propose salaries, schedule interviews and chat with each other.
+Part of [TreinaDev](https://treinadev.com.br/), by [Capus Code](https://campuscode.com.br/) São Paulo.
+
+The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/fcd713b8-7b9d-4e09-98a8-0cb5f32bbf4d/TDProjeto_Final_-_Etapa01.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200510%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200510T050439Z&X-Amz-Expires=86400&X-Amz-Signature=e806bb30607a428e907c3049af329c1e143f945849ce0595f16ae5c6513b1412&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%255BTD%255DProjeto%2520Final%2520-%2520Etapa01.pdf%22): a fully-featured, fully-tested employment-oriented application. It allows employers to publish and propose jobs offers to job seekers. They can then propose salaries, schedule interviews and chat with each other.
 
 - 🇳 [Notion Project](https://www.notion.so/Job-Seeker-App-d552bcce80d44ec6acca0cf9e0fa7177)
 - 🧠 [Mind Map](https://whimsical.com/YC614KMAmRZd2xQFVx5hej)
@@ -57,7 +64,6 @@ Part of TreinaDev's [final challenge](https://s3.us-west-2.amazonaws.com/secure.
 - 🌈 [Colors](https://coolors.co/32292f-575366-777da7-23278a-d1e3dd)
 - 🌠 [Logo](https://www.figma.com/file/wKpOwyyQikL7DAhEkIY4mA/Job-Seeker-Logo?node-id=1%3A36)
 - 🚧 [Wire Frame](https://whimsical.com/MzhTuvjhYFbKREoBfBdnR8)
-
 
 ## 🤖 Requirements
 
