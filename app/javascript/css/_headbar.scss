@@ -1,0 +1,53 @@
+.main_headbar {
+  margin-bottom: 30px;
+}
+
+.main_headbar_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5vw;
+}
+
+.logo_svg {
+  margin-right: 10px;
+}
+
+.logo_name {
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+
+  &:hover {
+    color: $gray-medium-light;
+    text-decoration: none;
+  }
+}
+
+.nav-item {
+  margin-right: 10px;
+  padding-left: 10px;
+  border-left: 1px solid $gray-light;
+
+  &:first-child {
+    margin-right: 10px;
+    padding-left: 0px;
+    border-left: none;
+  }
+}
+
+.header_nav_link {
+  color: $gray-light;
+
+  &:hover {
+    color: $gray-ultra-light;
+  }
+}

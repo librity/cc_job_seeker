@@ -1,0 +1,112 @@
+---
+pt-BR:
+  views:
+    hello: "Olá mundo!"
+
+    application_name: "Car Rental System"
+    greeting: "Bem vindo ao sistema de gestão de locação de carros"
+
+    messages:
+      arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
+      delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
+      successfully:
+        created: "%{resource} criado(a) com sucesso!"
+        updated: "%{resource} atualizado(a) com sucesso!"
+        destroyed: "%{resource} removido(a) com sucesso!"
+
+    navigation:
+      home: Home
+      resources: Recursos
+      create_account: Criar conta
+      log_in: Entrar
+      go_back: Voltar
+      details: Detalhes
+      new: Novo
+      edit: Editar
+      search_rentals_by_token: Procurar locação pelo token
+
+    actions:
+      log_out: Sair
+      log_in: Entrar
+      sign_up: Cadastrar-me
+      send: Enviar
+      update: Atualizar
+      delete: Apagar
+      expand: Expandir
+      search: Procurar
+      filter: Filtrar
+
+    placeholders:
+      search_rentals_by_token: Insira um token aqui
+      filter_customers: Filtre por nome ou cpf
+
+    resources:
+      users:
+        description: "Todos os usuários cadastrados na plataforma."
+        empty_resource: "Nenhum usuário cadastrado"
+        create: "Criar um novo Usuário"
+
+      manufacturers:
+        description: "Todos os fabricantes de carros cadastrados na plataforma."
+        empty_resource: "Nenhum fabricante cadastrado"
+        create: "Criar um novo Fabricante"
+
+      car_categories:
+        description: "Todos as categorias de veículo que oferecemos."
+        empty_resource: "Nenhuma categoria de veículo cadastrada"
+        create: "Criar uma nova Categoria de Veículo"
+
+      car_models:
+        description: "Todos os modelos de veículo que oferecemos."
+        empty_resource: "Nenhum modelo de veículo cadastrado"
+        create: "Criar um novo Modelo de Veículo"
+
+      cars:
+        description: "Todos os carros que oferecemos."
+        empty_resource: "Nenhum carro cadastrado"
+        create: "Criar um novo Carro"
+        show_header: "Carro com placa"
+
+      subsidiaries:
+        description: "Todas as nossas filiais."
+        empty_resource: "Nenhuma filial cadastrada"
+        create: "Criar uma nova Filial"
+
+      customers:
+        description: "Todos os nossos clientes."
+        empty_resource: "Nenhum cliente cadastrado"
+        create: "Cadastrar um novo Cliente"
+        filter_customers: "Filtrar por nome ou cpf"
+        customer_not_found: "Nenhum cliente encontrado por este nome ou cpf."
+        upcoming_rentals: Locações agendadas
+        past_rentals: Locações pasadas
+
+      rentals:
+        description: "Todos as locações de carro efetuadas."
+        empty_resource: "Nenhuma locação efetuada"
+        create: "Cadastrar uma nova Locação"
+        show_header: "Locação com token"
+        cant_edit_past_rental: "Não é permitida a edição de uma locação passada."
+        cant_delete_past_rental: "Não é permitida a remoção de uma locação passada."
+        rental_not_found: "Locação não encontrada, verifique seu token."
+
+    footer:
+      message_1: "Aplicação Rails desenvolvida por"
+      message_2: "como parte do"
+      message_3: "um programa de bolsa para desenvolvimento web."
+      original_repo: "Repositório Original"
+
+    devise:
+      shared:
+        log_in: "Faça login"
+        sign_up: "Cadastre-se"
+        forgot_password: "Esqueceu sua senha?"
+        confirmation_instructions: "Não recebeu as instruções da verificação?"
+        unlock_instructions: "Não recebeu as instruções do desbloquieo?"
+        provider_sign_in: "Autentique-se com %{provider_name}"
+      sessions:
+        create: "Faça login na applicação."
+        remember_me: "Mantenha-me logado"
+      passwords:
+        create: "Recupere sua senha."
+        send_email: "Enviar instruções de recuperação de senha"

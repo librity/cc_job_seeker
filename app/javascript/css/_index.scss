@@ -1,0 +1,27 @@
+.inline_filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.index_table {
+  border-radius: 10px;
+  background-color: #f5f6f7;
+}
+
+.index_table_head {
+  border-bottom: 1px solid #ddd;
+}
+
+.index_table_row {
+  th,
+  td {
+    padding: 5px 0 5px 10px;
+    border-left: 1px solid #ddd;
+  }
+
+  th:first-child,
+  td:first-child {
+    border: none;
+  }
+}

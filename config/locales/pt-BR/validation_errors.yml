@@ -1,0 +1,11 @@
+---
+  pt-BR:
+    activerecord:
+      errors:
+        models:
+          rental:
+            attributes:
+              start_date:
+                cant_be_retroactive: não pode ser retroativa
+              end_date:
+                must_be_after_start_date: deve ser depois a data de início
