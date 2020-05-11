@@ -2,261 +2,85 @@
 
 require 'rails_helper'
 
-feature 'User browses' do
-  xscenario "application and links to resources don't appear unless logged-in" do
+feature 'Head Hunter browses' do
+  scenario "application and links to resources don't appear unless logged-in" do
     visit root_path
 
-    expect(page).to have_link I18n.t('views.navigation.log_in')
-    expect(page).not_to have_link I18n.t('views.actions.log_out')
+    expect(page).not_to have_link I18n.t('views.actions.log_out'),
+                                  href: destroy_head_hunter_session_path
+    # expect(page).not_to have_link I18n.t('views.actions.log_out'),
+    #                               href: destroy_job_seeker_session_path
 
-    expect(page).not_to have_link I18n.t('activerecord.models.manufacturer.other')
-    expect(page).not_to have_link I18n.t('activerecord.models.car_category.other')
-    expect(page).not_to have_link I18n.t('activerecord.models.car_model.other')
-    expect(page).not_to have_link I18n.t('activerecord.models.subsidiary.other')
-    expect(page).not_to have_link I18n.t('activerecord.models.customer.other')
-    expect(page).not_to have_link I18n.t('activerecord.models.rental.other')
-    expect(page).not_to have_link I18n.t('activerecord.models.car.other')
+    expect(page).to have_link I18n.t('views.navigation.head_hunter.login'),
+                              href: new_head_hunter_session_path
+    expect(page).to have_link I18n.t('views.navigation.head_hunter.signup'),
+                              href: new_head_hunter_registration_path
+    # expect(page).to have_link I18n.t('views.navigation.job_seeker.login'),
+    #                           href: new_job_seeker_session_path
+    # expect(page).to have_link I18n.t('views.navigation.job_seeker.signup'),
+    #                           href: new_job_seeker_registration_path
   end
 
-  xscenario 'application and links to resources appear when logged-in' do
-    user = User.create! email: 'test@test.com.br', password: '12345678'
-    login_as user, scope: :user
+  scenario 'application and links to resources appear when logged-in' do
+    head_hunter = HeadHunter.create! email: 'test@test.com.br', password: '12345678'
+    login_as head_hunter, scope: :head_hunter
 
     visit root_path
 
-    expect(page).not_to have_link I18n.t('views.navigation.log_in')
-    expect(page).to have_link I18n.t('views.actions.log_out')
+    expect(page).to have_link I18n.t('views.actions.log_out'),
+                              href: destroy_head_hunter_session_path
 
-    expect(page).to have_link I18n.t('activerecord.models.manufacturer.other')
-    expect(page).to have_link I18n.t('activerecord.models.car_category.other')
-    expect(page).to have_link I18n.t('activerecord.models.car_model.other')
-    expect(page).to have_link I18n.t('activerecord.models.subsidiary.other')
-    expect(page).to have_link I18n.t('activerecord.models.customer.other')
-    expect(page).to have_link I18n.t('activerecord.models.rental.other')
-    expect(page).to have_link I18n.t('activerecord.models.car.other')
+    expect(page).not_to have_link I18n.t('views.navigation.head_hunter.login'),
+                                  href: new_head_hunter_session_path
+    expect(page).not_to have_link I18n.t('views.navigation.head_hunter.signup'),
+                                  href: new_head_hunter_registration_path
+
+    # expect(page).to have_link I18n.t('activerecord.models.job.other')
   end
 
-  context 'manufacturers' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
+  scenario "application and can't access dashboard unless logged in" do
+    visit head_hunters_dashboard_path
 
-      visit manufacturers_path
-      expect(current_path).to eq manufacturers_path
+    expect(current_path).to eq new_head_hunter_session_path
+
+    expect(page).to have_link I18n.t('views.navigation.head_hunter.login'),
+                              href: new_head_hunter_session_path
+    expect(page).to have_link I18n.t('views.navigation.head_hunter.signup'),
+                              href: new_head_hunter_registration_path
+
+    expect(page).not_to have_link I18n.t('views.actions.log_out'),
+                                  href: destroy_head_hunter_session_path
+  end
+
+  context 'jobs' do
+    xscenario 'successfully' do
+      head_hunter = HeadHunter.create! email: 'test@test.com.br', password: '12345678'
+      login_as head_hunter, scope: :head_hunter
+
+      visit jobs_path
+      expect(current_path).to eq jobs_path
     end
 
     xscenario 'and gets redirected to log in view if not logged-in' do
-      visit manufacturers_path
-      expect(current_path).to eq new_user_session_path
+      visit jobs_path
+      expect(current_path).to eq new_head_hunter_session_path
 
-      visit new_manufacturer_path
-      expect(current_path).to eq new_user_session_path
+      visit new_job_path
+      expect(current_path).to eq new_head_hunter_session_path
 
-      page.driver.post manufacturers_path
+      page.driver.post jobs_path
       visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
+      expect(current_path).to eq new_head_hunter_session_path
 
-      visit manufacturer_path(1)
-      expect(current_path).to eq new_user_session_path
+      visit job_path(1)
+      expect(current_path).to eq new_head_hunter_session_path
 
-      visit edit_manufacturer_path(1)
-      expect(current_path).to eq new_user_session_path
+      visit edit_job_path(1)
+      expect(current_path).to eq new_head_hunter_session_path
 
-      page.driver.delete manufacturer_path(1)
+      page.driver.delete job_path(1)
       visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-    end
-  end
-
-  context 'car categories' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
-
-      visit car_categories_path
-      expect(current_path).to eq car_categories_path
-    end
-
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit car_categories_path
-      expect(current_path).to eq new_user_session_path
-
-      visit new_car_category_path
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.post car_categories_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-
-      visit car_category_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      visit edit_car_category_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.delete car_category_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-    end
-  end
-
-  context 'car models' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
-
-      visit car_models_path
-      expect(current_path).to eq car_models_path
-    end
-
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit car_models_path
-      expect(current_path).to eq new_user_session_path
-
-      visit new_car_model_path
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.post car_models_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-
-      visit car_model_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      visit edit_car_model_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.delete car_model_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-    end
-  end
-
-  context 'subsidiaries' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
-
-      visit subsidiaries_path
-      expect(current_path).to eq subsidiaries_path
-    end
-
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit subsidiaries_path
-      expect(current_path).to eq new_user_session_path
-
-      visit new_subsidiary_path
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.post subsidiaries_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-
-      visit subsidiary_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      visit edit_subsidiary_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.delete subsidiary_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-    end
-  end
-
-  context 'customers' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
-
-      visit customers_path
-      expect(current_path).to eq customers_path
-    end
-
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit customers_path
-      expect(current_path).to eq new_user_session_path
-
-      visit new_customer_path
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.post customers_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-
-      visit customer_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      visit edit_customer_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.delete customer_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-    end
-  end
-
-  context 'cars' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
-
-      visit cars_path
-      expect(current_path).to eq cars_path
-    end
-
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit cars_path
-      expect(current_path).to eq new_user_session_path
-
-      visit new_car_path
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.post cars_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-
-      visit car_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      visit edit_car_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.delete car_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-    end
-  end
-
-  context 'rentals' do
-    xscenario 'successfully' do
-      user = User.create! email: 'test@test.com.br', password: '12345678'
-      login_as user, scope: :user
-
-      visit rentals_path
-      expect(current_path).to eq rentals_path
-    end
-
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit rentals_path
-      expect(current_path).to eq new_user_session_path
-
-      visit new_rental_path
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.post rentals_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
-
-      visit rental_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      visit edit_rental_path(1)
-      expect(current_path).to eq new_user_session_path
-
-      page.driver.delete rental_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_user_session_path
+      expect(current_path).to eq new_head_hunter_session_path
     end
   end
 end

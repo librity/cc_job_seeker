@@ -23,6 +23,9 @@ pt-BR:
       details: Detalhes
       new: Novo
       edit: Editar
+      head_hunter:
+        login: Login de Head Hunter
+        signup: Cadastro de Head Hunter
 
     actions:
       log_out: Sair
@@ -38,6 +41,10 @@ pt-BR:
     placeholders:
       search_rentals_by_token: Insira um token aqui
       filter_customers: Filtre por nome ou cpf
+
+    head_hunter_dashboard: 
+      title: Dashboard do Head Hunter
+      greeting: Bem vindo de volta!
 
     resources:
       job_seeker:

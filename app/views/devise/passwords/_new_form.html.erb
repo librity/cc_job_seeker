@@ -1,0 +1,10 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, required: true, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  </div>
+  
+  <%= f.submit t('views.devise.passwords.send_email'), class: 'btn btn-primary' %>
+<% end %>

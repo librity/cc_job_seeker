@@ -83,21 +83,22 @@ The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/s
 
 #### 💎 Gems
 
-- Authentication: [https://github.com/heartcombo/devise](https://github.com/heartcombo/devise)
+- Registration, authentication & authorization: [Devise](https://github.com/heartcombo/devise)
 
 Testing
 
-- RSpec: [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)
-- Capybara: [https://github.com/teamcapybara/capybara](https://github.com/teamcapybara/capybara)
-- Simple Cov: [https://github.com/colszowka/simplecov](https://github.com/colszowka/simplecov)
-- Factory Bot: [https://github.com/thoughtbot/factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
-- Nyancat test progressbar: [https://github.com/mattsears/nyan-cat-formatter](https://github.com/mattsears/nyan-cat-formatter)
+- Testing framework: [RSpec](https://github.com/rspec/rspec-rails)
+- Integration tests: [Capybara](https://github.com/teamcapybara/capybara)
+- Test coverage report: [SimpleCov](https://github.com/colszowka/simplecov)
+- Random : [Factory Bot](https://github.com/thoughtbot/factory_bot_rails)
+- Awesome things: [Nyancat test progressbar](https://github.com/mattsears/nyan-cat-formatter)
 
 #### 📦 Node Packages
 
-- Boostsrap: [https://github.com/twbs/bootstrap](https://github.com/twbs/bootstrap)
-- JQuery; [https://github.com/jquery/jquery](https://github.com/jquery/jquery)
-- Popper: [https://github.com/popperjs/popper-core](https://github.com/popperjs/popper-core)
+- CSS Framework: [Boostsrap](https://github.com/twbs/bootstrap)
+- HTML manipulation; [JQuery](https://github.com/jquery/jquery)
+- Input masking and formatter; [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
+- Pop-overs: [Popper](https://github.com/popperjs/popper-core)
 
 ## 🏁 Main Features
 
