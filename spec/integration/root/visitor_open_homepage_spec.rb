@@ -12,17 +12,17 @@ feature 'Users views home page' do
 
     expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                   href: destroy_head_hunter_session_path
-    # expect(page).not_to have_link I18n.t('views.actions.log_out'),
-    #                               href: destroy_job_seeker_session_path
+    expect(page).not_to have_link I18n.t('views.actions.log_out'),
+                                  href: destroy_job_seeker_session_path
 
-    expect(page).to have_link I18n.t('views.navigation.head_hunter.login'),
+    expect(page).to have_link I18n.t('views.navigation.log_in'),
                               href: new_head_hunter_session_path
-    expect(page).to have_link I18n.t('views.navigation.head_hunter.signup'),
+    expect(page).to have_link I18n.t('views.navigation.create_account'),
                               href: new_head_hunter_registration_path
-    # expect(page).to have_link I18n.t('views.navigation.job_seeker.login'),
-    #                           href: new_job_seeker_session_path
-    # expect(page).to have_link I18n.t('views.navigation.job_seeker.signup'),
-    #                           href: new_job_seeker_registration_path
+    expect(page).to have_link I18n.t('views.navigation.job_seeker.login'),
+                              href: new_job_seeker_session_path
+    expect(page).to have_link I18n.t('views.navigation.job_seeker.signup'),
+                              href: new_job_seeker_registration_path
 
     expect(page).to have_content I18n.t('views.application_name')
     expect(page).to have_content I18n.t('views.greeting')
@@ -39,8 +39,7 @@ feature 'Users views home page' do
   end
 
   scenario 'when logged in as a Head Hunter' do
-    head_hunter = HeadHunter.create! email: 'test@test.com.br', password: '12345678'
-    login_as head_hunter, scope: :head_hunter
+    head_hunter = log_head_hunter_in!
 
     visit root_path
 
@@ -50,17 +49,17 @@ feature 'Users views home page' do
 
     expect(page).to have_link I18n.t('views.actions.log_out'),
                               href: destroy_head_hunter_session_path
-    # expect(page).not_to have_link I18n.t('views.actions.log_out'),
-    #                               href: destroy_job_seeker_session_path
+    expect(page).not_to have_link I18n.t('views.actions.log_out'),
+                                  href: destroy_job_seeker_session_path
 
-    expect(page).not_to have_link I18n.t('views.navigation.head_hunter.login'),
+    expect(page).not_to have_link I18n.t('views.navigation.log_in'),
                                   href: new_head_hunter_session_path
-    expect(page).not_to have_link I18n.t('views.navigation.head_hunter.signup'),
+    expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_head_hunter_registration_path
-    # expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
-    #                               href: new_job_seeker_session_path
-    # expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
-    #                               href: new_job_seeker_registration_path
+    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
+                                  href: new_job_seeker_session_path
+    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
+                                  href: new_job_seeker_registration_path
 
     expect(page).to have_content I18n.t('views.head_hunter_dashboard.title')
     expect(page).to have_content I18n.t('views.head_hunter_dashboard.greeting')
@@ -76,9 +75,8 @@ feature 'Users views home page' do
                               href: 'https://github.com/librity/campus_code_job_seeker_app'
   end
 
-  xscenario 'when logged in as a Job Seeker' do
-    job_seeker = JobSeeker.create! email: 'test@test.com.br', password: '12345678'
-    login_as job_seeker, scope: :job_seeker
+  scenario 'when logged in as a Job Seeker' do
+    job_seeker = log_job_seeker_in!
 
     visit root_path
 
@@ -86,19 +84,19 @@ feature 'Users views home page' do
     expect(page).to have_link I18n.t('views.navigation.home')
     expect(page).to have_link href: root_path, count: 2
 
-    # expect(page).to have_link I18n.t('views.actions.log_out'),
-    #                           href: destroy_job_seeker_session_path
+    expect(page).to have_link I18n.t('views.actions.log_out'),
+                              href: destroy_job_seeker_session_path
     expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                   href: destroy_head_hunter_session_path
 
-    # expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
-    #                               href: new_job_seeker_session_path
-    # expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
-    #                               href: new_job_seeker_registration_path
-    # expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
-    #                               href: new_job_seeker_session_path
-    # expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
-    #                               href: new_job_seeker_registration_path
+    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
+                                  href: new_job_seeker_session_path
+    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
+                                  href: new_job_seeker_registration_path
+    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
+                                  href: new_job_seeker_session_path
+    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
+                                  href: new_job_seeker_registration_path
 
     expect(page).to have_content I18n.t('views.job_seeker_dashboard')
     expect(page).to have_content I18n.t('views.job_seeker_greeting')

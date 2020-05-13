@@ -23,9 +23,8 @@ pt-BR:
       details: Detalhes
       new: Novo
       edit: Editar
-      head_hunter:
-        login: Login de Head Hunter
-        signup: Cadastro de Head Hunter
+      head_hunter: Sou Head Hunter
+      job_seeker: Procuro emprego
 
     actions:
       log_out: Sair

@@ -90,7 +90,8 @@ Testing
 - Testing framework: [RSpec](https://github.com/rspec/rspec-rails)
 - Integration tests: [Capybara](https://github.com/teamcapybara/capybara)
 - Test coverage report: [SimpleCov](https://github.com/colszowka/simplecov)
-- Random : [Factory Bot](https://github.com/thoughtbot/factory_bot_rails)
+- Factory generator: [Factory Bot Rails](https://github.com/thoughtbot/factory_bot_rails)
+- Arbitrary data generator: [Faker](https://github.com/faker-ruby/faker)
 - Awesome things: [Nyancat test progressbar](https://github.com/mattsears/nyan-cat-formatter)
 
 #### 📦 Node Packages

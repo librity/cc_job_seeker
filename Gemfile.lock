@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 97937210e7d8f8b7cdd25a97a6e76c2900136b7f
+  branch: master
+  specs:
+    faker (2.11.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -258,6 +266,7 @@ DEPENDENCIES
   capybara
   devise
   factory_bot_rails
+  faker!
   jbuilder (~> 2.7)
   listen (~> 3.2)
   nyan-cat-formatter

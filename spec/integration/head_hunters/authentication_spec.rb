@@ -8,7 +8,9 @@ feature 'Head Hunter authentication' do
       head_hunter = HeadHunter.create! email: 'test@example.com.br', password: '12345678'
 
       visit root_path
-      click_on I18n.t('views.navigation.head_hunter.login')
+      within 'li#head_hunters_dropdown' do
+        click_on I18n.t('views.navigation.log_in')
+      end
       expect(current_path).to eq new_head_hunter_session_path
 
       fill_in I18n.t('activerecord.attributes.head_hunter.email'), with: head_hunter.email
@@ -21,9 +23,9 @@ feature 'Head Hunter authentication' do
 
       expect(page).to have_link I18n.t('views.actions.log_out'),
                                 href: destroy_head_hunter_session_path
-      expect(page).not_to have_link I18n.t('views.navigation.head_hunter.login'),
+      expect(page).not_to have_link I18n.t('views.navigation.log_in'),
                                     href: new_head_hunter_session_path
-      expect(page).not_to have_link I18n.t('views.navigation.head_hunter.signup'),
+      expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                     href: new_head_hunter_registration_path
 
       expect(current_path).to eq head_hunters_dashboard_path
@@ -31,7 +33,9 @@ feature 'Head Hunter authentication' do
 
     scenario 'and must fill in all fields' do
       visit root_path
-      click_on I18n.t('views.navigation.head_hunter.login')
+      within 'li#head_hunters_dropdown' do
+        click_on I18n.t('views.navigation.log_in')
+      end
       expect(current_path).to eq new_head_hunter_session_path
 
       within 'form' do
@@ -43,9 +47,9 @@ feature 'Head Hunter authentication' do
 
       expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                     href: destroy_head_hunter_session_path
-      expect(page).to have_link I18n.t('views.navigation.head_hunter.login'),
+      expect(page).to have_link I18n.t('views.navigation.log_in'),
                                 href: new_head_hunter_session_path
-      expect(page).to have_link I18n.t('views.navigation.head_hunter.signup'),
+      expect(page).to have_link I18n.t('views.navigation.create_account'),
                                 href: new_head_hunter_registration_path
     end
   end
@@ -55,7 +59,10 @@ feature 'Head Hunter authentication' do
       head_hunter = HeadHunter.create! email: 'test@example.com.br', password: '12345678'
 
       visit root_path
-      click_on I18n.t('views.navigation.head_hunter.login')
+      within 'li#head_hunters_dropdown' do
+        click_on I18n.t('views.navigation.log_in')
+      end
+
       expect(current_path).to eq new_head_hunter_session_path
 
       fill_in I18n.t('activerecord.attributes.head_hunter.email'), with: head_hunter.email
@@ -69,9 +76,9 @@ feature 'Head Hunter authentication' do
 
       expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                     href: destroy_head_hunter_session_path
-      expect(page).to have_link I18n.t('views.navigation.head_hunter.login'),
+      expect(page).to have_link I18n.t('views.navigation.log_in'),
                                 href: new_head_hunter_session_path
-      expect(page).to have_link I18n.t('views.navigation.head_hunter.signup'),
+      expect(page).to have_link I18n.t('views.navigation.create_account'),
                                 href: new_head_hunter_registration_path
 
       expect(current_path).to eq root_path

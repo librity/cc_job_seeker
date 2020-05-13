@@ -18,6 +18,7 @@
 RSpec.configure do |config|
   # Absolutely essential config
   config.formatter = 'NyanCatWideFormatter'
+
   config.order = 'random'
 
   # rspec-expectations config goes here. You can use an alternate
