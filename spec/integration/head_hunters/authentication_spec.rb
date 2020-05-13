@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Head Hunter authentication' do
   context 'log in' do
     scenario 'successfully' do
-      head_hunter = HeadHunter.create! email: 'test@example.com.br', password: '12345678'
+      head_hunter = create :head_hunter
 
       visit root_path
       within 'li#head_hunters_dropdown' do
@@ -56,7 +56,7 @@ feature 'Head Hunter authentication' do
 
   context 'log out' do
     scenario 'successfully' do
-      head_hunter = HeadHunter.create! email: 'test@example.com.br', password: '12345678'
+      head_hunter = create :head_hunter
 
       visit root_path
       within 'li#head_hunters_dropdown' do

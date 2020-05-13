@@ -1,5 +1,5 @@
 {
-  "name": "job_seeker",
+  "name": "job_seeker_app",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",

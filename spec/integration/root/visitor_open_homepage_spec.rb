@@ -19,9 +19,9 @@ feature 'Users views home page' do
                               href: new_head_hunter_session_path
     expect(page).to have_link I18n.t('views.navigation.create_account'),
                               href: new_head_hunter_registration_path
-    expect(page).to have_link I18n.t('views.navigation.job_seeker.login'),
+    expect(page).to have_link I18n.t('views.navigation.log_in'),
                               href: new_job_seeker_session_path
-    expect(page).to have_link I18n.t('views.navigation.job_seeker.signup'),
+    expect(page).to have_link I18n.t('views.navigation.create_account'),
                               href: new_job_seeker_registration_path
 
     expect(page).to have_content I18n.t('views.application_name')
@@ -39,7 +39,7 @@ feature 'Users views home page' do
   end
 
   scenario 'when logged in as a Head Hunter' do
-    head_hunter = log_head_hunter_in!
+    log_head_hunter_in!
 
     visit root_path
 
@@ -56,9 +56,9 @@ feature 'Users views home page' do
                                   href: new_head_hunter_session_path
     expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_head_hunter_registration_path
-    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
+    expect(page).not_to have_link I18n.t('views.navigation.log_in'),
                                   href: new_job_seeker_session_path
-    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
+    expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_job_seeker_registration_path
 
     expect(page).to have_content I18n.t('views.head_hunter_dashboard.title')
@@ -76,11 +76,11 @@ feature 'Users views home page' do
   end
 
   scenario 'when logged in as a Job Seeker' do
-    job_seeker = log_job_seeker_in!
+    log_job_seeker_in!
 
     visit root_path
 
-    expect(current_path).to eq job_seeker_dashboard_path
+    expect(current_path).to eq job_seekers_dashboard_path
     expect(page).to have_link I18n.t('views.navigation.home')
     expect(page).to have_link href: root_path, count: 2
 
@@ -89,17 +89,17 @@ feature 'Users views home page' do
     expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                   href: destroy_head_hunter_session_path
 
-    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
+    expect(page).not_to have_link I18n.t('views.navigation.log_in'),
+                                  href: new_head_hunter_session_path
+    expect(page).not_to have_link I18n.t('views.navigation.create_account'),
+                                  href: new_head_hunter_registration_path
+    expect(page).not_to have_link I18n.t('views.navigation.log_in'),
                                   href: new_job_seeker_session_path
-    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
-                                  href: new_job_seeker_registration_path
-    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.login'),
-                                  href: new_job_seeker_session_path
-    expect(page).not_to have_link I18n.t('views.navigation.job_seeker.signup'),
+    expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_job_seeker_registration_path
 
-    expect(page).to have_content I18n.t('views.job_seeker_dashboard')
-    expect(page).to have_content I18n.t('views.job_seeker_greeting')
+    expect(page).to have_content I18n.t('views.job_seeker_dashboard.title')
+    expect(page).to have_content I18n.t('views.job_seeker_dashboard.greeting')
 
     expect(page).to have_content I18n.t('views.footer.message_1')
     expect(page).to have_link 'Luis Geniole', href: 'https://github.com/librity'

@@ -7,25 +7,9 @@
     <li class='nav-item'><%= link_to t('views.navigation.home'), root_path, 
     class: 'header_nav_link' %></li>
 
-    <% if head_hunter_signed_in? %>
-      <li class='nav-item'><%= link_to t('views.actions.log_out'), 
-      destroy_head_hunter_session_path, method: :delete, 
-      class: 'header_nav_link' %></li>
-    <% else %>
-      <li class='nav-item header_nav_link dropdown' id="head_hunters_dropdown">
-        <a class='nav-item dropdown-toggle' role='button' id='resourcesDropdown' 
-          data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-          <%= t('views.navigation.head_hunter') %>
-        </a>
+    <%= render 'layouts/head_hunter_nav' %>
 
-        <div class='dropdown-menu' aria-labelledby='resourcesDropdown'>
-          <%= link_to t('views.navigation.log_in'), new_head_hunter_session_path, 
-                      class: 'header_nav_link dropdown-item' %>
-          <%= link_to t('views.navigation.create_account'), new_head_hunter_registration_path, 
-                      class: 'header_nav_link dropdown-item' %>
-        </div>
-      </li>
-    <% end %>
+    <%= render 'layouts/job_seeker_nav' %>
 
   </nav>
 </header>

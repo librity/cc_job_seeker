@@ -6,24 +6,17 @@ feature 'Job Seeker browses' do
   scenario "application and links to resources don't appear unless logged-in" do
     visit root_path
 
-    
     expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                   href: destroy_job_seeker_session_path
-    # expect(page).not_to have_link I18n.t('views.actions.log_out'),
-    #                               href: destroy_job_seeker_session_path
 
     expect(page).to have_link I18n.t('views.navigation.log_in'),
                               href: new_job_seeker_session_path
     expect(page).to have_link I18n.t('views.navigation.create_account'),
                               href: new_job_seeker_registration_path
-    # expect(page).to have_link I18n.t('views.navigation.job_seeker.login'),
-    #                           href: new_job_seeker_session_path
-    # expect(page).to have_link I18n.t('views.navigation.job_seeker.signup'),
-    #                           href: new_job_seeker_registration_path
   end
 
   scenario 'application and links to resources appear when logged-in' do
-    job_seeker = log_job_seeker_in!
+    log_job_seeker_in!
 
     visit root_path
 
@@ -54,8 +47,7 @@ feature 'Job Seeker browses' do
 
   context 'jobs' do
     xscenario 'successfully' do
-      job_seeker = JobSeeker.create! email: 'test@test.com.br', password: '12345678'
-      login_as job_seeker, scope: :job_seeker
+      log_job_seeker_in!
 
       visit jobs_path
       expect(current_path).to eq jobs_path

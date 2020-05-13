@@ -45,6 +45,10 @@ pt-BR:
       title: Dashboard do Head Hunter
       greeting: Bem vindo de volta!
 
+    job_seeker_dashboard: 
+      title: Dashboard do Candidato
+      greeting: Bem vindo de volta!
+
     resources:
       job_seeker:
         description: "Todos os candidatos cadastrados na plataforma."

@@ -8,21 +8,15 @@ feature 'Head Hunter browses' do
 
     expect(page).not_to have_link I18n.t('views.actions.log_out'),
                                   href: destroy_head_hunter_session_path
-    # expect(page).not_to have_link I18n.t('views.actions.log_out'),
-    #                               href: destroy_job_seeker_session_path
 
     expect(page).to have_link I18n.t('views.navigation.log_in'),
                               href: new_head_hunter_session_path
     expect(page).to have_link I18n.t('views.navigation.create_account'),
                               href: new_head_hunter_registration_path
-    # expect(page).to have_link I18n.t('views.navigation.job_seeker.login'),
-    #                           href: new_job_seeker_session_path
-    # expect(page).to have_link I18n.t('views.navigation.job_seeker.signup'),
-    #                           href: new_job_seeker_registration_path
   end
 
   scenario 'application and links to resources appear when logged-in' do
-    head_hunter = log_head_hunter_in!
+    log_head_hunter_in!
 
     visit root_path
 
@@ -53,8 +47,7 @@ feature 'Head Hunter browses' do
 
   context 'jobs' do
     xscenario 'successfully' do
-      head_hunter = HeadHunter.create! email: 'test@test.com.br', password: '12345678'
-      login_as head_hunter, scope: :head_hunter
+      log_head_hunter_in!
 
       visit jobs_path
       expect(current_path).to eq jobs_path

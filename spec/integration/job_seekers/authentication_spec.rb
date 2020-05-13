@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Job Seeker authentication' do
   context 'log in' do
     scenario 'successfully' do
-      job_seeker = JobSeeker.create! email: 'test@example.com.br', password: '12345678'
+      job_seeker = create :job_seeker
 
       visit root_path
 
@@ -58,7 +58,7 @@ feature 'Job Seeker authentication' do
 
   context 'log out' do
     scenario 'successfully' do
-      job_seeker = JobSeeker.create! email: 'test@example.com.br', password: '12345678'
+      job_seeker = create :job_seeker
 
       visit root_path
       within 'li#job_seekers_dropdown' do
