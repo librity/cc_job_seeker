@@ -1,0 +1,59 @@
+---
+pt-BR:
+  views:
+    devise:
+      shared:
+        log_in: "Faça login"
+        sign_up: "Cadastre-se"
+        forgot_password: "Esqueceu sua senha?"
+        confirmation_instructions: "Não recebeu as instruções da verificação?"
+        unlock_instructions: "Não recebeu as instruções do desbloquieo?"
+        provider_sign_in: "Autentique-se com %{provider_name}"
+      registrations:
+        create: "Crie sua conta de %{resource_name}"
+        min_password_length: "%{length} caractères no mínimo"
+        edit: "Troque sua senha"
+        awaiting_confirmation: "Aguardando verificação de conta pelo e-mail %{email}"
+        leave_blank: "(deixe em branco se não deseja alterar sua senha)"
+        current_password: "(precisamos tua senha atual para verificar a mudança)"
+        destroy: "Apagar minha conta"
+        destroy_confirmation: "Esta ação é irreversível. Tem certeza?"
+      sessions:
+        create: "Faça login como %{resource_name}"
+        remember_me: "Mantenha-me logado"
+      passwords:
+        create: "Recupere sua senha"
+        send_instructions: "Enviar instruções de recuperação de senha"
+        edit: "Troque de senha"
+        new_password: "Nova senha"
+        confirm_new_password: "Repita a nova senha"
+      confirmations:
+        new: "Re-envio de instruções de verificação de %{resource_name}"
+        send_instructions: "Enviar instruções de verificação"
+      unlocks:
+        new: "Re-envio de instruções de desbloquieo de %{resource_name}"
+        send_instructions: "Enviar instruções de desbloquieo"
+
+      mailer:
+        confirmation_instructions:
+          welcome: "Welcome %{email}!"
+          instruction: "Verifique a sua conta pelo link:"
+          confirm_account: "Verificar minha conta"
+        email_changed:
+          greeting: "Hola %{email}!"
+          email_changing_message: "Enviamos esta mensagem para te avisar que teu e-mail está sendo alterado para %{new_email}."
+          email_changed_message: "Enviamos esta mensagem para te avisar que teu e-mail foi alterado para %{new_email}."
+        password_change:
+          greeting: "Hola %{email}!"
+          message: "Enviamos esta mensagem para te avisar que tua senha foi alterada."
+        reset_password_instructions:
+          greeting: "Hola %{email}!"
+          message1: "Alguem solicitou um link para o reset da tua senha. Voce pode trocar tua senha pelo link:"
+          change_password: Trocar minha senha
+          message2: "Se você não fez esta solicitação, por favor iginore este e-mail."
+          message3: "Tua senha não mudara almenos que voce acesse o link acima e crie uma nova."
+        unlock_instructions:
+          greeting: "Hola %{email}!"
+          message1: "Tua conta foi bloqueada devido a um número excesivo de tentativas de login inválidas."
+          message2: "Clique no link para desbloquear sua conta:"
+          unlock_account: Unlock my account

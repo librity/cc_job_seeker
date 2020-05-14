@@ -18,6 +18,8 @@ pt-BR:
       home: Home
       resources: Recursos
       create_account: Criar conta
+      account: Conta
+      change_password: Trocar senha
       log_in: Entrar
       go_back: Voltar
       details: Detalhes
@@ -38,14 +40,13 @@ pt-BR:
       filter: Filtrar
 
     placeholders:
-      search_rentals_by_token: Insira um token aqui
       filter_customers: Filtre por nome ou cpf
 
-    head_hunter_dashboard: 
+    head_hunter_dashboard:
       title: Dashboard do Head Hunter
       greeting: Bem vindo de volta!
 
-    job_seeker_dashboard: 
+    job_seeker_dashboard:
       title: Dashboard do Candidato
       greeting: Bem vindo de volta!
 
@@ -65,18 +66,3 @@ pt-BR:
       message_2: "como parte do"
       message_3: "um programa de bolsa para desenvolvimento web."
       original_repo: "Repositório Original"
-
-    devise:
-      shared:
-        log_in: "Faça login"
-        sign_up: "Cadastre-se"
-        forgot_password: "Esqueceu sua senha?"
-        confirmation_instructions: "Não recebeu as instruções da verificação?"
-        unlock_instructions: "Não recebeu as instruções do desbloquieo?"
-        provider_sign_in: "Autentique-se com %{provider_name}"
-      sessions:
-        create: "Faça login na applicação."
-        remember_me: "Mantenha-me logado"
-      passwords:
-        create: "Recupere sua senha."
-        send_email: "Enviar instruções de recuperação de senha"

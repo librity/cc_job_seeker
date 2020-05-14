@@ -1,7 +1,8 @@
 <main class='row'>
   <div class='col-md-12'>
     <header class='header'>
-      <h1><%= t('views.devise.sessions.create') %></h1>
+      <h1><%= t('views.devise.sessions.create', 
+                resource_name: resource.class.model_name.human.downcase) %></h1>
     </header>
 
     <section class='contents'>

@@ -21,14 +21,18 @@ pt-BR:
         updated_at: Alterado
         deleted_at: Excluído
 
-      job_seeker:
-        <<: *attr_defaults
+      device_defaults: &device_defaults
+        id: ID
         email: Email
         password: Senha
         password_confirmation: Confirmação de senha
+        current_password: Senha atual
+
+      job_seeker:
+        <<: *attr_defaults
+        <<: *device_defaults
 
       head_hunter:
         <<: *attr_defaults
-        email: Email
-        password: Senha
-        password_confirmation: Confirmação de senha
+        <<: *device_defaults
+
