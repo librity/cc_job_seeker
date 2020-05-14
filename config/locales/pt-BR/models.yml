@@ -13,6 +13,10 @@ pt-BR:
         one: Head Hunter
         other: Head Hunters
 
+      jobs:
+        one: Vaga
+        other: Vagas
+
     attributes:
       attr_defaults: &attr_defaults
         id: ID
@@ -36,3 +40,14 @@ pt-BR:
         <<: *attr_defaults
         <<: *device_defaults
 
+      jobs:
+        <<: *attr_defaults
+        title: Titulo
+        description: Descrição
+        skills: Habilidades
+        salary_floor: Salário minimo
+        salary_roof: Salário mássimo
+        position: Posição
+        location: Local
+        retired: Aposentada
+        expires_on: Data limite

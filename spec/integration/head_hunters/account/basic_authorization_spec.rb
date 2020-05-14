@@ -28,7 +28,8 @@ feature 'Head Hunter browses' do
     expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_head_hunter_registration_path
 
-    # expect(page).to have_link I18n.t('activerecord.models.job.other')
+    expect(page).to have_link I18n.t('activerecord.models.job.other'),
+                              href: head_hunters_jobs_path
   end
 
   scenario "application and can't access dashboard unless logged in" do
@@ -46,31 +47,31 @@ feature 'Head Hunter browses' do
   end
 
   context 'jobs' do
-    xscenario 'successfully' do
+    scenario 'successfully' do
       log_head_hunter_in!
 
-      visit jobs_path
-      expect(current_path).to eq jobs_path
+      visit head_hunters_jobs_path
+      expect(current_path).to eq head_hunters_jobs_path
     end
 
-    xscenario 'and gets redirected to log in view if not logged-in' do
-      visit jobs_path
+    scenario 'and gets redirected to log in view if not logged-in' do
+      visit head_hunters_jobs_path
       expect(current_path).to eq new_head_hunter_session_path
 
-      visit new_job_path
+      visit head_hunters_new_job_path
       expect(current_path).to eq new_head_hunter_session_path
 
-      page.driver.post jobs_path
+      page.driver.post head_hunters_jobs_path
       visit page.driver.response.location
       expect(current_path).to eq new_head_hunter_session_path
 
-      visit job_path(1)
+      visit head_hunters_job_path(1)
       expect(current_path).to eq new_head_hunter_session_path
 
-      visit edit_job_path(1)
+      visit head_hunters_edit_job_path(1)
       expect(current_path).to eq new_head_hunter_session_path
 
-      page.driver.delete job_path(1)
+      page.driver.delete head_hunters_job_path(1)
       visit page.driver.response.location
       expect(current_path).to eq new_head_hunter_session_path
     end

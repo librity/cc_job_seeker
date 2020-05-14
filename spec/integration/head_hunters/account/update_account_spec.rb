@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-feature 'Head Hunters can' do
-  scenario 'change their passwords' do
+feature 'Head Hunters ' do
+  scenario 'can change their password' do
     head_hunter = log_head_hunter_in!
 
     visit root_path
@@ -37,6 +37,6 @@ feature 'Head Hunters can' do
     expect(current_path).to eq head_hunters_dashboard_path
   end
 
-  xscenario 'change their profile pictures' do
+  xscenario "can't change their email" do
   end
 end

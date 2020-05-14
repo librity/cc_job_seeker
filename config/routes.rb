@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   namespace :head_hunters do
     get '/dashboard', to: 'dashboard#index', as: :dashboard
+
+    resources :jobs, only: :index
   end
 
   namespace :job_seekers do
