@@ -61,6 +61,11 @@ pt-BR:
         empty_resource: "Nenhum head hunter cadastrado"
         create: "Criar um novo Head Hunters"
 
+      jobs:
+        description: "Todas as vagas da tua empresa."
+        empty_resource: "Nenhuma vaga cadastrada"
+        create: "Criar uma nova Vaga"
+
     footer:
       message_1: "Aplicação Rails desenvolvida por"
       message_2: "como parte do"

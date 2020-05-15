@@ -1,4 +1,9 @@
 <% if head_hunter_signed_in? %>
+  <li class='nav-item'>
+    <%= link_to t('activerecord.models.job.other'), head_hunters_jobs_path,
+                class: 'header_nav_link' %>
+  </li>
+
   <li class='nav-item header_nav_link dropdown' id="account_dropdown">
     <a class='nav-item dropdown-toggle' role='button' id='resourcesDropdown' 
       data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>

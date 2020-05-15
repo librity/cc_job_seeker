@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin can edit a car category' do
+feature 'Head Hunter can edit a job' do
   before :each do
     log_user_in!
   end

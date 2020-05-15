@@ -58,22 +58,22 @@ feature 'Head Hunter browses' do
       visit head_hunters_jobs_path
       expect(current_path).to eq new_head_hunter_session_path
 
-      visit head_hunters_new_job_path
-      expect(current_path).to eq new_head_hunter_session_path
+      # visit head_hunters_new_job_path
+      # expect(current_path).to eq new_head_hunter_session_path
 
-      page.driver.post head_hunters_jobs_path
-      visit page.driver.response.location
-      expect(current_path).to eq new_head_hunter_session_path
+      # page.driver.post head_hunters_jobs_path
+      # visit page.driver.response.location
+      # expect(current_path).to eq new_head_hunter_session_path
 
-      visit head_hunters_job_path(1)
-      expect(current_path).to eq new_head_hunter_session_path
+      # visit head_hunters_job_path(1)
+      # expect(current_path).to eq new_head_hunter_session_path
 
-      visit head_hunters_edit_job_path(1)
-      expect(current_path).to eq new_head_hunter_session_path
+      # visit head_hunters_edit_job_path(1)
+      # expect(current_path).to eq new_head_hunter_session_path
 
-      page.driver.delete head_hunters_job_path(1)
-      visit page.driver.response.location
-      expect(current_path).to eq new_head_hunter_session_path
+      # page.driver.delete head_hunters_job_path(1)
+      # visit page.driver.response.location
+      # expect(current_path).to eq new_head_hunter_session_path
     end
   end
 end

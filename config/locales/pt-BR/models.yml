@@ -13,7 +13,7 @@ pt-BR:
         one: Head Hunter
         other: Head Hunters
 
-      jobs:
+      job:
         one: Vaga
         other: Vagas
 
@@ -40,7 +40,7 @@ pt-BR:
         <<: *attr_defaults
         <<: *device_defaults
 
-      jobs:
+      job:
         <<: *attr_defaults
         title: Titulo
         description: Descrição

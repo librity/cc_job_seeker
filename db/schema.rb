@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_033946) do
+ActiveRecord::Schema.define(version: 2020_05_14_193538) do
 
   create_table "head_hunters", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 2020_05_14_033946) do
     t.date "expires_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "head_hunter_id"
+    t.index ["head_hunter_id"], name: "index_jobs_on_head_hunter_id"
   end
 
+  add_foreign_key "jobs", "head_hunters"
 end
