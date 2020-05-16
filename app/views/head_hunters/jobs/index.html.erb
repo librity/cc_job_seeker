@@ -1,6 +1,7 @@
 <main class='row'>
   <div class='col-md-12'>
     <nav>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-secondary' %>
     </nav>
 
     <header class='header'>
@@ -12,27 +13,28 @@
     <section class='contents'>
 
       <% if @jobs.empty? %>
-        <p><%= t('views.resources.jobs.empty_resource') %></p>
-      <% end %>
+        <p class="empty_resource"><%= t('views.resources.jobs.empty_resource') %></p>
+      <% else %>
 
       <table class="col index_table">
-        <thead class="index_table_head">
-          <tr class="index_table_row">
-            <th><%= t('activerecord.attributes.job.title') %></th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody class="index_table_body">
-          <% @jobs.each do |job| %>
-            <tr class="index_table_row" id="car-category-<%= job.id %>">
-              <td><%= job.title %></td>
-
-              <td><%= link_to t('views.navigation.details'), head_hunters_jobs_path(job), id: "details-#{job.id}" %></td>
+          <thead class="index_table_head">
+            <tr class="index_table_row">
+              <th><%= t('activerecord.attributes.job.title') %></th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody class="index_table_body">
+            <% @jobs.each do |job| %>
+              <tr class="index_table_row" id="car-category-<%= job.id %>">
+                <td><%= job.title %></td>
+
+                <td><%= link_to t('views.navigation.details'), head_hunters_jobs_path(job), id: "details-#{job.id}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
 
     </section>
 

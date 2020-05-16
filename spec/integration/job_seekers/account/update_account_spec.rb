@@ -11,7 +11,6 @@ feature 'Job Seekers' do
       click_on I18n.t('views.navigation.change_password')
     end
 
-    puts job_seeker.password
     new_password = Faker::Internet.password min_length: 8
 
     fill_in I18n.t('activerecord.attributes.job_seeker.password'), with: new_password

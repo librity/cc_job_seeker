@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
 
 /* mixins, variables, etc. */
 
@@ -15,22 +15,36 @@ $gray: #a0a0a0;
 $gray-medium-light: #cacaca;
 $gray-light: #d1d1d1;
 $gray-ultra-light: #dbdbdb;
+$simple-background: #f5f6f7;
 
 $pallette-black-coffee: #32292fff;
 $pallette-independence: #575366ff;
-$pallette-light-independence: #9A97A3ff;
+$pallette-light-independence: #9a97a3ff;
 $pallette-rhythm: #777da7ff;
 $pallette-picotee-blue: #23278aff;
-$pallette-royal-blue: #5762D5ff;
+$pallette-royal-blue: #5762d5ff;
+$pallette-cyan: #bccfc9;
 $pallette-light-cyan: #d1e3ddff;
 
 $state-danger-text: #eb4848;
 
 /* universal */
 
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 0;
+}
+
 body {
   min-height: 90vh;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 textarea {
@@ -51,6 +65,10 @@ ul {
 
 dd:last-child {
   margin-bottom: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* typography */

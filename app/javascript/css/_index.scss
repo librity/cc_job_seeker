@@ -1,3 +1,15 @@
+.empty_resource {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $simple-background;
+  color: $pallette-rhythm;
+
+  font-weight: 500;
+  font-size: 1.3em;
+  text-align: center;
+
+}
+
 .inline_filter {
   display: flex;
   align-items: center;
@@ -6,7 +18,7 @@
 
 .index_table {
   border-radius: 10px;
-  background-color: #f5f6f7;
+  background-color: $simple-background;
 }
 
 .index_table_head {

@@ -81,11 +81,11 @@ The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/s
 
 ## ⛓️ Dependencies
 
-#### 💎 Gems
+### 💎 Gems
 
 - Registration, authentication & authorization: [Devise](https://github.com/heartcombo/devise)
 
-Testing
+🧪 Tests
 
 - Testing framework: [RSpec](https://github.com/rspec/rspec-rails)
 - Integration tests: [Capybara](https://github.com/teamcapybara/capybara)
@@ -94,20 +94,78 @@ Testing
 - Arbitrary data generator: [Faker](https://github.com/faker-ruby/faker)
 - Awesome things: [Nyancat test progressbar](https://github.com/mattsears/nyan-cat-formatter)
 
-#### 📦 Node Packages
+### 📦 Node Packages
 
 - CSS Framework: [Boostsrap](https://github.com/twbs/bootstrap)
-- HTML manipulation; [JQuery](https://github.com/jquery/jquery)
-- Input masking and formatter; [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
+- HTML manipulation: [JQuery](https://github.com/jquery/jquery)
+- Input masking and formatter: [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
 - Pop-overs: [Popper](https://github.com/popperjs/popper-core)
 
 ## 🏁 Main Features
 
-- [ ]
+Application:
+
+- [x] Basic app setup
+- [x] Logo & color palette
+- [x] Mind map and Flow chart
+- [x] Root/Home page
+
+Head Hunters:
+
+- [x] Signup, Login and Dashboard
+- [ ] Creates a Job Opening
+- [ ] Can browse Applicants
+- [ ] Can comment on Applicant's profile
+- [ ] Can favorite an Applicant's profile
+- [ ] Can reject an Applicant
+- [ ] Can propose Job Offers to Applicants
+- [ ] Recieves feedback for accepted/rejected Job Offers
+- [ ] Can retire a Job Opening
+
+Job Seeker:
+
+- [x] Signup, Login and Dashboard
+- [ ] Creates and manages a profile-resume
+- [ ] Browses active Job Openings
+- [ ] Searches active Job Openings by title and description
+- [ ] Applies to a Job Opening
+- [ ] Gets notified when rejected for a Job
+- [ ] Gets notified when recieves a Job Offer
+- [ ] Can accept Job Offers
+- [ ] Can reject Job Offers
+- [ ] Gets notified when invited to an Interview
+- [ ] Can accept Interview invitation
+- [ ] Can reject Interview invitation
+- [ ] Recieves Interview feedback
+- [ ] Can Chat with Head Hunters
+
 
 ## 🏆 Bonus Features
 
-- [ ]
+Application:
+
+- [ ] React Rails for Chat interface and notifications
+- [ ] Add pagination
+- [ ] Add breadcrumbs
+- [ ] Implement Omniauth Signup and Login for Head Hunters and Job Seekers
+- [ ] Implement Email Confirmation for Head Hunters and Job Seekers
+
+Head Hunters:
+
+- [ ] Can invite applicants to an Interview
+- [ ] Can write a feedback after the interview
+- [ ] Can Chat with Applicants
+- [ ] All Head Hunters with the same email domain are associated with a Company
+- [ ] Can't change their email
+- [ ] Must have profile pic
+
+Job Seeker:
+
+- [ ] Gets notified when invited to an Interview
+- [ ] Can accept Interview invitation
+- [ ] Can reject Interview invitation
+- [ ] Recieves Interview feedback
+- [ ] Can Chat with Head Hunters
 
 ## ⚖️ License
 

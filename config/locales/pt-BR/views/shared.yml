@@ -9,6 +9,7 @@ pt-BR:
     messages:
       arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
+      cross_model_access: "Acesso entre contas não é permitido!"
       successfully:
         created: "%{resource} criado(a) com sucesso!"
         updated: "%{resource} atualizado(a) com sucesso!"

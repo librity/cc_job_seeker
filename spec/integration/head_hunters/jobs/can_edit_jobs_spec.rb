@@ -4,7 +4,7 @@ require 'rails_helper'
 
 feature 'Head Hunter can edit a job' do
   before :each do
-    log_user_in!
+    log_head_hunter_in!
   end
 
   xscenario 'successfully' do

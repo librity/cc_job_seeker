@@ -11,7 +11,6 @@ feature 'Head Hunters ' do
       click_on I18n.t('views.navigation.change_password')
     end
 
-    puts head_hunter.password
     new_password = Faker::Internet.password min_length: 8
 
     fill_in I18n.t('activerecord.attributes.head_hunter.password'), with: new_password

@@ -10,6 +10,14 @@ FactoryBot.define do
     position { Faker::Lorem.word }
     location { Faker::Lorem.sentence }
     retired { false }
-    expires_on { Date.today + 1.month }
+    expires_on { Faker::Date.forward days: 30 }
+
+    trait :expired do
+      expires_on { Faker::Date.backward days: 30 }
+    end
+
+    trait :retired do
+      retired { true }
+    end
   end
 end

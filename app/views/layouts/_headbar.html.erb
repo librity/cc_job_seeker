@@ -1,11 +1,12 @@
 <header class='main_headbar navbar navbar-light'>
   <%= link_to image_tag("full_logo_title_left_cascade.svg", 
-                  alt: t('views.application_name'), width: "150"), root_path, 
+                  alt: t('views.application_name'), width: "180"), root_path, 
                   class: 'logo_svg' %>
 
-  <nav class='nav navbar-right'>
-    <li class='nav-item'><%= link_to t('views.navigation.home'), root_path, 
-    class: 'header_nav_link' %></li>
+  <nav class='nav'>
+    <li class='nav_item'>
+      <%= link_to t('views.navigation.home'), root_path, class: 'nav_item' %>
+    </li>
 
     <%= render 'layouts/head_hunter_nav' %>
 
