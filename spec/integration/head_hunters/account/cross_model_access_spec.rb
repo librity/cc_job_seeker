@@ -12,7 +12,6 @@ feature 'Logged in Head Hunter' do
 
     expect(current_path).to eq head_hunters_dashboard_path
     expect(page).to have_content I18n.t('views.messages.cross_model_access')
-
   end
 
   scenario "can't sign up as Job Seeker" do

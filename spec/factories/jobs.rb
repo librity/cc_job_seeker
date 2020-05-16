@@ -5,19 +5,15 @@ FactoryBot.define do
     title { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
     skills { Faker::Lorem.words }
-    salary_floor { Faker::Number.number digits: 4 }
-    salary_roof { salary_floor + Faker::Number.number(digits: 3) }
+    salary_floor { Faker::Number.within range: 1500..10_000 }
+    salary_roof { salary_floor + Faker::Number.within(range: 200..800) }
     position { Faker::Lorem.word }
     location { Faker::Lorem.sentence }
-    retired { false }
     expires_on { Faker::Date.forward days: 30 }
+    head_hunter
 
     trait :expired do
       expires_on { Faker::Date.backward days: 30 }
-    end
-
-    trait :retired do
-      retired { true }
     end
   end
 end

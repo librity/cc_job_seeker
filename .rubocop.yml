@@ -1,9 +1,19 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'config/environments/*'
+    - 'config/initializers/*'
+    - 'node_modules/**/*'
+
 Style/Documentation:
   Enabled: false
 
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
+    - "db/**/*"
 
 Metrics/MethodLength:
   Max: 1000

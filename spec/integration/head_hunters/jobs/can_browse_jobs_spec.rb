@@ -18,25 +18,13 @@ feature 'Head Hunter can browse jobs' do
     end
 
     xscenario 'and view details' do
-      honda = Manufacturer.create! name: 'Honda'
+      job_a = create :job, head_hunter: head_hunter
+      job_b = create :job, head_hunter: head_hunter
 
-      job_one = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
-                                    insurance: 10.0, third_party_insurance: 5.0
-      CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
-                          third_party_insurance: 15.0
-
-      job_one = CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
-                                 metric_horsepower: '135 @ 6500 rpm', job: job_one,
-                                 fuel_type: 'gasolina', metric_city_milage: 12,
-                                 metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
-      job_two = CarModel.create! name: 'Fit', year: '2005', manufacturer: honda,
-                                 metric_horsepower: '120 @ 6500 rpm', job: job_one,
-                                 fuel_type: 'gasolina', metric_city_milage: 14,
-                                 metric_highway_milage: 18, engine: '1.3 L L13A I4'
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
-      within "tr#car-category-#{job_one.id}" do
+      within "tr#job-#{job_one.id}" do
         click_on I18n.t('views.navigation.details')
       end
 
