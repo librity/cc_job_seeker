@@ -3,121 +3,91 @@
 require 'rails_helper'
 
 feature 'Head Hunter can browse jobs' do
-  context ' when logged-in' do
+  context 'when logged-in' do
     let!(:head_hunter) { log_head_hunter_in! }
 
     scenario 'successfully' do
       job_a = create :job, head_hunter: head_hunter
       job_b = create :job, head_hunter: head_hunter
 
+      job_c = create :job
+      job_d = create :job
+
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
 
+      expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title
+      expect(page).to have_content I18n.l(job_a.expires_on)
+      expect(page).to have_content job_b.position
       expect(page).to have_content job_b.title
+      expect(page).to have_content I18n.l(job_b.expires_on)
+
+      expect(page).not_to have_content job_c.position
+      expect(page).not_to have_content job_c.title
+      expect(page).not_to have_content I18n.l(job_c.expires_on)
+      expect(page).not_to have_content job_d.position
+      expect(page).not_to have_content job_d.title
+      expect(page).not_to have_content I18n.l(job_d.expires_on)
     end
 
-    xscenario 'and view details' do
+    scenario 'and view details' do
       job_a = create :job, head_hunter: head_hunter
       job_b = create :job, head_hunter: head_hunter
 
-
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
-      within "tr#job-#{job_one.id}" do
+      within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end
 
-      expect(page).to have_css('header h1', text: "#{I18n.t 'activerecord.models.job.one'} Sedan")
-      expect(page)
-        .to have_content "#{I18n.t 'activerecord.attributes.job.daily_rate'}: R$ 100,00"
-      expect(page)
-        .to have_content "#{I18n.t 'activerecord.attributes.job.insurance'}: R$ 10,00"
-      expect(page)
-        .to have_content "#{I18n.t 'activerecord.attributes.job.third_party_insurance'}: R$ 5,00"
+      expect(page).to have_css('header h1', text: "#{job_a.position} de #{job_a.title}")
+      expect(page).to have_content job_a.description
+      expect(page).to have_content job_a.skills
+      expect(page).to have_content number_to_currency(job_a.salary_floor)
+      expect(page).to have_content number_to_currency(job_a.salary_roof)
+      expect(page).to have_content job_a.location
+      expect(page).not_to have_content I18n.t('activerecord.attributes.job.retired')
+      expect(page).to have_content I18n.t('activerecord.attributes.job.active')
+      expect(page).to have_content I18n.l(job_a.expires_on)
+      expect(page).to have_content job_a.head_hunter.name
 
-      expect(page).to have_css('dd:nth-of-type(1)', text: 'R$ 100,00')
-      expect(page).to have_css('dd:nth-of-type(2)', text: 'R$ 10,00')
-      expect(page).to have_css('dd:nth-of-type(3)', text: 'R$ 5,00')
-
-      expect(page).to have_link(job_one.name, href: job_path(job_one))
-      expect(page).to have_link(job_two.name, href: job_path(job_two))
-      expect(page).to have_link(I18n.t('views.navigation.go_back'), href: car_categories_path)
-
-      expect(page).not_to have_content 'Camião'
-      expect(page).not_to have_content 'R$ 120,00'
-      expect(page).not_to have_content 'R$ 20,00'
-      expect(page).not_to have_content 'R$ 15,00'
+      expect(page).not_to have_content job_b.title
+      expect(page).not_to have_content job_b.description
+      expect(page).not_to have_content job_b.skills
+      expect(page).not_to have_content number_to_currency(job_b.salary_floor)
+      expect(page).not_to have_content number_to_currency(job_b.salary_roof)
+      expect(page).not_to have_content job_b.location
+      expect(page).not_to have_content I18n.l(job_b.expires_on)
     end
 
-    xscenario 'when no car categories were created' do
+    scenario 'when no jobs were created' do
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
 
-      expect(page).to have_content I18n.t('views.resources.car_categories.empty_resource')
+      expect(page).to have_content I18n.t('views.resources.jobs.empty_resource')
     end
 
-    xscenario 'and return to home page' do
-      CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                          third_party_insurance: 5.0
-      CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
-                          third_party_insurance: 15.0
-
+    scenario 'and return to home page' do
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq root_path
+      expect(current_path).to eq head_hunters_dashboard_path
     end
 
-    xscenario 'and return to car categories page' do
-      job_one = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
-                                    insurance: 10.0, third_party_insurance: 5.0
-      CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
-                          third_party_insurance: 15.0
+    scenario 'and return to jobs page' do
+      job_a = create :job, head_hunter: head_hunter
+      create :job, head_hunter: head_hunter
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
-      within "tr#car-category-#{job_one.id}" do
+      within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq car_categories_path
-    end
-
-    xscenario 'and view filtered car models' do
-      honda = Manufacturer.create! name: 'Honda'
-      fiat = Manufacturer.create! name: 'Fiat'
-
-      sedan = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
-                                  insurance: 10.0, third_party_insurance: 5.0
-      truck = CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
-                                  third_party_insurance: 15.0
-
-      civic = CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
-                               metric_horsepower: '135 @ 6500 rpm', job: sedan,
-                               fuel_type: 'gasolina', metric_city_milage: 12,
-                               metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
-      uno = CarModel.create! name: 'Uno', year: '2019', manufacturer: fiat,
-                             metric_horsepower: '120 @ 6500 rpm', job: sedan,
-                             fuel_type: 'gasolina', metric_city_milage: 14,
-                             metric_highway_milage: 18, engine: '1.3 L L13A I4'
-
-      ridgeline = CarModel.create! name: 'Ridgeline', year: '2005', manufacturer: honda,
-                                   metric_horsepower: '120 @ 6500 rpm', job: truck,
-                                   fuel_type: 'gasolina', metric_city_milage: 14,
-                                   metric_highway_milage: 18, engine: '1.3 L L13A I4'
-
-      visit root_path
-      click_on I18n.t('activerecord.models.job.other')
-      within "tr#car-category-#{sedan.id}" do
-        click_on I18n.t('views.navigation.details')
-      end
-
-      expect(page).to have_link('Honda Civic 2010', href: job_path(civic))
-      expect(page).to have_link('Fiat Uno 2019', href: job_path(uno))
-      expect(page).not_to have_link('Honda Ridgeline 2005', href: job_path(ridgeline))
+      expect(current_path).to eq head_hunters_jobs_path
     end
   end
 end

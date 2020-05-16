@@ -10,6 +10,7 @@ pt-BR:
       arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
       cross_model_access: "Acesso entre contas não é permitido!"
+      retire_job: "Tem certeza que deseja aposentar esta vaga?"
       successfully:
         created: "%{resource} criado(a) com sucesso!"
         updated: "%{resource} atualizado(a) com sucesso!"
@@ -39,6 +40,7 @@ pt-BR:
       expand: Expandir
       search: Procurar
       filter: Filtrar
+      retire: Aposentar
 
     placeholders:
       filter_customers: Filtre por nome ou cpf

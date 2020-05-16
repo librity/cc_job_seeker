@@ -9,6 +9,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.navigation.create_account')
     end
 
+    fill_in I18n.t('activerecord.attributes.job_seeker.name'), with: 'Jesse Smith'
     fill_in I18n.t('activerecord.attributes.job_seeker.email'), with: 'test@example.com.br'
     fill_in I18n.t('activerecord.attributes.job_seeker.password'), with: '12345678'
     fill_in I18n.t('activerecord.attributes.job_seeker.password_confirmation'), with: '12345678'

@@ -23,7 +23,19 @@ class Job < ApplicationRecord
   validate :whether_expires_on_is_either_today_or_in_the_future
   validates :head_hunter, presence: true
 
-  scope :by_head_hunter, ->(head_hunter) { where head_hunter: head_hunter }
+  before_save :titleize_attributes
+
+  scope :created_by, ->(head_hunter) { where head_hunter: head_hunter }
+
+  def expired?
+    expires_on < Date.today
+  end
+
+  def active?
+    return false if expired?
+
+    !retired
+  end
 
   private
 
@@ -42,5 +54,12 @@ class Job < ApplicationRecord
 
   def expires_on_is_before_today?
     expires_on && Date.today <= expires_on
+  end
+
+  def titleize_attributes
+    self.title = title.titleize
+    self.skills = skills.titleize
+    self.position = position.titleize
+    self.location = location.titleize
   end
 end

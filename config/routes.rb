@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     registrations: 'head_hunters/registrations',
     sessions: 'head_hunters/sessions'
   }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root 'home#index'
 
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
     get '', to: 'dashboard#index', as: :root
     get '/dashboard', to: 'dashboard#index', as: :dashboard
 
-    resources :jobs, only: :index
+    resources :jobs, only: %i[index show]
   end
 
   namespace :job_seekers do

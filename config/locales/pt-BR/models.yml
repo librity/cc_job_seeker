@@ -31,6 +31,7 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
         current_password: Senha atual
+        name: Nome completo
 
       job_seeker:
         <<: *attr_defaults
@@ -47,7 +48,13 @@ pt-BR:
         skills: Habilidades
         salary_floor: Salário minimo
         salary_roof: Salário mássimo
+        salary_range: Faixa salarial
         position: Posição
+        of: de
         location: Local
+        status: Status
         retired: Aposentada
+        active: Ativa
+        inactive: Inativa
         expires_on: Data limite
+        created_by: Criado por

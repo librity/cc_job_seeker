@@ -1,0 +1,43 @@
+
+<main class='row'>
+  <div class='col-12'>
+    <nav>
+      <%= link_to t('views.navigation.go_back'), head_hunters_jobs_path, class: 'btn btn-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1> <%= "#{@job.position} #{t('activerecord.attributes.job.of')} #{@job.title}" %> </h1>
+
+      <p> <%= @job.description %> </p>
+    </header>
+
+    <section class='contents row'>
+      <aside class="col-3">
+        <dl class="side_info_box">
+          <dt><%= t('activerecord.attributes.job.created_by') %>:</dt>
+          <dd><%= @job.head_hunter.name %> </dd>
+          <dt><%= t('activerecord.attributes.head_hunter.email') %>:</dt>
+          <dd><%= @job.head_hunter.email %> </dd>
+        </dl>
+      </aside>
+
+      <dl>
+        <dt class="job_status <%= @job.active? ? 'active_job' : 'inactive_job' %>"> 
+          <%= @job.active? ? t('activerecord.attributes.job.active') : t('activerecord.attributes.job.inactive') %>
+        </dt>
+        <dt><%= t('activerecord.attributes.job.skills') %>:</dt>
+        <dd> <%= @job.skills %> </dd>
+        <dt><%= t('activerecord.attributes.job.salary_range') %>:</dt>
+        <dd> <%= number_to_currency(@job.salary_floor) + '-' + number_to_currency(@job.salary_roof) %> </dd>
+        <dt><%= t('activerecord.attributes.job.location') %>:</dt>
+        <dd> <%= @job.location %> </dd>
+        <dt><%= t('activerecord.attributes.job.expires_on') %>:</dt>
+        <dd> <%= I18n.l(@job.expires_on) %> </dd>
+      </dl>
+    </section>
+
+    <div class='actions mt-4'>
+
+    </div>
+  </div>
+</main>

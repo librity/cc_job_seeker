@@ -3,7 +3,13 @@
 require 'rails_helper'
 
 describe Job, type: :model do
+
+  after :each do
+    Faker::Job.unique.clear
+  end
+
   let(:subject) { create :job }
+
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
@@ -172,6 +178,72 @@ describe Job, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:head_hunter]).to include(I18n.t('errors.messages.blank'))
+    end
+  end
+
+  context 'before save: titleize_attributes' do
+    it 'should transform title, skills, position and location to title-case' do
+      subject.title = 'human resources machinist'
+      subject.skills = 'humbuggery, tautology, excel'
+      subject.position = 'master'
+      subject.location = 'paper street soap co. 123, detroit, michigan'
+
+      subject.save!
+
+      expect(subject.title).to eq 'Human Resources Machinist'
+      expect(subject.skills).to eq 'Humbuggery, Tautology, Excel'
+      expect(subject.position).to eq 'Master'
+      expect(subject.location).to eq 'Paper Street Soap Co. 123, Detroit, Michigan'
+    end
+  end
+
+  context 'scope: created_by' do
+    it 'should filter by head' do
+      target_head_hunter = create :head_hunter
+      job_a = create :job, head_hunter: target_head_hunter
+      job_b = create :job, head_hunter: target_head_hunter
+      job_c = create :job, head_hunter: target_head_hunter
+      job_d = create :job, head_hunter: target_head_hunter
+
+      arbitrary_head_hunter = create :head_hunter
+      create :job, head_hunter: arbitrary_head_hunter
+      create :job, head_hunter: arbitrary_head_hunter
+      create :job, head_hunter: arbitrary_head_hunter
+      create :job, head_hunter: arbitrary_head_hunter
+
+      expect(described_class.created_by(target_head_hunter)).to eq [job_a, job_b, job_c, job_d]
+    end
+  end
+
+  context 'method: expired?' do
+    it 'should return false if expires_on is either today or in the future' do
+      subject.expires_on = Date.today
+
+      expect(subject.expired?).to be false
+    end
+
+    it 'should return true if expires_on is in the past' do
+      subject = create :job, :skip_validate, :expired
+
+      expect(subject.expired?).to be true
+    end
+  end
+
+  context 'method: active?' do
+    it 'should return false if retired' do
+      subject.retired = true
+
+      expect(subject.active?).to be false
+    end
+
+    it 'should return false if expired' do
+      subject = create :job, :skip_validate, :expired
+
+      expect(subject.active?).to be false
+    end
+
+    it 'should return true otherwise' do
+      expect(subject.active?).to be true
     end
   end
 end

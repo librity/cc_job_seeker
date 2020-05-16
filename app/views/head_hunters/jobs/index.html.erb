@@ -19,17 +19,21 @@
       <table class="col index_table">
           <thead class="index_table_head">
             <tr class="index_table_row">
+              <th><%= t('activerecord.attributes.job.position') %></th>
               <th><%= t('activerecord.attributes.job.title') %></th>
+              <th><%= t('activerecord.attributes.job.expires_on') %></th>
               <th></th>
             </tr>
           </thead>
 
           <tbody class="index_table_body">
             <% @jobs.each do |job| %>
-              <tr class="index_table_row" id="car-category-<%= job.id %>">
+              <tr class="index_table_row" id="job-<%= job.id %>">
+                <td><%= job.position %></td>
                 <td><%= job.title %></td>
+                <td><%= I18n.l(job.expires_on) %></td>
 
-                <td><%= link_to t('views.navigation.details'), head_hunters_jobs_path(job), id: "details-#{job.id}" %></td>
+                <td><%= link_to t('views.navigation.details'), head_hunters_job_path(job), id: "details-#{job.id}" %></td>
               </tr>
             <% end %>
           </tbody>

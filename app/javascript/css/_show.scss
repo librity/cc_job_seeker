@@ -5,3 +5,21 @@
 
   background-color: $simple-background;
 }
+
+.job_status {
+  border-radius: 5px;
+  padding: 5px 0;
+  text-align: center;
+  color: $mint-green-dark;
+
+  letter-spacing: 1px;
+  font-size: 1.1em;
+}
+
+.active_job {
+  background-color: $mint-green;
+}
+
+.inactive_job {
+  background-color: $gray-darkest;
+}

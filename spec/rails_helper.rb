@@ -48,6 +48,7 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   config.include FactoryBot::Syntax::Methods
   config.include DeviseSupport
+  config.include ActionView::Helpers::NumberHelper
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

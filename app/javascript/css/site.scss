@@ -26,6 +26,9 @@ $pallette-royal-blue: #5762d5ff;
 $pallette-cyan: #bccfc9;
 $pallette-light-cyan: #d1e3ddff;
 
+$mint-green-dark: #2bac6d;
+$mint-green: #aaffaa;
+
 $state-danger-text: #eb4848;
 
 /* universal */
@@ -96,6 +99,10 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $gray-light;
+}
+
+.header {
+  margin-top: 10px;
 }
 
 p {
