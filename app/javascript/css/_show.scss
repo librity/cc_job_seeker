@@ -10,7 +10,6 @@
   border-radius: 5px;
   padding: 5px 0;
   text-align: center;
-  color: $mint-green-dark;
 
   letter-spacing: 1px;
   font-size: 1.1em;
@@ -18,8 +17,10 @@
 
 .active_job {
   background-color: $mint-green;
+  color: $mint-green-dark;
 }
 
 .inactive_job {
-  background-color: $gray-darkest;
+  background-color: $simple-background;
+  color: $gray;
 }

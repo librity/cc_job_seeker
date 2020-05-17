@@ -6,7 +6,7 @@ class Job < ApplicationRecord
   belongs_to :head_hunter
 
   validates :title, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { minimum: 50 }
   validates :skills, presence: true
   validates :salary_floor,
             numericality: { only_integer: true,
@@ -25,6 +25,7 @@ class Job < ApplicationRecord
 
   before_save :titleize_attributes
 
+  default_scope -> { order expires_on: :desc }
   scope :created_by, ->(head_hunter) { where head_hunter: head_hunter }
 
   def expired?

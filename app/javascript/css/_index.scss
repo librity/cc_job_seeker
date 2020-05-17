@@ -7,7 +7,6 @@
   font-weight: 500;
   font-size: 1.3em;
   text-align: center;
-
 }
 
 .inline_filter {
@@ -36,4 +35,20 @@
   td:first-child {
     border: none;
   }
+}
+
+.job_status_dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.active_job_dot {
+  background-color: $mint-green;
+}
+
+.inactive_job_dot {
+  background-color: $gray;
 }

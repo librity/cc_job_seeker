@@ -1,0 +1,18 @@
+<% provide(:resource_path, head_hunters_jobs_path) %>
+
+<nav>
+  <%= link_to t('views.navigation.go_back'), head_hunters_jobs_path, class: 'btn btn-secondary' %>
+</nav>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
+      <h1><%= t('views.resources.jobs.create') %></h1>
+    </header>
+
+    <section class='contents'>
+      <%= render 'form' %>
+    </section>
+
+  </div>
+</main>

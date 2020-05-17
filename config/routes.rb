@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get '', to: 'dashboard#index', as: :root
     get '/dashboard', to: 'dashboard#index', as: :dashboard
 
-    resources :jobs, only: %i[index show]
+    resources :jobs, only: %i[index show new create]
   end
 
   namespace :job_seekers do

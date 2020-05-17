@@ -3,9 +3,7 @@
     activerecord:
       errors:
         models:
-          rental:
+          job:
             attributes:
-              start_date:
+              expires_on:
                 cant_be_retroactive: não pode ser retroativa
-              end_date:
-                must_be_after_start_date: deve ser depois a data de início

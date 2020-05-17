@@ -115,6 +115,11 @@ label {
   font-weight: bold;
 }
 
+.context_navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* misc */
 
 .debug_dump {

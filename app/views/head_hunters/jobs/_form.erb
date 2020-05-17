@@ -1,0 +1,48 @@
+<%= form_with model: @job, url: yield(:resource_path), local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class='form-group'>
+    <%= f.label :position %>
+    <%= f.text_field :position, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :description %>
+    <%= f.text_area :description, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :expires_on %>
+    <%= f.date_field :expires_on, value: Date.today + 1.month, min: Date.today, 
+                     required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :salary_floor %>
+    <%= f.number_field :salary_floor, required: true, min: Job::BRAZILIAN_MINIMUM_WAGE,
+                        class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :salary_roof %>
+    <%= f.number_field :salary_roof, required: true, min: Job::BRAZILIAN_MINIMUM_WAGE + 200,
+                        class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :skills %>
+    <%= f.text_field :skills, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :location %>
+    <%= f.text_field :location, required: true, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
+<% end %>

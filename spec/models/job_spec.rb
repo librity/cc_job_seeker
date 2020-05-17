@@ -3,13 +3,11 @@
 require 'rails_helper'
 
 describe Job, type: :model do
-
   after :each do
     Faker::Job.unique.clear
   end
 
   let(:subject) { create :job }
-
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
@@ -30,6 +28,13 @@ describe Job, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:description]).to include(I18n.t('errors.messages.blank'))
+    end
+
+    it 'must have at least 50 characters' do
+      subject.description = 'a' * 49
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:description]).to include(I18n.t('errors.messages.too_short', count: 50))
     end
   end
 
@@ -198,7 +203,7 @@ describe Job, type: :model do
   end
 
   context 'scope: created_by' do
-    it 'should filter by head' do
+    it 'should filter by head and sort by descending expiration date' do
       target_head_hunter = create :head_hunter
       job_a = create :job, head_hunter: target_head_hunter
       job_b = create :job, head_hunter: target_head_hunter
@@ -211,7 +216,8 @@ describe Job, type: :model do
       create :job, head_hunter: arbitrary_head_hunter
       create :job, head_hunter: arbitrary_head_hunter
 
-      expect(described_class.created_by(target_head_hunter)).to eq [job_a, job_b, job_c, job_d]
+      expect(described_class.created_by(target_head_hunter))
+        .to eq [job_a, job_b, job_c, job_d].sort_by(&:expires_on).reverse
     end
   end
 
