@@ -9,7 +9,7 @@ FactoryBot.define do
     salary_floor { Faker::Number.unique.within range: 1500..10_000 }
     salary_roof { salary_floor + Faker::Number.unique.within(range: 200..800) }
     location { Faker::Address.unique.full_address }
-    expires_on { Faker::Date.unique.forward days: 60 }
+    expires_on { Faker::Date.forward(days: 30) + 1.month }
     head_hunter
 
     trait :skip_validate do

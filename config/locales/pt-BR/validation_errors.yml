@@ -7,3 +7,4 @@
             attributes:
               expires_on:
                 cant_be_retroactive: não pode ser retroativa
+                at_least_one_month_from_now: não pode ser retroativa

@@ -82,15 +82,16 @@ feature 'Head Hunter can register a job' do
     expect(page).to have_content I18n.t('errors.messages.invalid'), count: 1
   end
 
-  scenario "and expiration date can't be retroactive" do
+  scenario 'and expiration date must be at least one month from now' do
     visit root_path
     click_on I18n.t('activerecord.models.job.other')
     click_on I18n.t('views.navigation.new')
 
-    fill_in I18n.t('activerecord.attributes.job.expires_on'), with: Date.today - 2.days
+    fill_in I18n.t('activerecord.attributes.job.expires_on'), with: Date.today + 1.month - 2.days
     click_on I18n.t('views.actions.send')
 
-    expect(page).to have_content I18n.t('activerecord.errors.models.job.attributes.expires_on.cant_be_retroactive')
+    expect(page).to have_content I18n
+      .t('activerecord.errors.models.job.attributes.expires_on.at_least_one_month_from_now')
   end
 
   scenario 'and salary floor should be at least minimum wage' do

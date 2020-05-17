@@ -20,7 +20,7 @@ class Job < ApplicationRecord
   validates :retired, inclusion: { in: [true, false] }
   VALID_DATE_REGEX = /\d{4}-\d{2}-\d{2}/.freeze
   validates :expires_on, presence: true, format: { with: VALID_DATE_REGEX }
-  validate :whether_expires_on_is_either_today_or_in_the_future
+  validate :whether_expires_on_at_least_one_month_from_now
   validates :head_hunter, presence: true
 
   before_save :titleize_attributes
@@ -38,6 +38,10 @@ class Job < ApplicationRecord
     !retired
   end
 
+  def minimum_wage
+    BRAZILIAN_MINIMUM_WAGE
+  end
+
   private
 
   def salary_roof_is_greater_than_salary_floor_by_at_least_200
@@ -47,14 +51,14 @@ class Job < ApplicationRecord
     errors.add :salary_roof, :greater_than_or_equal_to, count: salary_floor + 200
   end
 
-  def whether_expires_on_is_either_today_or_in_the_future
-    return if expires_on_is_before_today?
+  def whether_expires_on_at_least_one_month_from_now
+    return if expires_on_is_at_least_one_month_from_now?
 
-    errors.add :expires_on, :cant_be_retroactive
+    errors.add :expires_on, :at_least_one_month_from_now
   end
 
-  def expires_on_is_before_today?
-    expires_on && Date.today <= expires_on
+  def expires_on_is_at_least_one_month_from_now?
+    expires_on && Date.today + 1.month <= expires_on
   end
 
   def titleize_attributes

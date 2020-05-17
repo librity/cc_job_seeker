@@ -13,24 +13,24 @@
 
   <div class='form-group'>
     <%= f.label :description %>
-    <%= f.text_area :description, required: true, class: 'form-control' %>
+    <%= f.text_area :description, required: true, min: 50, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :expires_on %>
-    <%= f.date_field :expires_on, value: Date.today + 1.month, min: Date.today, 
+    <%= f.date_field :expires_on, value: Date.today + 1.month, min: Date.today + 1.month, 
                      required: true, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :salary_floor %>
-    <%= f.number_field :salary_floor, required: true, min: Job::BRAZILIAN_MINIMUM_WAGE,
+    <%= f.number_field :salary_floor, required: true, min: @job.minimum_wage,
                         class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :salary_roof %>
-    <%= f.number_field :salary_roof, required: true, min: Job::BRAZILIAN_MINIMUM_WAGE + 200,
+    <%= f.number_field :salary_roof, required: true, min: @job.minimum_wage + 200,
                         class: 'form-control' %>
   </div>
 

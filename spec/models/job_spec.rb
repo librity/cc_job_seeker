@@ -168,12 +168,12 @@ describe Job, type: :model do
       expect(subject.errors[:expires_on]).to include(I18n.t('errors.messages.invalid'))
     end
 
-    it 'must be in the future' do
-      subject.expires_on = Date.yesterday - 2.days
+    it 'must be at least one month in the future' do
+      subject.expires_on = Date.today + 1.month - 2.days
 
       expect(subject).to_not be_valid
       expect(subject.errors[:expires_on]).to include(I18n
-        .t('activerecord.errors.models.job.attributes.expires_on.cant_be_retroactive'))
+        .t('activerecord.errors.models.job.attributes.expires_on.at_least_one_month_from_now'))
     end
   end
 
@@ -203,7 +203,7 @@ describe Job, type: :model do
   end
 
   context 'scope: created_by' do
-    it 'should filter by head and sort by descending expiration date' do
+    it 'should filter by head_hunter' do
       target_head_hunter = create :head_hunter
       job_a = create :job, head_hunter: target_head_hunter
       job_b = create :job, head_hunter: target_head_hunter
@@ -217,7 +217,7 @@ describe Job, type: :model do
       create :job, head_hunter: arbitrary_head_hunter
 
       expect(described_class.created_by(target_head_hunter))
-        .to eq [job_a, job_b, job_c, job_d].sort_by(&:expires_on).reverse
+        .to match_array [job_a, job_b, job_c, job_d]
     end
   end
 
