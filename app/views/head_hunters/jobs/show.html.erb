@@ -15,7 +15,7 @@
       <aside class="col-3">
         <dl class="side_info_box">
           <dt><%= t('activerecord.attributes.job.created_by') %>:</dt>
-          <dd><%= @job.head_hunter.name %> </dd>
+          <dd><%= @job.head_hunter.resolve_name %> </dd>
           <dt><%= t('activerecord.attributes.head_hunter.email') %>:</dt>
           <dd><%= @job.head_hunter.email %> </dd>
         </dl>

@@ -18,7 +18,7 @@
 
   <div class='form-group'>
     <%= f.label :expires_on %>
-    <%= f.date_field :expires_on, value: Date.today + 1.month, min: Date.today + 1.month, 
+    <%= f.date_field :expires_on, value: 1.month.from_now, min: 1.month.from_now, 
                      required: true, class: 'form-control' %>
   </div>
 

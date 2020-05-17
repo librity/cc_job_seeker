@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 # Load all locales in config/locales/*
 I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]

@@ -8,6 +8,12 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :social_name %><br />
+    <%= f.text_field :social_name, min: 5, autocomplete: "social_name",
+                      class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, required: true, autocomplete: "email", class: 'form-control' %>
   </div>

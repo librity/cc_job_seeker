@@ -32,6 +32,7 @@ require 'rspec/rails'
 #
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 require 'support/devise_support.rb'
+require 'support/file_upload_support.rb'
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -47,8 +48,9 @@ RSpec.configure do |config|
   # Warden after evry test so to romove any created or logged-in users.
   config.include Warden::Test::Helpers
   config.include FactoryBot::Syntax::Methods
-  config.include DeviseSupport
   config.include ActionView::Helpers::NumberHelper
+  config.include DeviseSupport
+  config.include FileUploadSupport
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  Capus Code, TreinaDev Challenge: Job Seeker
+  Capus Code Challenge: Job Seeker
 </h3>
 
 <p align="center">
@@ -53,11 +53,15 @@ The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/s
 - 🇳 [Notion Project](https://www.notion.so/Job-Seeker-App-d552bcce80d44ec6acca0cf9e0fa7177)
 - 🧠 [Mind Map](https://whimsical.com/YC614KMAmRZd2xQFVx5hej)
 
-<img alt="Application's Mind Map" title="Application's Mind Map" src=".github/mindmap_2020_05_10.png" />
+<a href="https://whimsical.com/YC614KMAmRZd2xQFVx5hej">
+  <img alt="Application's Mind Map" title="Application's Mind Map" src=".github/mindmap_2020_05_10.png" />
+</a>
 
 - ↪️ [Flow Chart](https://whimsical.com/DAm28ZodewYVsAwZ2aJ4va)
 
-<img alt="Application's Flowchart" title="Application's Flowchart" src=".github/flowchart_2020_05_10.png.png" />
+<a href="https://whimsical.com/DAm28ZodewYVsAwZ2aJ4va">
+  <img alt="Application's Flowchart" title="Application's Flowchart" src=".github/flowchart_2020_05_10.png.png" />
+</a>
 
 ## 💅 Layout
 
@@ -173,4 +177,4 @@ This software is distributed under the MIT license. Read the [LICENSE](LICENSE.m
 
 ---
 
-Made with 💖 by Librity 👋
+Made with [💖](https://www.youtube.com/watch?v=ZtWTUt2RZh0) by [Librity](https://github.com/librity) 👋

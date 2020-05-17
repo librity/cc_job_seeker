@@ -9,5 +9,9 @@ FactoryBot.define do
     trait :skip_validate do
       to_create { |instance| instance.save validate: false }
     end
+
+    trait :with_social_name do
+      social_name { Faker::Name.unique.name }
+    end
   end
 end

@@ -2,15 +2,15 @@
 
 FactoryBot.define do
   factory :job do
+    head_hunter
     position { Faker::Job.unique.position }
     title { Faker::Job.unique.title }
-    description { Faker::Lorem.unique.paragraph_by_chars number: 256, supplemental: false }
+    description { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
     skills { (1..3).map { |_n| Faker::Job.key_skill }.join ', ' }
     salary_floor { Faker::Number.unique.within range: 1500..10_000 }
     salary_roof { salary_floor + Faker::Number.unique.within(range: 200..800) }
     location { Faker::Address.unique.full_address }
     expires_on { Faker::Date.forward(days: 30) + 1.month }
-    head_hunter
 
     trait :skip_validate do
       to_create { |instance| instance.save validate: false }

@@ -31,6 +31,7 @@ pt-BR:
         password_confirmation: Confirmação de senha
         current_password: Senha atual
         name: Nome completo
+        social_name: Nome social completo
 
       job_seeker:
         <<: *attr_defaults

@@ -169,7 +169,7 @@ describe Job, type: :model do
     end
 
     it 'must be at least one month in the future' do
-      subject.expires_on = Date.today + 1.month - 2.days
+      subject.expires_on = 1.month.from_now - 2.days
 
       expect(subject).to_not be_valid
       expect(subject.errors[:expires_on]).to include(I18n

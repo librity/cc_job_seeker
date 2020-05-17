@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_184718) do
+ActiveRecord::Schema.define(version: 2020_05_17_212022) do
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "head_hunters", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,10 +50,25 @@ ActiveRecord::Schema.define(version: 2020_05_16_184718) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", default: "Jesse Smith", null: false
+    t.string "social_name"
     t.index ["email"], name: "index_head_hunters_on_email", unique: true
     t.index ["name"], name: "index_head_hunters_on_name"
     t.index ["reset_password_token"], name: "index_head_hunters_on_reset_password_token", unique: true
+    t.index ["social_name"], name: "index_head_hunters_on_social_name"
     t.index ["unlock_token"], name: "index_head_hunters_on_unlock_token", unique: true
+  end
+
+  create_table "job_seeker_profiles", force: :cascade do |t|
+    t.date "date_of_birth"
+    t.string "high_school"
+    t.string "college"
+    t.string "degrees"
+    t.string "courses"
+    t.string "interests"
+    t.text "description"
+    t.string "work_experience"
+    t.integer "job_seeker_id", null: false
+    t.index ["job_seeker_id"], name: "index_job_seeker_profiles_on_job_seeker_id"
   end
 
   create_table "job_seekers", force: :cascade do |t|
@@ -52,9 +88,11 @@ ActiveRecord::Schema.define(version: 2020_05_16_184718) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", default: "Jesse Smith", null: false
+    t.string "social_name"
     t.index ["email"], name: "index_job_seekers_on_email", unique: true
     t.index ["name"], name: "index_job_seekers_on_name"
     t.index ["reset_password_token"], name: "index_job_seekers_on_reset_password_token", unique: true
+    t.index ["social_name"], name: "index_job_seekers_on_social_name"
     t.index ["unlock_token"], name: "index_job_seekers_on_unlock_token", unique: true
   end
 
@@ -74,5 +112,7 @@ ActiveRecord::Schema.define(version: 2020_05_16_184718) do
     t.index ["head_hunter_id"], name: "index_jobs_on_head_hunter_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_seeker_profiles", "job_seekers"
   add_foreign_key "jobs", "head_hunters"
 end

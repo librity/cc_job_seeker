@@ -58,7 +58,7 @@ class Job < ApplicationRecord
   end
 
   def expires_on_is_at_least_one_month_from_now?
-    expires_on && Date.today + 1.month <= expires_on
+    expires_on && 1.month.from_now <= expires_on
   end
 
   def titleize_attributes

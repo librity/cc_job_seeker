@@ -87,7 +87,7 @@ feature 'Head Hunter can register a job' do
     click_on I18n.t('activerecord.models.job.other')
     click_on I18n.t('views.navigation.new')
 
-    fill_in I18n.t('activerecord.attributes.job.expires_on'), with: Date.today + 1.month - 2.days
+    fill_in I18n.t('activerecord.attributes.job.expires_on'), with: 1.month.from_now - 2.days
     click_on I18n.t('views.actions.send')
 
     expect(page).to have_content I18n

@@ -101,4 +101,26 @@ describe HeadHunter, type: :model do
       expect(subject.name).to eq 'Ana Schafer'
     end
   end
+
+  context 'validation: social_name' do
+    it 'should be saved as title-case' do
+      subject.social_name = 'ana schafer'
+
+      subject.save!
+
+      expect(subject.social_name).to eq 'Ana Schafer'
+    end
+  end
+
+  context 'method: resolve_name' do
+    it 'should return social_name if it exists' do
+      subject = create :head_hunter, :with_social_name
+
+      expect(subject.resolve_name).to be subject.social_name
+    end
+
+    it 'should return name otherwise' do
+      expect(subject.resolve_name).to be subject.name
+    end
+  end
 end
