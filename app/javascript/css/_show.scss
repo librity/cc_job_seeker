@@ -24,3 +24,15 @@
   background-color: $simple-background;
   color: $gray;
 }
+
+.profile_avatar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid $pallette-rhythm;
+}

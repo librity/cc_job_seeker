@@ -7,6 +7,8 @@ feature 'Head Hunter can browse jobs' do
     let!(:head_hunter) { log_head_hunter_in! }
 
     scenario 'successfully' do
+      Faker::Job.unique.clear
+
       job_a = create :job, head_hunter: head_hunter
       job_b = create :job, head_hunter: head_hunter
 

@@ -38,4 +38,15 @@ feature 'Job Seeker can signup' do
     expect(current_path).to eq new_job_seekers_profile_path
     expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
   end
+
+  context 'and gets redirected to profile creation' do
+    let!(:job_seeker) { log_job_seeker_in! with_profile: false }
+
+    scenario 'if it tries to access other resources' do
+      visit root_path
+      click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
+
+      expect(current_path).to eq new_job_seekers_profile_path
+    end
+  end
 end

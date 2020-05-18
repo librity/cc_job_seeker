@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Job, type: :model do
-  let(:subject) { create :job }
+  let!(:subject) { create :job }
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid

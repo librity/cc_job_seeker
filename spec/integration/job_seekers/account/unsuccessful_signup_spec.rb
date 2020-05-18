@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 feature 'Job Seeker can signup' do
-  scenario 'and must fill in all fields' do
+  scenario 'and must fill required fields' do
     job_seeker = build :job_seeker
 
     visit root_path

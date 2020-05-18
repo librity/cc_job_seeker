@@ -1,4 +1,5 @@
-<%= form_with model: @profile, url: yield(:resource_path), local: true do |f| %>
+<%= form_with model: @profile, url: yield(:resource_path), local: true,
+              html: { method: yield(:method) } do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class='custom-file mb-3'>

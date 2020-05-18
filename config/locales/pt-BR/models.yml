@@ -20,6 +20,7 @@ pt-BR:
       job_seeker/profile:
         one: Perfil de Candidato
         other: Perfis de Candidato
+        my_profile: Meu perfil
 
     attributes:
       attr_defaults: &attr_defaults

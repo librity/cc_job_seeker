@@ -24,5 +24,8 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#index', as: :dashboard
 
     resources :profiles, only: %i[new create]
+    get '/profile', to: 'profiles#show', as: :show_profile
+    get '/profile/edit', to: 'profiles#edit', as: :edit_profile
+    patch '/profile', to: 'profiles#update', as: :update_profile
   end
 end
