@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :application do
+  factory :job_application, class: 'Job::Application' do
     job
     job_seeker
     cover_letter { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }

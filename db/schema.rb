@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_220924) do
+ActiveRecord::Schema.define(version: 2020_05_18_222633) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2020_05_18_220924) do
     t.index ["reset_password_token"], name: "index_head_hunters_on_reset_password_token", unique: true
     t.index ["social_name"], name: "index_head_hunters_on_social_name"
     t.index ["unlock_token"], name: "index_head_hunters_on_unlock_token", unique: true
+  end
+
+  create_table "job_applications", force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "job_seeker_id", null: false
+    t.text "cover_letter"
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
+    t.index ["job_seeker_id"], name: "index_job_applications_on_job_seeker_id"
   end
 
   create_table "job_seeker_profiles", force: :cascade do |t|
@@ -113,6 +121,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_220924) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_applications", "job_seekers"
+  add_foreign_key "job_applications", "jobs"
   add_foreign_key "job_seeker_profiles", "job_seekers"
   add_foreign_key "jobs", "head_hunters"
 end
