@@ -61,6 +61,19 @@ feature 'Head Hunter can browse jobs' do
       expect(page).not_to have_content I18n.l(job_b.expires_on)
     end
 
+    scenario "and show head hunter's social name" do
+      head_hunter.update social_name: Faker::Name.unique.name
+      job_a = create :job, head_hunter: head_hunter
+
+      visit root_path
+      click_on I18n.t('activerecord.models.job.other')
+      within "tr#job-#{job_a.id}" do
+        click_on I18n.t('views.navigation.details')
+      end
+
+      expect(page).to have_content job_a.head_hunter.social_name
+    end
+
     scenario 'when no jobs were created' do
       visit root_path
       click_on I18n.t('activerecord.models.job.other')

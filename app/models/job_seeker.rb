@@ -18,4 +18,8 @@ class JobSeeker < ApplicationRecord
 
     name
   end
+
+  def profile?
+    profile.present?
+  end
 end

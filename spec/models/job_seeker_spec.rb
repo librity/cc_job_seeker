@@ -123,4 +123,16 @@ describe JobSeeker, type: :model do
       expect(subject.resolve_name).to be subject.name
     end
   end
+
+  context 'method: profile?' do
+    it 'should return true if it has a profile' do
+      create :job_seeker_profile, job_seeker: subject
+
+      expect(subject.profile?).to be true
+    end
+
+    it 'should return false otherwise' do
+      expect(subject.profile?).to be false
+    end
+  end
 end

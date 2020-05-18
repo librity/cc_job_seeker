@@ -17,6 +17,10 @@ pt-BR:
         one: Vaga
         other: Vagas
 
+      job_seeker/profile:
+        one: Perfil de Candidato
+        other: Perfis de Candidato
+
     attributes:
       attr_defaults: &attr_defaults
         id: ID
@@ -36,6 +40,17 @@ pt-BR:
       job_seeker:
         <<: *attr_defaults
         <<: *device_defaults
+      
+      job_seeker/profile:
+        date_of_birth: Data de nascimento
+        high_school: Ensino médio
+        college: Faculdade
+        degrees: Diplomas
+        courses: Cursos
+        interests: Intereses
+        description: Descrição
+        work_experience: Experiencia de trabalho
+        avatar: Avatar de Candidato
 
       head_hunter:
         <<: *attr_defaults

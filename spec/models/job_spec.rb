@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 describe Job, type: :model do
-  after :each do
-    Faker::Job.unique.clear
-  end
-
   let(:subject) { create :job }
 
   it 'is valid with valid attributes' do

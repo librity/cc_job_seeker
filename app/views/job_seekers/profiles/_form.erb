@@ -1,0 +1,52 @@
+<%= form_with model: @profile, url: yield(:resource_path), local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class='custom-file mb-3'>
+    <%= f.label :avatar, class: "custom-file-label" %>
+    <%= f.file_field :avatar, multiple: false, direct_upload: true,
+                      required: true, class: 'custom-file-input form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :date_of_birth %>
+    <%= f.date_field :date_of_birth, required: true, 
+                      class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :high_school %>
+    <%= f.text_field :high_school, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :college %>
+    <%= f.text_field :college, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :degrees %>
+    <%= f.text_field :degrees, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :courses %>
+    <%= f.text_field :courses, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :interests %>
+    <%= f.text_field :interests, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :description %>
+    <%= f.text_area :description, required: true, min: 50, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :work_experience %>
+    <%= f.text_field :work_experience, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
+<% end %>

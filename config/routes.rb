@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   namespace :job_seekers do
     get '', to: 'dashboard#index', as: :root
     get '/dashboard', to: 'dashboard#index', as: :dashboard
+
+    resources :profiles, only: %i[new create]
   end
 end

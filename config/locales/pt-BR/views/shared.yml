@@ -11,6 +11,7 @@ pt-BR:
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
       cross_model_access: "Acesso entre contas não é permitido!"
       retire_job: "Tem certeza que deseja aposentar esta vaga?"
+      fill_out_to_finish: Preencha seu perfil para completar seu cadastro...
       successfully:
         created: "%{resource} criado(a) com sucesso!"
         updated: "%{resource} atualizado(a) com sucesso!"
@@ -58,6 +59,12 @@ pt-BR:
         description: "Todos os candidatos cadastrados na plataforma."
         empty_resource: "Nenhum candidato cadastrado"
         create: "Criar um novo Candidato"
+
+      job_seeker/profile:
+        description: "Todos os perfis de candidatos cadastrados na plataforma."
+        empty_resource: "Nenhum perfil de candidato cadastrado"
+        create: "Criar seu Perfil de Candidato"
+        context: Este perfil ajudara os head hunters avaliarem à tua aptidão para a vaga.
 
       head_hunter:
         description: "Todos os head hunters cadastrados na plataforma."
