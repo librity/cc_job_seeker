@@ -1,0 +1,23 @@
+<% if head_hunter_signed_in? %>
+  <% if current_head_hunter.avatar.attached? %>
+    <%= image_tag url_for(current_head_hunter.avatar),
+                alt: current_head_hunter.resolve_name,
+                class: 'headbar_avatar' %>
+  <% else %>
+    <%= image_tag 'avatar_placeholder.png',
+                alt: 'User avatar placeholder',
+                class: 'headbar_avatar' %>
+  <% end %>
+<% end %>
+
+<% if job_seeker_signed_in? %>
+  <% if current_job_seeker.avatar? %>
+    <%= image_tag url_for(current_job_seeker.profile.avatar), 
+                  alt: current_job_seeker.resolve_name, 
+                  class: 'headbar_avatar' %>
+  <% else %>
+    <%= image_tag 'avatar_placeholder.png',
+                alt: 'User avatar placeholder',
+                class: 'headbar_avatar' %>
+  <% end %> 
+<% end %>

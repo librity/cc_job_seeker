@@ -71,7 +71,7 @@ feature 'Head Hunter can register a job' do
     expect(page).to have_content I18n.t('errors.messages.too_short', count: 50)
   end
 
-  scenario 'and dates must be valid' do
+  scenario 'and expiration date must be valid' do
     visit root_path
     click_on I18n.t('activerecord.models.job.other')
     click_on I18n.t('views.navigation.new')

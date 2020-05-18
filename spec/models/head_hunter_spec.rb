@@ -123,4 +123,13 @@ describe HeadHunter, type: :model do
       expect(subject.resolve_name).to be subject.name
     end
   end
+
+  context 'validation: avatar' do
+    it 'cannot be blank' do
+      subject.avatar = nil
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:avatar]).to include(I18n.t('errors.messages.blank'))
+    end
+  end
 end

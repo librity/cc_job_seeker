@@ -15,6 +15,8 @@ class JobSeeker
     validates :date_of_birth, presence: true, format: { with: VALID_DATE_REGEX }
     validate :whether_job_seeker_is_at_least_sixteen
 
+    private
+
     def whether_job_seeker_is_at_least_sixteen
       return if date_of_birth_is_at_least_sixteen_years_ago?
 

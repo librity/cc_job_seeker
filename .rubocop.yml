@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion: 2.6.5
   Exclude:
     - 'bin/**/*'
     - 'db/schema.rb'
@@ -26,6 +27,8 @@ Layout/LineLength:
 Style/MethodDefParentheses:
   Enabled: true
   EnforcedStyle: require_no_parentheses
+  Exclude:
+    - "app/models/**/parameter_sanitizer.rb"
 
 Style/MethodCallWithArgsParentheses:
   Enabled: true

@@ -9,8 +9,8 @@
 
   <div class='form-group'>
     <%= f.label :date_of_birth %>
-    <%= f.date_field :date_of_birth, required: true, 
-                      class: 'form-control' %>
+    <%= f.date_field :date_of_birth, required: true, value: 16.years.ago, 
+                      max: 16.years.ago, class: 'form-control' %>
   </div>
 
   <div class='form-group'>

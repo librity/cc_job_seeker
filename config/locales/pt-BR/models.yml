@@ -55,6 +55,7 @@ pt-BR:
       head_hunter:
         <<: *attr_defaults
         <<: *device_defaults
+        avatar: Avatar de Head Hunter
 
       job:
         <<: *attr_defaults

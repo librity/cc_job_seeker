@@ -3,14 +3,17 @@
                   alt: t('views.application_name'), width: "180"), root_path, 
                   class: 'logo_svg' %>
 
-  <nav class='nav'>
-    <li class='nav_item'>
-      <%= link_to t('views.navigation.home'), root_path, class: 'nav_item' %>
-    </li>
+  <div class="headbar_right">
+    <nav class='nav'>
+      <li class='nav_item'>
+        <%= link_to t('views.navigation.home'), root_path, class: 'nav_item' %>
+      </li>
 
-    <%= render 'layouts/head_hunter_nav' %>
+      <%= render 'layouts/head_hunter_nav' %>
 
-    <%= render 'layouts/job_seeker_nav' %>
+      <%= render 'layouts/job_seeker_nav' %>
+    </nav>
 
-  </nav>
+    <%= render 'layouts/headbar_avatar' %>
+  </div>
 </header>

@@ -20,6 +20,11 @@
   background-color: $pallette-light-cyan;
 }
 
+.headbar_right {
+  display: flex;
+  align-items: center;
+}
+
 .nav_item {
   @include nav_link;
 
@@ -35,4 +40,13 @@
 
 .nav_dropdown_item {
   @include nav_link;
+}
+
+.headbar_avatar {
+  margin-left: 10px;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid $pallette-picotee-blue;
 }

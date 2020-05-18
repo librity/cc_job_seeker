@@ -9,6 +9,7 @@ feature 'Head Hunter can signup' do
       click_on I18n.t('views.navigation.create_account')
     end
 
+    attach_file I18n.t('activerecord.attributes.head_hunter.avatar'), FileUploadSupport.png_path
     fill_in I18n.t('activerecord.attributes.head_hunter.name'), with: 'Jesse Smith'
     fill_in I18n.t('activerecord.attributes.head_hunter.email'), with: 'test@example.com.br'
     fill_in I18n.t('activerecord.attributes.head_hunter.password'), with: '12345678'

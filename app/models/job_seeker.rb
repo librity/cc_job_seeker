@@ -22,4 +22,8 @@ class JobSeeker < ApplicationRecord
   def profile?
     profile.present?
   end
+
+  def avatar?
+    profile? && profile.avatar.attached?
+  end
 end

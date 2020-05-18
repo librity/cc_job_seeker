@@ -8,8 +8,8 @@ pt-BR:
             expires_on:
               cant_be_retroactive: não pode ser retroativa
               at_least_one_month_from_now: não pode ser retroativa
-        job_seeker:
-          profile:
-            attributes:
-              date_of_birth:
-                at_least_sixteen_years_ago: deve ser pelo menos 16 anos atrás
+
+        job_seeker/profile:
+          attributes:
+            date_of_birth:
+              at_least_sixteen_years_ago: deve ser pelo menos 16 anos atrás

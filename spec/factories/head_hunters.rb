@@ -5,6 +5,7 @@ FactoryBot.define do
     email { Faker::Internet.unique.email }
     password { Faker::Internet.unique.password min_length: 8 }
     name { Faker::Name.unique.name }
+    avatar { FileUploadSupport.png }
 
     trait :skip_validate do
       to_create { |instance| instance.save validate: false }
