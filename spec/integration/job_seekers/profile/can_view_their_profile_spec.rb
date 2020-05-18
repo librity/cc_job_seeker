@@ -20,7 +20,7 @@ feature 'Job Seeker can view their profile' do
       expect(page).to have_content job_seeker.profile.degrees
       expect(page).to have_content job_seeker.profile.courses
       expect(page).to have_content job_seeker.profile.interests
-      expect(page).to have_content job_seeker.profile.description
+      expect(page).to have_content job_seeker.profile.bio
       expect(page).to have_content job_seeker.profile.work_experience
       expect(page).to have_css 'img', count: 3
     end

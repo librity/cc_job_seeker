@@ -41,8 +41,8 @@ module JobSeekers
     def profile_params
       params.require(:job_seeker_profile).permit :date_of_birth, :high_school,
                                                  :college, :degrees, :courses,
-                                                 :interests, :description,
-                                                 :work_experience, :avatar
+                                                 :interests, :bio, :avatar,
+                                                 :work_experience
     end
 
     def load_profile

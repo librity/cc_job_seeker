@@ -60,19 +60,19 @@ describe JobSeeker::Profile, type: :model do
     end
   end
 
-  context 'validation: description' do
+  context 'validation: bio' do
     it 'cannot be blank' do
-      subject.description = ' '
+      subject.bio = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:description]).to include(I18n.t('errors.messages.blank'))
+      expect(subject.errors[:bio]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'must have at least 50 characters' do
-      subject.description = 'a' * 49
+      subject.bio = 'a' * 49
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:description]).to include(I18n.t('errors.messages.too_short', count: 50))
+      expect(subject.errors[:bio]).to include(I18n.t('errors.messages.too_short', count: 50))
     end
   end
 

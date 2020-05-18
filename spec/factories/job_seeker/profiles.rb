@@ -9,7 +9,7 @@ FactoryBot.define do
     degrees { (1..3).map { |_n| Faker::Educator.degree }.join ', ' }
     courses { (1..3).map { |_n| Faker::Educator.course_name }.join ', ' }
     interests { (1..3).map { |_n| Faker::IndustrySegments.sub_sector }.join ', ' }
-    description { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
+    bio { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
     work_experience { (1..3).map { |_n| "#{Faker::Job.title} at #{Faker::Company.name}" }.join ', ' }
     avatar { FileUploadSupport.png }
 

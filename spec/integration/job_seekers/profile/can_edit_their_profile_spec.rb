@@ -26,8 +26,8 @@ feature 'Job Seeker can edit their profile' do
               with: edited_profile.courses
       fill_in I18n.t('activerecord.attributes.job_seeker/profile.interests'),
               with: edited_profile.interests
-      fill_in I18n.t('activerecord.attributes.job_seeker/profile.description'),
-              with: edited_profile.description
+      fill_in I18n.t('activerecord.attributes.job_seeker/profile.bio'),
+              with: edited_profile.bio
       fill_in I18n.t('activerecord.attributes.job_seeker/profile.work_experience'),
               with: edited_profile.work_experience
       within 'form' do
@@ -43,7 +43,7 @@ feature 'Job Seeker can edit their profile' do
       expect(page).to have_content edited_profile.degrees
       expect(page).to have_content edited_profile.courses
       expect(page).to have_content edited_profile.interests
-      expect(page).to have_content edited_profile.description
+      expect(page).to have_content edited_profile.bio
       expect(page).to have_content edited_profile.work_experience
       expect(page).to have_css 'img', count: 3
     end
@@ -53,7 +53,7 @@ feature 'Job Seeker can edit their profile' do
       click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
       click_on I18n.t('views.navigation.edit')
 
-      fill_in I18n.t('activerecord.attributes.job_seeker/profile.description'),
+      fill_in I18n.t('activerecord.attributes.job_seeker/profile.bio'),
               with: '   '
       fill_in I18n.t('activerecord.attributes.job_seeker/profile.interests'),
               with: '   '

@@ -36,8 +36,8 @@ feature 'Job Seeker can signup' do
             with: profile.courses
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.interests'),
             with: profile.interests
-    fill_in I18n.t('activerecord.attributes.job_seeker/profile.description'),
-            with: profile.description
+    fill_in I18n.t('activerecord.attributes.job_seeker/profile.bio'),
+            with: profile.bio
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.work_experience'),
             with: profile.work_experience
     within 'form' do

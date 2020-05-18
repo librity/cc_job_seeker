@@ -131,17 +131,12 @@ Job Seeker:
 - [x] Signup, Login and Dashboard
 - [x] Creates and manages a profile-resume
 - [x] Browses active Job Openings
-- [ ] Searches active Job Openings by title and description
+- [x] Searches active Job Openings by title and description
 - [ ] Applies to a Job Opening
 - [ ] Gets notified when rejected for a Job
 - [ ] Gets notified when recieves a Job Offer
 - [ ] Can accept Job Offers
 - [ ] Can reject Job Offers
-- [ ] Gets notified when invited to an Interview
-- [ ] Can accept Interview invitation
-- [ ] Can reject Interview invitation
-- [ ] Recieves Interview feedback
-- [ ] Can Chat with Head Hunters
 
 
 ## 🏆 Bonus Features

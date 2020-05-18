@@ -7,7 +7,7 @@ class JobSeeker
     has_one_attached :avatar
 
     validates :job_seeker, presence: true
-    validates :description, presence: true, length: { minimum: 50 }
+    validates :bio, presence: true, length: { minimum: 50 }
     validates :interests, presence: true
     validates :high_school, presence: true
     validates :avatar, presence: true

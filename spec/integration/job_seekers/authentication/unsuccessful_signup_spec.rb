@@ -29,7 +29,7 @@ feature 'Job Seeker can signup' do
     expect(page).to have_content I18n.t('errors.messages.blank'), count: 4
   end
 
-  scenario 'and description should be at least 50 characters long' do
+  scenario 'and bio should be at least 50 characters long' do
     job_seeker = build :job_seeker
 
     visit root_path
@@ -48,7 +48,7 @@ feature 'Job Seeker can signup' do
     expect(current_path).to eq new_job_seekers_profile_path
     expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
 
-    fill_in I18n.t('activerecord.attributes.job_seeker/profile.description'), with: 'a' * 49
+    fill_in I18n.t('activerecord.attributes.job_seeker/profile.bio'), with: 'a' * 49
     within 'form' do
       click_on I18n.t('views.actions.send')
     end
