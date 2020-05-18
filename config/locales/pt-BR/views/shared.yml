@@ -44,7 +44,7 @@ pt-BR:
       retire: Aposentar
 
     placeholders:
-      filter_customers: Filtre por nome ou cpf
+      search_jobs: Procure vagas...
 
     head_hunter_dashboard:
       title: Dashboard do Head Hunter
@@ -73,8 +73,11 @@ pt-BR:
 
       jobs:
         description: "Todas as vagas da tua empresa."
+        job_seeker_description: "Todas as vagas ativas na plataforma."
         empty_resource: "Nenhuma vaga cadastrada"
         create: "Criar uma nova Vaga"
+        search: Procure uma vaga
+        not_found: Nenhuma vaga por esses dados
 
     footer:
       message_1: "Aplicação Rails desenvolvida por"

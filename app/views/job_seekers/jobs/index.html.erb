@@ -7,7 +7,11 @@
     <header class='header'>
       <h1><%= t('activerecord.models.job.other') %></h1>
 
-      <p><%= t('views.resources.jobs.description') %></p>
+      <div class="inline_filter">
+        <p><%= t('views.resources.jobs.job_seeker_description') %></p>
+
+        <%= render 'searchbar' %>
+      </div>
     </header>
 
     <section class='contents'>
