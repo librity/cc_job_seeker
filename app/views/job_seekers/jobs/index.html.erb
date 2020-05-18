@@ -2,7 +2,6 @@
   <div class='col-md-12'>
     <nav class='context_navigation'>
       <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-secondary' %>
-      <%= link_to t('views.navigation.new'), new_head_hunters_job_path, class: 'btn btn-primary' %>
     </nav>
 
     <header class='header'>
@@ -37,7 +36,7 @@
                   <%= l(job.expires_on) %>
                 </td>
 
-                <td><%= link_to t('views.navigation.details'), head_hunters_job_path(job), id: "details-#{job.id}" %></td>
+                <td><%= link_to t('views.navigation.details'), job_seekers_job_path(job), id: "details-#{job.id}" %></td>
               </tr>
             <% end %>
           </tbody>

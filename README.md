@@ -129,8 +129,8 @@ Head Hunters:
 Job Seeker:
 
 - [x] Signup, Login and Dashboard
-- [ ] Creates and manages a profile-resume
-- [ ] Browses active Job Openings
+- [x] Creates and manages a profile-resume
+- [x] Browses active Job Openings
 - [ ] Searches active Job Openings by title and description
 - [ ] Applies to a Job Opening
 - [ ] Gets notified when rejected for a Job

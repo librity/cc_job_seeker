@@ -27,6 +27,7 @@ class Job < ApplicationRecord
 
   default_scope -> { order expires_on: :desc }
   scope :created_by, ->(head_hunter) { where head_hunter: head_hunter }
+  scope :active, -> { where "retired = FALSE AND expires_on > DATE('now')" }
 
   def expired?
     expires_on < Date.today

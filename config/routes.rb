@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     get '/profile', to: 'profiles#show', as: :show_profile
     get '/profile/edit', to: 'profiles#edit', as: :edit_profile
     patch '/profile', to: 'profiles#update', as: :update_profile
+    resources :jobs, only: %i[index show]
   end
 end
