@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_222633) do
+ActiveRecord::Schema.define(version: 2020_05_19_213248) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,21 @@ ActiveRecord::Schema.define(version: 2020_05_18_222633) do
     t.text "cover_letter"
     t.index ["job_id"], name: "index_job_applications_on_job_id"
     t.index ["job_seeker_id"], name: "index_job_applications_on_job_seeker_id"
+  end
+
+  create_table "job_seeker_profile_comments", force: :cascade do |t|
+    t.integer "job_seeker_profile_id", null: false
+    t.integer "head_hunter_id", null: false
+    t.text "content"
+    t.index ["head_hunter_id"], name: "index_job_seeker_profile_comments_on_head_hunter_id"
+    t.index ["job_seeker_profile_id"], name: "index_job_seeker_profile_comments_on_job_seeker_profile_id"
+  end
+
+  create_table "job_seeker_profile_favorites", force: :cascade do |t|
+    t.integer "job_seeker_profile_id", null: false
+    t.integer "head_hunter_id", null: false
+    t.index ["head_hunter_id"], name: "index_job_seeker_profile_favorites_on_head_hunter_id"
+    t.index ["job_seeker_profile_id"], name: "index_job_seeker_profile_favorites_on_job_seeker_profile_id"
   end
 
   create_table "job_seeker_profiles", force: :cascade do |t|
@@ -123,6 +138,10 @@ ActiveRecord::Schema.define(version: 2020_05_18_222633) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "job_applications", "job_seekers"
   add_foreign_key "job_applications", "jobs"
+  add_foreign_key "job_seeker_profile_comments", "head_hunters"
+  add_foreign_key "job_seeker_profile_comments", "job_seeker_profiles"
+  add_foreign_key "job_seeker_profile_favorites", "head_hunters"
+  add_foreign_key "job_seeker_profile_favorites", "job_seeker_profiles"
   add_foreign_key "job_seeker_profiles", "job_seekers"
   add_foreign_key "jobs", "head_hunters"
 end
