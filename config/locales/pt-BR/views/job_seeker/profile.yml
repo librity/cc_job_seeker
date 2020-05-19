@@ -1,0 +1,8 @@
+---
+pt-BR:
+  views:
+    job_seeker/profile:
+      description: Todos os perfis de candidatos cadastrados na plataforma.
+      empty_resource: Nenhum perfil de candidato cadastrado
+      create: Criar seu Perfil de Candidato
+      context: Este perfil ajudara os head hunters avaliarem à tua aptidão para a vaga.

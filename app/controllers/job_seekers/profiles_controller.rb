@@ -9,7 +9,7 @@ module JobSeekers
 
     def new
       flash.clear
-      flash[:info] = t 'views.messages.fill_out_to_finish'
+      flash[:info] = t 'flash.fill_out_profile'
       @profile = JobSeeker::Profile.new
     end
 
@@ -28,7 +28,7 @@ module JobSeekers
 
     def update
       if @profile.update profile_params
-        flash[:success] = t 'views.messages.successfully.updated',
+        flash[:success] = t 'flash.updated',
                             resource: t('activerecord.models.job_seeker/profile.one')
         redirect_to job_seekers_show_profile_path
       else

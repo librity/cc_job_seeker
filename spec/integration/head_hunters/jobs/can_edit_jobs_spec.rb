@@ -21,7 +21,7 @@ feature 'Head Hunter can edit a job' do
     click_on I18n.t('views.actions.send')
 
     expect(page).to have_content('Camião')
-    expect(page).to have_content I18n.t('views.messages.successfully.updated',
+    expect(page).to have_content I18n.t('flash.updated',
                                         resource: I18n.t('activerecord.models.car_category.one'))
   end
 

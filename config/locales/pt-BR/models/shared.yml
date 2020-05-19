@@ -75,3 +75,6 @@ pt-BR:
         inactive: Inativa
         expires_on: Data limite
         created_by: Criado por
+
+      job/application:
+        cover_letter: Carta de apresentação

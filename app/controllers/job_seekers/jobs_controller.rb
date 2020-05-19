@@ -22,7 +22,7 @@ module JobSeekers
       return unless @jobs.blank?
 
       @jobs = Job.active
-      flash.now[:info] = t 'views.resources.jobs.not_found'
+      flash.now[:info] = t 'flash.job_not_found'
     end
   end
 end

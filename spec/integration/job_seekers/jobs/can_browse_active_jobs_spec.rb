@@ -80,7 +80,7 @@ feature 'Job Seeker can browse active jobs' do
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
 
-      expect(page).to have_content I18n.t('views.resources.jobs.empty_resource')
+      expect(page).to have_content I18n.t('views.jobs.empty_resource')
     end
 
     scenario 'and return to home page' do

@@ -20,7 +20,7 @@ feature 'Job Seeker can signup' do
     end
 
     expect(current_path).to eq new_job_seekers_profile_path
-    expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
+    expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     within 'form' do
       click_on I18n.t('views.actions.send')
@@ -46,7 +46,7 @@ feature 'Job Seeker can signup' do
     end
 
     expect(current_path).to eq new_job_seekers_profile_path
-    expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
+    expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.bio'), with: 'a' * 49
     within 'form' do
@@ -73,7 +73,7 @@ feature 'Job Seeker can signup' do
     end
 
     expect(current_path).to eq new_job_seekers_profile_path
-    expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
+    expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.date_of_birth'), with: 'dsa211$'
     within 'form' do
@@ -100,7 +100,7 @@ feature 'Job Seeker can signup' do
     end
 
     expect(current_path).to eq new_job_seekers_profile_path
-    expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
+    expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.date_of_birth'), with: 15.years.ago
     within 'form' do

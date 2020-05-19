@@ -1,0 +1,9 @@
+---
+pt-BR:
+  flash:
+    cross_model_access: Acesso entre contas não é permitido!
+    created: "%{resource} criado(a) com sucesso!"
+    updated: "%{resource} atualizado(a) com sucesso!"
+    destroyed: "%{resource} removido(a) com sucesso!"
+    job_not_found: Nenhuma vaga por esses dados
+    fill_out_profile: Preencha seu perfil para completar seu cadastro...

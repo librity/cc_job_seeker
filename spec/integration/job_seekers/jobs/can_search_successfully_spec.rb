@@ -32,7 +32,7 @@ feature 'Job Seeker can search active jobs ' do
       expect(page).to have_content job_d.title
       expect(page).to have_content I18n.l(job_d.expires_on)
 
-      fill_in I18n.t('views.resources.jobs.search'),
+      fill_in I18n.t('views.jobs.search'),
               with: 'undertaker'
       click_on I18n.t('views.actions.search')
 
@@ -51,7 +51,7 @@ feature 'Job Seeker can search active jobs ' do
       expect(page).not_to have_content job_d.title
       expect(page).not_to have_content I18n.l(job_d.expires_on)
 
-      fill_in I18n.t('views.resources.jobs.search'),
+      fill_in I18n.t('views.jobs.search'),
               with: 'dertak'
       click_on I18n.t('views.actions.search')
 
@@ -70,7 +70,7 @@ feature 'Job Seeker can search active jobs ' do
       expect(page).not_to have_content job_d.title
       expect(page).not_to have_content I18n.l(job_d.expires_on)
 
-      fill_in I18n.t('views.resources.jobs.search'),
+      fill_in I18n.t('views.jobs.search'),
               with: 'Undertaker'
       click_on I18n.t('views.actions.search')
 

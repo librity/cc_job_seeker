@@ -32,7 +32,7 @@ feature 'Head Hunter can register a job' do
     click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq head_hunters_job_path(Job.last.id)
-    expect(page).to have_content I18n.t('views.messages.successfully.created',
+    expect(page).to have_content I18n.t('flash.created',
                                         resource: I18n.t('activerecord.models.job.one'))
 
     expect(page).to have_content job_attributes.position.titleize

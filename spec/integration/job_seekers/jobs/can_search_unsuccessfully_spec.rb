@@ -17,12 +17,12 @@ feature 'Job Seeker can search active jobs ' do
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
 
-      fill_in I18n.t('views.resources.jobs.search'),
+      fill_in I18n.t('views.jobs.search'),
               with: Faker::Books::Lovecraft.location
       click_on I18n.t('views.actions.search')
 
       expect(current_path).to eq job_seekers_jobs_path
-      expect(page).to have_content I18n.t('views.resources.jobs.not_found')
+      expect(page).to have_content I18n.t('flash.job_not_found')
 
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title
@@ -38,12 +38,12 @@ feature 'Job Seeker can search active jobs ' do
       expect(page).to have_content job_d.title
       expect(page).to have_content I18n.l(job_d.expires_on)
 
-      fill_in I18n.t('views.resources.jobs.search'),
+      fill_in I18n.t('views.jobs.search'),
               with: Faker::Books::Lovecraft.location
       click_on I18n.t('views.actions.search')
 
       expect(current_path).to eq job_seekers_jobs_path
-      expect(page).to have_content I18n.t('views.resources.jobs.not_found')
+      expect(page).to have_content I18n.t('flash.job_not_found')
 
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title

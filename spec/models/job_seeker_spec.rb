@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 describe JobSeeker, type: :model do
+  describe 'relationships' do
+    it { should respond_to(:profile) }
+    it { should respond_to(:applications) }
+  end
+
   let(:subject) { create :job_seeker }
 
   it 'is valid with valid attributes' do

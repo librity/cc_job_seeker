@@ -20,8 +20,8 @@ feature 'Head Hunter can retire a job' do
 
     expect(current_path).to eq car_categories_path
     expect(CarCategory.count).to eq 0
-    expect(page).to have_content(I18n.t('views.resources.car_categories.empty_resource'))
-    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+    expect(page).to have_content(I18n.t('views.car_categories.empty_resource'))
+    expect(page).to have_content(I18n.t('flash.destroyed',
                                         resource: I18n.t('activerecord.models.car_category.one')))
   end
 
@@ -40,7 +40,7 @@ feature 'Head Hunter can retire a job' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
-    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+    expect(page).to have_content(I18n.t('flash.destroyed',
                                         resource: I18n.t('activerecord.models.car_category.one')))
     expect(CarCategory.count).to eq 1
     expect(page).not_to have_content('Sedan')

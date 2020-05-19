@@ -8,7 +8,7 @@
       <h1><%= t('activerecord.models.job.other') %></h1>
 
       <div class="inline_filter">
-        <p><%= t('views.resources.jobs.job_seeker_description') %></p>
+        <p><%= t('views.jobs.job_seeker_description') %></p>
 
         <%= render 'searchbar' %>
       </div>
@@ -17,7 +17,7 @@
     <section class='contents'>
 
       <% if @jobs.empty? %>
-        <p class="empty_resource"><%= t('views.resources.jobs.empty_resource') %></p>
+        <p class="empty_resource"><%= t('views.jobs.empty_resource') %></p>
       <% else %>
 
       <table class="col index_table">

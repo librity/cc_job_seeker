@@ -5,6 +5,7 @@ class JobSeeker < ApplicationRecord
          :validatable, :lockable, :timeoutable, :trackable
 
   has_one :profile, dependent: :destroy, class_name: JobSeeker::Profile.name
+  has_many :applications, dependent: :destroy, class_name: Job::Application.name
 
   before_save { email.downcase! }
   before_save { self.name = name.titleize }

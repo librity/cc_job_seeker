@@ -4,6 +4,7 @@ class Job < ApplicationRecord
   BRAZILIAN_MINIMUM_WAGE = 1039
 
   belongs_to :head_hunter
+  has_many :applications, dependent: :destroy, class_name: Job::Application.name
 
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 50 }

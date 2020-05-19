@@ -18,7 +18,7 @@ module HeadHunters
       @job = Job.new job_params
       @job.head_hunter = current_head_hunter
       if @job.save
-        flash[:success] = t 'views.messages.successfully.created',
+        flash[:success] = t 'flash.created',
                             resource: t('activerecord.models.job.one')
         redirect_to head_hunters_job_path @job
       else

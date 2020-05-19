@@ -20,7 +20,7 @@ feature 'Job Seeker can signup' do
     end
 
     expect(current_path).to eq new_job_seekers_profile_path
-    expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
+    expect(page).to have_content I18n.t('flash.fill_out_profile')
     click_on I18n.t('views.actions.log_out')
 
     expect(current_path).to eq root_path
@@ -36,7 +36,7 @@ feature 'Job Seeker can signup' do
     end
 
     expect(current_path).to eq new_job_seekers_profile_path
-    expect(page).to have_content I18n.t('views.messages.fill_out_to_finish')
+    expect(page).to have_content I18n.t('flash.fill_out_profile')
   end
 
   context 'and gets redirected to profile creation' do

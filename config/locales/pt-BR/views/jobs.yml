@@ -1,0 +1,9 @@
+---
+pt-BR:
+  views:
+    jobs:
+      description: "Todas as vagas da tua empresa."
+      job_seeker_description: "Todas as vagas ativas na plataforma."
+      empty_resource: "Nenhuma vaga cadastrada"
+      create: "Criar uma nova Vaga"
+      search: Procure uma vaga

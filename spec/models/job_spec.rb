@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 describe Job, type: :model do
+  describe 'relationships' do
+    it { should respond_to(:head_hunter) }
+    it { should respond_to(:applications) }
+  end
+
   let!(:subject) { create :job }
 
   it 'is valid with valid attributes' do
