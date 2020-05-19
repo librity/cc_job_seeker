@@ -1,0 +1,34 @@
+---
+pt-BR:
+  activemodel:
+    errors:
+
+  activerecord:
+    models:
+      job:
+        one: Vaga
+        other: Vagas
+
+    attributes:
+      attr_defaults: &attr_defaults
+        id: ID
+        created_at: Criado
+        updated_at: Alterado
+        deleted_at: Excluído
+
+      job:
+        <<: *attr_defaults
+        title: Titulo
+        description: Descrição
+        skills: Habilidades
+        salary_floor: Salário minimo
+        salary_roof: Salário mássimo
+        salary_range: Faixa salarial
+        position: Posição
+        location: Local
+        status: Status
+        retired: Aposentada
+        active: Ativa
+        inactive: Inativa
+        expires_on: Data limite
+        created_by: Criado por

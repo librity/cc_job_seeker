@@ -1,0 +1,7 @@
+---
+pt-BR:
+  views:
+    job_seekers:
+      dashboard:
+        title: Dashboard do Candidato
+        greeting: Bem vindo de volta!

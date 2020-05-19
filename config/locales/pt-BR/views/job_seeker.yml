@@ -1,7 +1,7 @@
 ---
 pt-BR:
   views:
-    job_seeker:
+    job_seekers:
       description: "Todos os candidatos cadastrados na plataforma."
       empty_resource: "Nenhum candidato cadastrado"
       create: "Criar um novo Candidato"

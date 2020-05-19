@@ -1,0 +1,21 @@
+---
+pt-BR:
+  activemodel:
+    errors:
+
+  activerecord:
+    models:
+      job/application:
+        one: Applicação
+        other: Applicações
+
+    attributes:
+      attr_defaults: &attr_defaults
+        id: ID
+        created_at: Criado
+        updated_at: Alterado
+        deleted_at: Excluído
+
+      job/application:
+        <<: *attr_defaults
+        cover_letter: Carta de apresentação

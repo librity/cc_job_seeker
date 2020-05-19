@@ -26,8 +26,8 @@ feature 'User opens home page' do
     expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_job_seeker_registration_path
 
-    expect(page).to have_content I18n.t('views.job_seeker_dashboard.title')
-    expect(page).to have_content I18n.t('views.job_seeker_dashboard.greeting')
+    expect(page).to have_content I18n.t('views.job_seekers.dashboard.title')
+    expect(page).to have_content I18n.t('views.job_seekers.dashboard.greeting')
 
     expect(page).to have_content I18n.t('views.footer.message_1')
     expect(page).to have_link 'Luis Geniole', href: 'https://github.com/librity'

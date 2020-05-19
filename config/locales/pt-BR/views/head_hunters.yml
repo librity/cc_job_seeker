@@ -1,7 +1,7 @@
 ---
 pt-BR:
   views:
-    head_hunter:
+    head_hunters:
       description: "Todos os head hunters cadastrados na plataforma."
       empty_resource: "Nenhum head hunter cadastrado"
       create: "Criar um novo Head Hunters"

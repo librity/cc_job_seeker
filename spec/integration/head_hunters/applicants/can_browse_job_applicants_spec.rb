@@ -48,6 +48,7 @@ feature 'Head Hunter can browse job applicants' do
       end
       click_on applicant.resolve_name
 
+      expect(current_path).to eq head_hunters_job_applicant_path(job_a, applicant)
       expect(page).to have_content applicant.resolve_name
       expect(page).to have_content I18n.l(applicant.profile.date_of_birth)
       expect(page).to have_content applicant.profile.high_school
@@ -69,7 +70,7 @@ feature 'Head Hunter can browse job applicants' do
         click_on I18n.t('views.navigation.details')
       end
 
-      expect(page).to have_content I18n.t('views.job_seeker/applications.empty_resource')
+      expect(page).to have_content I18n.t('views.job_seekers/applications.empty_resource')
     end
 
     scenario 'and return to jobs page' do

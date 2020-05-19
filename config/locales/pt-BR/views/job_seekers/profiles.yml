@@ -1,7 +1,7 @@
 ---
 pt-BR:
   views:
-    job_seeker/profile:
+    job_seekers/profiles:
       description: Todos os perfis de candidatos cadastrados na plataforma.
       empty_resource: Nenhum perfil de candidato cadastrado
       create: Criar seu Perfil de Candidato

@@ -7,13 +7,13 @@
     <header class='header'>
       <h1><%= t('activerecord.models.job/application.other') %></h1>
 
-      <p><%= t('views.job_seeker/applications.description') %></p>
+      <p><%= t('views.job_seekers/applications.description') %></p>
     </header>
 
     <section class='contents'>
 
       <% if @applications.empty? %>
-        <p class="empty_resource"><%= t('views.job_seeker/applications.empty_resource') %></p>
+        <p class="empty_resource"><%= t('views.job_seekers/applications.empty_resource') %></p>
       <% else %>
 
       <table class="col index_table">

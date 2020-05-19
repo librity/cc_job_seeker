@@ -118,7 +118,7 @@ Head Hunters:
 
 - [x] Signup, Login and Dashboard
 - [x] Creates a Job Opening
-- [ ] Can browse Applicants
+- [x] Can browse Applicants
 - [ ] Can comment on Applicant's profile
 - [ ] Can favorite an Applicant's profile
 - [ ] Can reject an Applicant

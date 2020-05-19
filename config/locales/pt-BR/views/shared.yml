@@ -43,14 +43,6 @@ pt-BR:
     placeholders:
       search_jobs: Procure vagas...
 
-    head_hunter_dashboard:
-      title: Dashboard do Head Hunter
-      greeting: Bem vindo de volta!
-
-    job_seeker_dashboard:
-      title: Dashboard do Candidato
-      greeting: Bem vindo de volta!
-
     footer:
       message_1: "Aplicação Rails desenvolvida por"
       message_2: "como parte do"

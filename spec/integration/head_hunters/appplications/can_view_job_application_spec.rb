@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Head Hunter can browse job applicants' do
+feature 'Head Hunter can browse job applications' do
   context 'when logged-in' do
     let!(:head_hunter) { log_head_hunter_in! }
 

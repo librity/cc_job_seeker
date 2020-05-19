@@ -1,7 +1,7 @@
 ---
 pt-BR:
   views:
-    job_seeker/applications:
+    job_seekers/applications:
       description: Todas as tuas applicações às vagas.
       empty_resource: Nenhuma applicação feita
       create: Applicar à vaga

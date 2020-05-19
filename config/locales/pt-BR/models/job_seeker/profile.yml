@@ -1,0 +1,30 @@
+---
+pt-BR:
+  activemodel:
+    errors:
+
+  activerecord:
+    models:
+      job_seeker/profile:
+        one: Perfil de Candidato
+        other: Perfis de Candidato
+        my_profile: Meu perfil
+
+    attributes:
+      attr_defaults: &attr_defaults
+        id: ID
+        created_at: Criado
+        updated_at: Alterado
+        deleted_at: Excluído
+
+      job_seeker/profile:
+        <<: *attr_defaults
+        date_of_birth: Data de nascimento
+        high_school: Ensino médio
+        college: Faculdade
+        degrees: Diplomas
+        courses: Cursos
+        interests: Intereses
+        bio: Descrição
+        work_experience: Experiencia de trabalho
+        avatar: Avatar de Candidato

@@ -13,19 +13,6 @@ pt-BR:
         one: Head Hunter
         other: Head Hunters
 
-      job:
-        one: Vaga
-        other: Vagas
-
-      job/application:
-        one: Applicação
-        other: Applicações
-
-      job_seeker/profile:
-        one: Perfil de Candidato
-        other: Perfis de Candidato
-        my_profile: Meu perfil
-
     attributes:
       attr_defaults: &attr_defaults
         id: ID
@@ -45,39 +32,8 @@ pt-BR:
       job_seeker:
         <<: *attr_defaults
         <<: *device_defaults
-      
-      job_seeker/profile:
-        date_of_birth: Data de nascimento
-        high_school: Ensino médio
-        college: Faculdade
-        degrees: Diplomas
-        courses: Cursos
-        interests: Intereses
-        bio: Descrição
-        work_experience: Experiencia de trabalho
-        avatar: Avatar de Candidato
 
       head_hunter:
         <<: *attr_defaults
         <<: *device_defaults
         avatar: Avatar de Head Hunter
-
-      job:
-        <<: *attr_defaults
-        title: Titulo
-        description: Descrição
-        skills: Habilidades
-        salary_floor: Salário minimo
-        salary_roof: Salário mássimo
-        salary_range: Faixa salarial
-        position: Posição
-        location: Local
-        status: Status
-        retired: Aposentada
-        active: Ativa
-        inactive: Inativa
-        expires_on: Data limite
-        created_by: Criado por
-
-      job/application:
-        cover_letter: Carta de apresentação
