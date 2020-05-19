@@ -6,6 +6,7 @@ describe Job, type: :model do
   describe 'relationships' do
     it { should respond_to(:head_hunter) }
     it { should respond_to(:applications) }
+    it { should respond_to(:applicants) }
   end
 
   let!(:subject) { create :job }

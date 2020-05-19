@@ -5,6 +5,7 @@ class Job < ApplicationRecord
 
   belongs_to :head_hunter
   has_many :applications, dependent: :destroy, class_name: Job::Application.name
+  has_many :applicants, through: :applications, source: :job_seeker
 
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 50 }

@@ -34,6 +34,24 @@
         <dt><%= t('activerecord.attributes.job.expires_on') %>:</dt>
         <dd> <%= l(@job.expires_on) %> </dd>
       </dl>
+
+      <aside class="col-3">
+        <% if @job.applicants.empty? %>
+          <p class="empty_resource"><%= t('views.job_seeker/applications.empty_resource') %></p>
+        <% else %>
+          <dl class="side_info_box">
+            <dt><%= t('activerecord.models.job/application.other') %>:</dt>
+            <% @job.applicants.each do |applicant| %>
+              <dd>
+                <%= link_to applicant.resolve_name,
+                            head_hunters_job_applicant_path(@job, applicant), 
+                            id: "profile-#{applicant.id}" %>,
+                link_to_cover_letter
+              </dd>
+            <% end %>
+          </dl>
+        <% end %>
+      </aside>
     </section>
 
     <div class='actions mt-4'>
