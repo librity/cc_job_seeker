@@ -5,6 +5,7 @@ module HeadHunters
     def show
       @job = Job.find params[:job_id]
       @applicant = @job.applicants.find params[:id]
+      @profile = @applicant.profile
     end
   end
 end

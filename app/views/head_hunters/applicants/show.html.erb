@@ -7,13 +7,14 @@
     <header class='header'>
       <h1> <%= @applicant.resolve_name %> </h1>
 
-      <p> <%= @applicant.profile.bio %> </p>
+      <p> <%= @profile.bio %> </p>
     </header>
 
     <section class='contents row'>
+
       <aside class="col-3">
-        <% if @applicant.profile.avatar.attached? %>
-          <%= image_tag url_for(@applicant.profile.avatar),
+        <% if @profile.avatar.attached? %>
+          <%= image_tag url_for(@profile.avatar),
                       alt: @applicant.resolve_name,
                       class: 'profile_avatar center' %>
         <% else %>
@@ -28,22 +29,45 @@
         </dl>
       </aside>
 
-      <dl>
+      <dl class="col-5">
         <dt><%= t('activerecord.attributes.job_seeker/profile.date_of_birth') %>:</dt>
-        <dd> <%= l(@applicant.profile.date_of_birth) %> </dd>
+        <dd> <%= l(@profile.date_of_birth) %> </dd>
         <dt><%= t('activerecord.attributes.job_seeker/profile.high_school') %>:</dt>
-        <dd> <%= @applicant.profile.high_school %> </dd>
+        <dd> <%= @profile.high_school %> </dd>
         <dt><%= t('activerecord.attributes.job_seeker/profile.college') %>:</dt>
-        <dd> <%= @applicant.profile.college %> </dd>
+        <dd> <%= @profile.college %> </dd>
         <dt><%= t('activerecord.attributes.job_seeker/profile.degrees') %>:</dt>
-        <dd> <%= @applicant.profile.degrees %> </dd>
+        <dd> <%= @profile.degrees %> </dd>
         <dt><%= t('activerecord.attributes.job_seeker/profile.courses') %>:</dt>
-        <dd> <%= @applicant.profile.courses %> </dd>
+        <dd> <%= @profile.courses %> </dd>
         <dt><%= t('activerecord.attributes.job_seeker/profile.interests') %>:</dt>
-        <dd> <%= @applicant.profile.interests %> </dd>
+        <dd> <%= @profile.interests %> </dd>
         <dt><%= t('activerecord.attributes.job_seeker/profile.work_experience') %>:</dt>
-        <dd> <%= @applicant.profile.work_experience %> </dd>
+        <dd> <%= @profile.work_experience %> </dd>
       </dl>
+
+      <aside class="col-4">
+        <% if @profile.comments.empty? %>
+          <p class="empty_resource"><%= t('views.job_seekers/profiles/comments.empty_resource') %></p>
+        <% else %>
+          <dl class="side_info_box">
+            <dt><%= t('activerecord.models.job_seeker/profile/comment.other') %>:</dt>
+            <% @profile.comments.each do |comment| %>
+              <dt id="comment-<%= comment.id %>">
+                <%= comment.head_hunter.resolve_name %>,
+                <%= l(comment.created_at) %>
+              </dt>
+
+              <dt id="comment-<%= comment.id %>">
+                <%= comment.content %>
+              </dt>
+            <% end %>
+          </dl>
+        <% end %>
+
+        
+      </aside>
+
     </section>
 
     <div class='actions mt-4'>

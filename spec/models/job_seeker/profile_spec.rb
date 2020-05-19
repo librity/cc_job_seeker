@@ -5,6 +5,8 @@ require 'rails_helper'
 describe JobSeeker::Profile, type: :model do
   describe 'relationships' do
     it { should respond_to(:job_seeker) }
+    it { should respond_to(:comments) }
+    it { should respond_to(:favorites) }
   end
 
   let(:subject) { create :job_seeker_profile }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_213248) do
+ActiveRecord::Schema.define(version: 2020_05_19_225025) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_213248) do
     t.integer "job_id", null: false
     t.integer "job_seeker_id", null: false
     t.text "cover_letter"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_job_applications_on_job_id"
     t.index ["job_seeker_id"], name: "index_job_applications_on_job_seeker_id"
   end
@@ -70,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_213248) do
     t.integer "job_seeker_profile_id", null: false
     t.integer "head_hunter_id", null: false
     t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["head_hunter_id"], name: "index_job_seeker_profile_comments_on_head_hunter_id"
     t.index ["job_seeker_profile_id"], name: "index_job_seeker_profile_comments_on_job_seeker_profile_id"
   end
@@ -77,6 +81,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_213248) do
   create_table "job_seeker_profile_favorites", force: :cascade do |t|
     t.integer "job_seeker_profile_id", null: false
     t.integer "head_hunter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["head_hunter_id"], name: "index_job_seeker_profile_favorites_on_head_hunter_id"
     t.index ["job_seeker_profile_id"], name: "index_job_seeker_profile_favorites_on_job_seeker_profile_id"
   end
@@ -91,6 +97,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_213248) do
     t.text "bio"
     t.string "work_experience"
     t.integer "job_seeker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["job_seeker_id"], name: "index_job_seeker_profiles_on_job_seeker_id"
   end
 

@@ -12,6 +12,7 @@
     </header>
 
     <section class='contents row'>
+
       <aside class="col-3">
         <dl class="side_info_box">
           <dt><%= t('activerecord.attributes.job.created_by') %>:</dt>
@@ -21,7 +22,7 @@
         </dl>
       </aside>
 
-      <dl>
+      <dl class="col">
         <dt class="job_status <%= @job.active? ? 'active_job' : 'inactive_job' %>"> 
           <%= @job.active? ? t('activerecord.attributes.job.active') : t('activerecord.attributes.job.inactive') %>
         </dt>
@@ -53,6 +54,7 @@
           </dl>
         <% end %>
       </aside>
+
     </section>
 
     <div class='actions mt-4'>

@@ -1,0 +1,7 @@
+---
+pt-BR:
+  views:
+    job_seekers/profiles/comments:
+      description: Todos os commentários sobre o candidato.
+      empty_resource: Nenhum commentário neste perfil
+      create: Commente neste perfil

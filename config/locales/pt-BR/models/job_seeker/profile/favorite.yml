@@ -1,0 +1,20 @@
+---
+pt-BR:
+  activemodel:
+    errors:
+
+  activerecord:
+    models:
+      job_seeker/profile/favorite:
+        one: Favorito
+        other: Favoritos
+
+    attributes:
+      attr_defaults: &attr_defaults
+        id: ID
+        created_at: Criado
+        updated_at: Alterado
+        deleted_at: Excluído
+
+      job_seeker/profile/favorite:
+        <<: *attr_defaults

@@ -1,0 +1,7 @@
+---
+pt-BR:
+  views:
+    job_seekers/profiles/favorites:
+      description: Todos as vezes que o candidato foi favoritado por um Head Hunter.
+      empty_resource: Nenhum favorito
+      create: Favoritar este perfil
