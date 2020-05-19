@@ -35,20 +35,5 @@ feature 'Job Seeker can apply to an active job' do
       expect(page).to have_content job_a.title
       expect(page).to have_content application.cover_letter
     end
-
-    scenario "can't apply to the same job twice" do
-      Faker::Job.unique.clear
-
-      job_a = create :job
-      create :job_application, job_seeker: job_seeker, job: job_a
-
-      visit root_path
-      click_on I18n.t('activerecord.models.job.other')
-      within "tr#job-#{job_a.id}" do
-        click_on I18n.t('views.navigation.details')
-      end
-
-      expect(page).not_to have_content I18n.t('views.navigation.apply')
-    end
   end
 end

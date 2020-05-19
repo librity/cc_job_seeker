@@ -132,7 +132,7 @@ Job Seeker:
 - [x] Creates and manages a profile-resume
 - [x] Browses active Job Openings
 - [x] Searches active Job Openings by title and description
-- [ ] Applies to a Job Opening
+- [x] Applies to a Job Opening
 - [ ] Gets notified when rejected for a Job
 - [ ] Gets notified when recieves a Job Offer
 - [ ] Can accept Job Offers
