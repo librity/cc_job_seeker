@@ -16,6 +16,7 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
     - "db/**/*"
+    - "config/routes.rb"
 
 Metrics/MethodLength:
   Max: 1000

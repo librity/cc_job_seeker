@@ -7,3 +7,5 @@ pt-BR:
     destroyed: "%{resource} removido(a) com sucesso!"
     job_not_found: Nenhuma vaga por esses dados
     fill_out_profile: Preencha seu perfil para completar seu cadastro...
+    already_applied: Você já se applicou para esta vaga!
+    inactive_job: Applicações para esta vaga já foram encerradas!

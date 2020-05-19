@@ -4,3 +4,5 @@ pt-BR:
     job_seeker/applications:
       description: Todas as tuas applicações às vagas.
       empty_resource: Nenhuma applicação feita
+      create: Applicar à vaga
+      context: "Preencha sua applicação para a vaga de %{job_title}"

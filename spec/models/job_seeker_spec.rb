@@ -6,6 +6,7 @@ describe JobSeeker, type: :model do
   describe 'relationships' do
     it { should respond_to(:profile) }
     it { should respond_to(:applications) }
+    it { should respond_to(:applied_jobs) }
   end
 
   let(:subject) { create :job_seeker }

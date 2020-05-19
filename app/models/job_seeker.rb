@@ -6,6 +6,7 @@ class JobSeeker < ApplicationRecord
 
   has_one :profile, dependent: :destroy, class_name: JobSeeker::Profile.name
   has_many :applications, dependent: :destroy, class_name: Job::Application.name
+  has_many :applied_jobs, through: :applications, source: :job
 
   before_save { email.downcase! }
   before_save { self.name = name.titleize }
@@ -26,5 +27,9 @@ class JobSeeker < ApplicationRecord
 
   def avatar?
     profile? && profile.avatar.attached?
+  end
+
+  def already_applied? job_id
+    return true if applied_jobs.where(id: job_id).any?
   end
 end

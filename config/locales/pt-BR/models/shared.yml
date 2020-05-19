@@ -17,6 +17,10 @@ pt-BR:
         one: Vaga
         other: Vagas
 
+      job/application:
+        one: Applicação
+        other: Applicações
+
       job_seeker/profile:
         one: Perfil de Candidato
         other: Perfis de Candidato
