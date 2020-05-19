@@ -1,0 +1,23 @@
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), head_hunters_job_path(@job), class: 'btn btn-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1> <%= @applicant.resolve_name %> </h1>
+
+      <p> <%= @applicant.profile.bio %> </p>
+    </header>
+
+    <section class='contents row'>
+      <dl>
+        <dt><%= t('activerecord.attributes.job/application.cover_letter') %>:</dt>
+        <dd> <%= @application.cover_letter %> </dd>
+      </dl>
+    </section>
+
+    <div class='actions mt-4'>
+    </div>
+  </div>
+</main>

@@ -6,7 +6,7 @@
     </nav>
 
     <header class='header'>
-      <h1> <%= "#{@job.position} #{t('activerecord.attributes.job.of')} #{@job.title}" %> </h1>
+      <h1> <%= "#{@job.position} #{t('views.support.of')} #{@job.title}" %> </h1>
 
       <p> <%= @job.description %> </p>
     </header>
@@ -41,12 +41,13 @@
         <% else %>
           <dl class="side_info_box">
             <dt><%= t('activerecord.models.job/application.other') %>:</dt>
-            <% @job.applicants.each do |applicant| %>
-              <dd>
-                <%= link_to applicant.resolve_name,
-                            head_hunters_job_applicant_path(@job, applicant), 
-                            id: "profile-#{applicant.id}" %>,
-                link_to_cover_letter
+            <% @job.applications.each do |application| %>
+              <dd id="application-<%= application.id %>">
+                <%= link_to application.job_seeker.resolve_name,
+                            head_hunters_job_applicant_path(@job, application.job_seeker), 
+                            id: "profile-#{application.job_seeker.id}" %>,
+                <%= link_to t('views.navigation.letter'),
+                            head_hunters_job_application_path(@job, application) %>
               </dd>
             <% end %>
           </dl>

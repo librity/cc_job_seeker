@@ -26,6 +26,7 @@ pt-BR:
       job_seeker: Procuro emprego
       apply: Aplicar
       my_applications: Minhas applicações
+      letter: Carta
 
     actions:
       log_out: Sair
@@ -55,3 +56,6 @@ pt-BR:
       message_2: "como parte do"
       message_3: "um programa de bolsa para desenvolvimento web."
       original_repo: "Repositório Original"
+
+    support:
+      of: de

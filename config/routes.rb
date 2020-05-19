@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     resources :jobs, only: %i[index show new create] do
       resources :applicants, only: %i[show]
+      resources :applications, only: %i[show]
     end
   end
 
