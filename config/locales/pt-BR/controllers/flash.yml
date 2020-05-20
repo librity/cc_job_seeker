@@ -3,6 +3,7 @@ pt-BR:
   flash:
     arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
     cross_model_access: Acesso entre contas não é permitido!
+    unauthorized: Você não tem permissões para executar esta ação.
     created: "%{resource} criado(a) com sucesso!"
     updated: "%{resource} atualizado(a) com sucesso!"
     destroyed: "%{resource} removido(a) com sucesso!"

@@ -2,13 +2,13 @@
 
 module HeadHunters
   class JobsController < BaseController
+    before_action :check_head_hunter, only: :show
+
     def index
       @jobs = current_head_hunter.jobs
     end
 
-    def show
-      @job = Job.find params[:id]
-    end
+    def show; end
 
     def new
       @job = Job.new
@@ -31,6 +31,14 @@ module HeadHunters
     def job_params
       params.require(:job).permit :position, :title, :description, :skills,
                                   :salary_floor, :salary_roof, :location, :expires_on
+    end
+
+    def check_head_hunter
+      @job = Job.find params[:id]
+      return if @job.head_hunter == current_head_hunter
+
+      flash[:danger] = t 'flash.unauthorized'
+      redirect_to head_hunters_jobs_path
     end
   end
 end

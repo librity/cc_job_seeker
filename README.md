@@ -44,7 +44,7 @@
 
 ## 🏭 Deploys
 
-- Production URL: [https://job_seeeker.com](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- Production URL: [https://www.jobseeeker.com](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## 👀 About
 
@@ -123,7 +123,7 @@ Head Hunters:
 - [x] Creates a Job Opening
 - [x] Can browse Applicants
 - [x] Can comment on Applicant's profile
-- [ ] Can favorite an Applicant's profile
+- [ ] Can check a Job Application as a standout
 - [ ] Can reject an Applicant
 - [ ] Can propose Job Offers to Applicants
 - [ ] Recieves feedback for accepted/rejected Job Offers

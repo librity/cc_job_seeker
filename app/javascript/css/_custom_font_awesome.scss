@@ -1,11 +1,47 @@
-.fa-star {
-  color: #f8cf5f;
+@mixin small_standout_thumbtack {
+  margin-top: 5px;
+  margin-right: 8px;
+
+  font-size: 20px;
+  text-align: center;
+
+  &:hover {
+    color: $gray-ultra-light;
+  }
 }
 
-.inactive_stand_out {
+.small_inactive_standout {
+  @include small_standout_thumbtack;
   color: $pallette-light-independence;
 }
 
-.active_stand_out {
+.small_active_standout {
+  @include small_standout_thumbtack;
   color: #f53729;
+}
+
+@mixin standout_thumbtack {
+  margin-left: 15px;
+  margin-bottom: 20px;
+
+  font-size: 3.5em;
+  text-align: center;
+
+  &:hover {
+    color: $gray-ultra-light;
+  }
+}
+
+.inactive_standout {
+  @include standout_thumbtack;
+  color: $pallette-light-independence;
+}
+
+.active_standout {
+  @include standout_thumbtack;
+  color: #f53729;
+}
+
+.fa-star {
+  color: #f8cf5f;
 }

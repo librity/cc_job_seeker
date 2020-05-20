@@ -20,7 +20,9 @@ Rails.application.routes.draw do
       resources :applicants, only: %i[show] do
         post 'comment'
       end
-      resources :applications, only: %i[show]
+      resources :applications, only: %i[show] do
+        post 'standout'
+      end
     end
   end
 

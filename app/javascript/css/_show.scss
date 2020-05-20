@@ -1,3 +1,9 @@
+.applicant_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .side_info_box {
   padding: 15px;
   margin-right: 10px;
@@ -41,7 +47,13 @@
 
 .application_container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+.applicant_container {
+  display: flex;
+  align-items: center;
 }
 
 .application_link {

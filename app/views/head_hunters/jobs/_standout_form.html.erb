@@ -1,0 +1,6 @@
+<%= form_with url: head_hunters_job_application_standout_path(@job, application),
+        local: true, class: 'standout_form' do |f| %>
+  <button type="submit" syle="width: 20px;">
+    <i class="fas fa-thumbtack <%= application.standout? ? 'small_active_standout' : 'small_inactive_standout' %>"></i>
+  </button>
+<% end %>

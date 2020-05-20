@@ -54,13 +54,14 @@
             <h2><%= t('activerecord.models.job/application.other') %></h2>
             <% @job.applications.each do |application| %>
               <dd id="application-<%= application.id %>" class="application_container">
-                  <i class="fas fa-thumbtack inactive_stand_out"></i>
-                  <i class="fas fa-thumbtack active_stand_out"></i>
-                  
-                  <%= link_to application.job_seeker.resolve_name,
-                              head_hunters_job_applicant_path(@job, application.job_seeker), 
-                              id: "profile-#{application.job_seeker.id}",
-                              class: 'application_link' %>
+                  <span class="applicant_container">
+                    <%= render 'standout_form', application: application %>
+
+                    <%= link_to application.job_seeker.resolve_name,
+                                head_hunters_job_applicant_path(@job, application.job_seeker), 
+                                id: "profile-#{application.job_seeker.id}",
+                                class: 'application_link' %>
+                  </span>
 
                   <%= link_to t('views.navigation.letter'),
                               head_hunters_job_application_path(@job, application),
