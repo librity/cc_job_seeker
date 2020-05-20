@@ -24,11 +24,11 @@ feature "Head Hunter can comment on an applicant's profile" do
       fill_in I18n.t('views.job_seekers/profiles.comment'), with: prototype_comment.content
       click_on I18n.t('views.actions.comment')
 
-      expect(Comment.count).to eq 1
-      comment = Comment.last
+      expect(JobSeeker::Profile::Comment.count).to eq 1
+      comment = JobSeeker::Profile::Comment.last
       expect(current_path).to eq head_hunters_job_applicant_path(job_a, applicant)
       expect(page).to have_content comment.content
-      expect(page).to have_content I18n.l(comment.created_at)
+      expect(page).to have_content I18n.l(comment.created_at, format: :long)
       expect(page).to have_content head_hunter.resolve_name
     end
   end

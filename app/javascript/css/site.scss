@@ -23,8 +23,11 @@ $pallette-light-independence: #9a97a3ff;
 $pallette-rhythm: #777da7ff;
 $pallette-picotee-blue: #23278aff;
 $pallette-royal-blue: #5762d5ff;
+$pallette-light-royal-blue: #a9b5fa41;
+$pallette-very-light-royal-blue: #a9b5fa1c;
 $pallette-cyan: #bccfc9;
 $pallette-light-cyan: #d1e3ddff;
+$pallette-very-light-cyan: #eaf7f2;
 
 $mint-green-dark: #2bac6d;
 $mint-green: #aaffaa;
@@ -66,6 +69,10 @@ ul {
   list-style: none;
 }
 
+dd {
+  word-break: break-all;
+}
+
 dd:last-child {
   margin-bottom: 0;
 }
@@ -93,12 +100,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
+  color: $pallette-independence;
 }
 
 .header {
@@ -135,3 +142,4 @@ label {
 @import "./footer.scss";
 @import "./show.scss";
 @import "./index.scss";
+@import "./comment_feed.scss";

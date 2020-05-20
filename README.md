@@ -1,5 +1,7 @@
 <h1 align="center">
-  <img alt="Job Seeker" title="Job Seeker" src=".github/full_logo_title.png" width="200px" />
+  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+    <img alt="Job Seeker" title="Job Seeker" src=".github/  full_logo_title.png" width="200px" />
+  </a>
 </h1>
 
 <h3 align="center">
@@ -42,7 +44,7 @@
 
 ## 🏭 Deploys
 
-- Production URL: http://well_get_there_some_day.stub.xml
+- Production URL: [https://job_seeeker.com](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 ## 👀 About
 

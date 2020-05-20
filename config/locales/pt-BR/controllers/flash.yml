@@ -1,6 +1,7 @@
 ---
 pt-BR:
   flash:
+    arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
     cross_model_access: Acesso entre contas não é permitido!
     created: "%{resource} criado(a) com sucesso!"
     updated: "%{resource} atualizado(a) com sucesso!"
@@ -9,3 +10,4 @@ pt-BR:
     fill_out_profile: Preencha seu perfil para completar seu cadastro...
     already_applied: Você já se applicou para esta vaga!
     inactive_job: Applicações para esta vaga já foram encerradas!
+    profile_not_found: Perfil não encontrado!

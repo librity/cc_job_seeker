@@ -39,9 +39,11 @@ pt-BR:
       search: Procurar
       filter: Filtrar
       retire: Aposentar
+      comment: Comentar
 
     placeholders:
       search_jobs: Procure vagas...
+      comment: Escreva um commentário...
 
     footer:
       message_1: "Aplicação Rails desenvolvida por"

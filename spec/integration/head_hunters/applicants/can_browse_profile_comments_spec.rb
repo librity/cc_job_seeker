@@ -10,9 +10,7 @@ feature "Head Hunter can browse comments on an applicant's profile" do
       job_a = create :job, head_hunter: head_hunter
       applicant = create :job_seeker
       profile = create :job_seeker_profile, job_seeker: applicant
-      comment_a = create :job_seeker_profile_comment, profile: profile
-      comment_b = create :job_seeker_profile_comment, profile: profile
-      comment_c = create :job_seeker_profile_comment, profile: profile
+      comments = create_list :job_seeker_profile_comment, 5, profile: profile
       create :job_application, job: job_a, job_seeker: applicant
 
       visit root_path
@@ -23,17 +21,12 @@ feature "Head Hunter can browse comments on an applicant's profile" do
       click_on applicant.resolve_name
 
       expect(page).to have_content I18n.t('activerecord.models.job_seeker/profile/comment.other')
-      expect(page).to have_content comment_a.content
-      expect(page).to have_content I18n.l(comment_a.created_at)
-      expect(page).to have_content comment_a.head_hunter.resolve_name
 
-      expect(page).to have_content comment_b.content
-      expect(page).to have_content I18n.l(comment_b.created_at)
-      expect(page).to have_content comment_b.head_hunter.resolve_name
-
-      expect(page).to have_content comment_c.content
-      expect(page).to have_content I18n.l(comment_c.created_at)
-      expect(page).to have_content comment_c.head_hunter.resolve_name
+      comments.each do |comment|
+        expect(page).to have_content comment.content
+        expect(page).to have_content I18n.l(comment.created_at, format: :long)
+        expect(page).to have_content comment.head_hunter.resolve_name
+      end
     end
 
     scenario 'and job has no applications' do

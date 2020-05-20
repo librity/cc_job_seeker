@@ -1,3 +1,5 @@
+<%= render 'shared/error_messages', object: @comment %>
+
 <main class='row'>
   <div class='col-md-12'>
     <nav class='context_navigation'>
@@ -46,27 +48,40 @@
         <dd> <%= @profile.work_experience %> </dd>
       </dl>
 
-      <aside class="col-4">
+    </section>
+
+    <%= render 'comment_form' %>
+
+    <section class='contents row'>
+
         <% if @profile.comments.empty? %>
           <p class="empty_resource"><%= t('views.job_seekers/profiles/comments.empty_resource') %></p>
         <% else %>
-          <dl class="side_info_box">
-            <dt><%= t('activerecord.models.job_seeker/profile/comment.other') %>:</dt>
+          <dl class="comment_feed col-12">
+            <h2><%= t('activerecord.models.job_seeker/profile/comment.other') %></h2>
+
             <% @profile.comments.each do |comment| %>
-              <dt id="comment-<%= comment.id %>">
-                <%= comment.head_hunter.resolve_name %>,
-                <%= l(comment.created_at) %>
+              <dt id="comment-<%= comment.id %>" class="comment_head">
+                <span class="comment_creator">
+                  <%= image_tag url_for(comment.head_hunter.avatar),
+                    alt: comment.head_hunter.resolve_name,
+                    class: 'commenter_avatar' %>
+
+                  <span class="commenter_name">
+                    <%= comment.head_hunter.resolve_name %>
+                  </span>
+                </span>
+                <span class="comment_timestamp">
+                  <%= l(comment.created_at, format: :long) %>
+                </span>
               </dt>
 
-              <dt id="comment-<%= comment.id %>">
+              <dd id="comment-<%= comment.id %>" class="comment_content">
                 <%= comment.content %>
-              </dt>
+              </dd>
             <% end %>
           </dl>
         <% end %>
-
-        
-      </aside>
 
     </section>
 
