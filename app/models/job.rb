@@ -49,6 +49,10 @@ class Job < ApplicationRecord
     BRAZILIAN_MINIMUM_WAGE
   end
 
+  def ongoing_applications
+    applications.where rejection_feedback: nil
+  end
+
   private
 
   def salary_roof_is_greater_than_salary_floor_by_at_least_200

@@ -10,14 +10,10 @@ feature 'Head Hunter can browse job applicants' do
       Faker::Job.unique.clear
 
       job_a = create :job, head_hunter: head_hunter
-      create :job_application, job: job_a
-      create :job_application, job: job_a
-      create :job_application, job: job_a
+      create_list :job_application, 3, job: job_a
 
       job_b = create :job, head_hunter: head_hunter
-      create :job_application, job: job_b
-      create :job_application, job: job_b
-      create :job_application, job: job_b
+      create_list :job_application, 3, job: job_b
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')

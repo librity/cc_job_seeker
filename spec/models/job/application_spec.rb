@@ -48,9 +48,36 @@ describe Job::Application, type: :model do
     end
   end
 
+  context 'validation: rejection_feedback' do
+    it 'can be null' do
+      subject.rejection_feedback = nil
+
+      expect(subject).to be_valid
+    end
+
+    it 'must have at least 50 characters' do
+      subject.rejection_feedback = 'a' * 49
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:rejection_feedback]).to include(I18n.t('errors.messages.too_short', count: 50))
+    end
+  end
+
   context 'validation: standout' do
     it 'shoud default to false' do
       expect(subject.standout).to eq false
+    end
+  end
+
+  context 'method: rejected?' do
+    it 'shoud return true if rejection_feedback is present' do
+      subject = create :job_application, :rejected
+
+      expect(subject.rejected?).to eq true
+    end
+
+    it 'shoud return false otherwise' do
+      expect(subject.rejected?).to eq false
     end
   end
 end

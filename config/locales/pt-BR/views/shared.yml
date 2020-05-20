@@ -27,6 +27,7 @@ pt-BR:
       apply: Aplicar
       my_applications: Minhas applicações
       letter: Carta
+      reject: Rejeitar
 
     actions:
       log_out: Sair

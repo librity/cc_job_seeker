@@ -8,7 +8,9 @@ module HeadHunters
       @jobs = current_head_hunter.jobs
     end
 
-    def show; end
+    def show
+      @applications = @job.ongoing_applications
+    end
 
     def new
       @job = Job.new

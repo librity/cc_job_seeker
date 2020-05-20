@@ -123,8 +123,8 @@ Head Hunters:
 - [x] Creates a Job Opening
 - [x] Can browse Applicants
 - [x] Can comment on Applicant's profile
-- [ ] Can check a Job Application as a standout
-- [ ] Can reject an Applicant
+- [x] Can check a Job Application as a standout
+- [x] Can reject an Applicant
 - [ ] Can propose Job Offers to Applicants
 - [ ] Recieves feedback for accepted/rejected Job Offers
 - [ ] Can retire a Job Opening

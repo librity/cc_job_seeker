@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       end
       resources :applications, only: %i[show] do
         post 'standout'
+        get 'rejection'
+        patch 'reject'
       end
     end
   end

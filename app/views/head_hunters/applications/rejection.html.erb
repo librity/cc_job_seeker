@@ -1,0 +1,22 @@
+<% provide(:resource_path, head_hunters_job_application_reject_path) %>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1> <%= t 'views.head_hunters.applications.rejection.title' %> </h1>
+
+      <p> <%=  t 'views.head_hunters.applications.rejection.description' %> </p>
+    </header>
+
+    <section class='contents row'>
+      <%= render 'rejection_form' %>
+    </section>
+
+    <div class='actions mt-4'>
+    </div>
+  </div>
+</main>

@@ -52,7 +52,7 @@
         <% else %>
           <dl class="side_info_box">
             <h2><%= t('activerecord.models.job/application.other') %></h2>
-            <% @job.applications.each do |application| %>
+            <% @applications.each do |application| %>
               <dd id="application-<%= application.id %>" class="application_container">
                   <span class="applicant_container">
                     <%= render 'standout_form', application: application %>

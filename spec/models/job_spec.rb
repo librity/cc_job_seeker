@@ -254,4 +254,14 @@ describe Job, type: :model do
       expect(subject.active?).to be true
     end
   end
+
+  context 'method: ongoing_applications' do
+    it 'should return unrejected applications' do
+      unrejected_applications = create_list :job_application, 2, job: subject
+      rejected_applications = create_list :job_application, 2, :rejected, job: subject
+
+      expect(subject.ongoing_applications).to match_array unrejected_applications
+      expect(subject.ongoing_applications).not_to match_array rejected_applications
+    end
+  end
 end

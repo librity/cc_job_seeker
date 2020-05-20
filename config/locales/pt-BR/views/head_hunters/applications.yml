@@ -1,0 +1,8 @@
+---
+pt-BR:
+  views:
+    head_hunters:
+      applications:
+        rejection:
+          title: Rejeição de candidato
+          description: Escreva um feedback para o candidato relatando o motivo da rejeição.

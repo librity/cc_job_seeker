@@ -9,5 +9,9 @@ FactoryBot.define do
     trait :skip_validate do
       to_create { |instance| instance.save validate: false }
     end
+
+    trait :rejected do
+      rejection_feedback { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
+    end
   end
 end

@@ -1,0 +1,10 @@
+<%= form_with model: @application, url: yield(:resource_path), local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class='form-group'>
+    <%= f.label :rejection_feedback %>
+    <%= f.text_area :rejection_feedback, required: true, min: 50, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
+<% end %>

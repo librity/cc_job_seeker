@@ -9,11 +9,15 @@ feature 'Job Seeker can search active jobs ' do
     scenario 'by the contents of title or description successfully' do
       Faker::Job.unique.clear
 
-      job_a = create :job, title: 'She is a heartbreaker, undertaker, moneymaker'
-      job_b = create :job, description: 'The Undertaker drew a heavy sigh seeing no one else had come.'
+      job_a = create :job, title: 'She is a heartbreaker, undertaker, moneymaker',
+                           expires_on: 5.weeks.from_now
+      job_b = create :job, description: 'The Undertaker drew a heavy sigh seeing no one else had come.',
+                           expires_on: 6.weeks.from_now
 
-      job_c = create :job, title: 'Manager'
-      job_d = create :job, title: 'Director'
+      job_c = create :job, position: 'Manager',
+                           expires_on: 7.weeks.from_now
+      job_d = create :job, position: 'Director',
+                           expires_on: 8.weeks.from_now
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
