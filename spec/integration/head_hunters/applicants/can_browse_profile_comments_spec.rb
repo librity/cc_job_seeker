@@ -29,7 +29,7 @@ feature "Head Hunter can browse comments on an applicant's profile" do
       end
     end
 
-    scenario 'and job has no applications' do
+    scenario 'and profile has no comments' do
       job_a = create :job, head_hunter: head_hunter
       applicant = create :job_seeker
       create :job_seeker_profile, job_seeker: applicant
