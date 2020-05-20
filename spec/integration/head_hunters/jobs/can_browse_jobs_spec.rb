@@ -9,11 +9,11 @@ feature 'Head Hunter can browse jobs' do
     scenario 'successfully' do
       Faker::Job.unique.clear
 
-      job_a = create :job, head_hunter: head_hunter
-      job_b = create :job, head_hunter: head_hunter
+      job_a = create :job, head_hunter: head_hunter, title: 'Analyst'
+      job_b = create :job, head_hunter: head_hunter, title: 'Janitor'
 
-      job_c = create :job
-      job_d = create :job
+      job_c = create :job, title: 'Director'
+      job_d = create :job, title: 'Engineer'
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')

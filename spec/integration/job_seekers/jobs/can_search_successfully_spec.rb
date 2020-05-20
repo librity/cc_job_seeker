@@ -12,8 +12,8 @@ feature 'Job Seeker can search active jobs ' do
       job_a = create :job, title: 'She is a heartbreaker, undertaker, moneymaker'
       job_b = create :job, description: 'The Undertaker drew a heavy sigh seeing no one else had come.'
 
-      job_c = create :job
-      job_d = create :job
+      job_c = create :job, title: 'Manager'
+      job_d = create :job, title: 'Director'
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')

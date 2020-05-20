@@ -9,11 +9,11 @@ feature 'Job Seeker can browse active jobs' do
     scenario 'successfully' do
       Faker::Job.unique.clear
 
-      job_a = create :job
-      job_b = create :job
+      job_a = create :job, title: 'Manager', expires_on: 2.month.from_now
+      job_b = create :job, title: 'Director', expires_on: 5.weeks.from_now
 
-      job_c = create :job, :expired, :skip_validate
-      job_d = create :job, retired: true
+      job_c = create :job, :expired, :skip_validate, title: 'Analyst'
+      job_d = create :job, retired: true, title: 'Engineer', expires_on: 6.weeks.from_now
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')
