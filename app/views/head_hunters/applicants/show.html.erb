@@ -55,7 +55,7 @@
     <section class='contents row'>
 
         <% if @profile.comments.empty? %>
-          <p class="empty_resource"><%= t('views.job_seekers/profiles/comments.empty_resource') %></p>
+          <p class="empty_resource col-12"><%= t('views.job_seekers/profiles/comments.empty_resource') %></p>
         <% else %>
           <dl class="comment_feed col-12">
             <h2><%= t('activerecord.models.job_seeker/profile/comment.other') %></h2>

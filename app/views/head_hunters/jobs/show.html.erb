@@ -14,6 +14,16 @@
     <section class='contents row'>
 
       <aside class="col-3">
+        <% if @job.head_hunter.avatar.attached? %>
+          <%= image_tag url_for(@job.head_hunter.avatar),
+                      alt: @job.head_hunter.resolve_name,
+                      class: 'profile_avatar center' %>
+        <% else %>
+          <%= image_tag 'avatar_placeholder.png',
+                      alt: 'User avatar placeholder',
+                      class: 'profile_avatar' %>
+        <% end %>
+
         <dl class="side_info_box">
           <dt><%= t('activerecord.attributes.job.created_by') %>:</dt>
           <dd><%= @job.head_hunter.resolve_name %> </dd>
@@ -22,7 +32,7 @@
         </dl>
       </aside>
 
-      <dl class="col">
+      <dl class="col-5">
         <dt class="job_status <%= @job.active? ? 'active_job' : 'inactive_job' %>"> 
           <%= @job.active? ? t('activerecord.attributes.job.active') : t('activerecord.attributes.job.inactive') %>
         </dt>
@@ -36,19 +46,25 @@
         <dd> <%= l(@job.expires_on) %> </dd>
       </dl>
 
-      <aside class="col-3">
+      <aside class="col-4">
         <% if @job.applicants.empty? %>
           <p class="empty_resource"><%= t('views.job_seekers/applications.empty_resource') %></p>
         <% else %>
           <dl class="side_info_box">
-            <dt><%= t('activerecord.models.job/application.other') %>:</dt>
+            <h2><%= t('activerecord.models.job/application.other') %></h2>
             <% @job.applications.each do |application| %>
-              <dd id="application-<%= application.id %>">
-                <%= link_to application.job_seeker.resolve_name,
-                            head_hunters_job_applicant_path(@job, application.job_seeker), 
-                            id: "profile-#{application.job_seeker.id}" %>,
-                <%= link_to t('views.navigation.letter'),
-                            head_hunters_job_application_path(@job, application) %>
+              <dd id="application-<%= application.id %>" class="application_container">
+                  <i class="fas fa-thumbtack inactive_stand_out"></i>
+                  <i class="fas fa-thumbtack active_stand_out"></i>
+                  
+                  <%= link_to application.job_seeker.resolve_name,
+                              head_hunters_job_applicant_path(@job, application.job_seeker), 
+                              id: "profile-#{application.job_seeker.id}",
+                              class: 'application_link' %>
+
+                  <%= link_to t('views.navigation.letter'),
+                              head_hunters_job_application_path(@job, application),
+                              class: 'application_link' %>
               </dd>
             <% end %>
           </dl>

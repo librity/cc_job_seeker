@@ -1,0 +1,31 @@
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+$gray-darkest: #707070;
+$gray-darker: #808080;
+$gray: #a0a0a0;
+$gray-medium-light: #cacaca;
+$gray-light: #d1d1d1;
+$gray-ultra-light: #dbdbdb;
+$simple-background: #f5f6f7;
+
+$pallette-black-coffee: #3f343b;
+$pallette-darker-independence: #494458;
+$pallette-independence: #575366ff;
+$pallette-light-independence: #9a97a3ff;
+$pallette-rhythm: #777da7ff;
+$pallette-picotee-blue: #23278aff;
+$pallette-royal-blue: #5762d5ff;
+$pallette-light-royal-blue: #a9b5fa41;
+$pallette-very-light-royal-blue: #a9b5fa1c;
+$pallette-cyan: #bccfc9;
+$pallette-light-cyan: #d1e3ddff;
+$pallette-very-light-cyan: #eaf7f2;
+
+$mint-green-dark: #47c287;
+$mint-green: #b3ffb3;
+
+$state-danger-text: #eb4848;

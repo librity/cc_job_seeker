@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-    <img alt="Job Seeker" title="Job Seeker" src=".github/  full_logo_title.png" width="200px" />
+    <img alt="Job Seeker" title="Job Seeker" src=".github/full_logo_title.png" width="200px" />
   </a>
 </h1>
 
@@ -106,6 +106,7 @@ The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/s
 - HTML manipulation: [JQuery](https://github.com/jquery/jquery)
 - Input masking and formatter: [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
 - Pop-overs: [Popper](https://github.com/popperjs/popper-core)
+- Icons: [Font Awesome Free](https://github.com/FortAwesome/Font-Awesome)
 
 ## 🏁 Main Features
 
@@ -121,7 +122,7 @@ Head Hunters:
 - [x] Signup, Login and Dashboard
 - [x] Creates a Job Opening
 - [x] Can browse Applicants
-- [ ] Can comment on Applicant's profile
+- [x] Can comment on Applicant's profile
 - [ ] Can favorite an Applicant's profile
 - [ ] Can reject an Applicant
 - [ ] Can propose Job Offers to Applicants

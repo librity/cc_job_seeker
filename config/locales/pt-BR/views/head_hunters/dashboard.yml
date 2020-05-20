@@ -3,5 +3,5 @@ pt-BR:
   views:
     head_hunters:
       dashboard:
-        title: Dashboard do Candidato
+        title: Dashboard do Head Hunter
         greeting: Bem vindo de volta!

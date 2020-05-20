@@ -47,4 +47,10 @@ describe Job::Application, type: :model do
       expect(subject.errors[:cover_letter]).to include(I18n.t('errors.messages.too_short', count: 50))
     end
   end
+
+  context 'validation: standout' do
+    it 'shoud default to false' do
+      expect(subject.standout).to eq false
+    end
+  end
 end

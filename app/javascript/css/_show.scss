@@ -7,12 +7,14 @@
 }
 
 .job_status {
+  margin-bottom: 10px;
+
   border-radius: 5px;
   padding: 5px 0;
   text-align: center;
 
-  letter-spacing: 1px;
-  font-size: 1.1em;
+  font-weight: 600;
+  font-size: 1.2em;
 }
 
 .active_job {
@@ -35,4 +37,21 @@
   height: 150px;
   border-radius: 50%;
   border: 3px solid $pallette-rhythm;
+}
+
+.application_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.application_link {
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  color: $pallette-royal-blue;
+
+  &:hover {
+    color: $pallette-light-royal-blue;
+    text-decoration: none;
+  }
 }
