@@ -28,7 +28,9 @@
           <tbody class="index_table_body">
             <% @applications.each do |application| %>
               <tr class="index_table_row" id="application-<%= application.id %>">
-                <td><%= application.job.title %></td>
+                <td>
+                  <%= application.job.title %>
+                </td>
                 <td><%= application.cover_letter %></td>
                 <td>
                   <span class="job_status_dot <%= application.job.active? ?

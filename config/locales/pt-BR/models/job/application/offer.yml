@@ -25,6 +25,7 @@ pt-BR:
         expectations: Expectativas
         bonus: Bonus
         feedback: Resposta do Candidato
+        status: Status
 
       job/application/offer/status:
         ongoing: Em andamento

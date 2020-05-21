@@ -3,10 +3,13 @@
 FactoryBot.define do
   factory :job_application_offer, class: 'Job::Application::Offer' do
     application { create :job_application }
+    head_hunter
+
     start_date { Faker::Date.forward days: 90 }
     salary { Faker::Number.unique.within range: 1039..10_000 }
     responsabilities { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
     benefits { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
+
     expectations { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
     bonus { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
 
@@ -24,6 +27,14 @@ FactoryBot.define do
 
     trait :with_feedback do
       feedback { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
+    end
+
+    trait :without_expectations do
+      expectations { nil }
+    end
+
+    trait :without_bonus do
+      expectations { nil }
     end
   end
 end

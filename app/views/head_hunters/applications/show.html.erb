@@ -2,8 +2,13 @@
   <div class='col-md-12'>
     <nav class='context_navigation'>
       <%= link_to t('views.navigation.go_back'), head_hunters_job_path(@job), class: 'btn btn-secondary' %>
-      <%= link_to t('views.navigation.reject'), head_hunters_job_application_rejection_path(@job, @application),
-                  class: 'btn btn-danger' %>
+
+      <span>
+        <%= link_to t('views.navigation.job_offer'), new_head_hunters_job_application_offer_path(@job, @application),
+                    class: 'btn btn-primary' %>
+        <%= link_to t('views.navigation.reject'), head_hunters_job_application_rejection_path(@job, @application),
+                    class: 'btn btn-danger' %>
+      </span>
     </nav>
 
     <header class='header'>
@@ -13,17 +18,17 @@
         <%= render 'standout_form', application: @application %>
       </div>
 
-      <p> <%= @applicant.profile.bio %> </p>
+      <p class="indent"> <%= @applicant.profile.bio %> </p>
     </header>
 
     <section class='contents row'>
       <dl class="col">
         <dt><%= t('activerecord.attributes.job/application.cover_letter') %>:</dt>
-        <dd> <%= @application.cover_letter %> </dd>
+        <dd class="indent"> <%= @application.cover_letter %> </dd>
       </dl>
     </section>
 
-    <div class='actions mt-4'>
-    </div>
+    <%= render 'job_offers' %>
+
   </div>
 </main>

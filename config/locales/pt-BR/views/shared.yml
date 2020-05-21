@@ -28,6 +28,7 @@ pt-BR:
       my_applications: Minhas applicações
       letter: Carta
       reject: Rejeitar
+      job_offer: Fazer uma proposta
 
     actions:
       log_out: Sair

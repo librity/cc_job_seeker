@@ -1,0 +1,77 @@
+.job_offer_feed {
+  padding: 15px;
+  border-radius: 5px;
+
+  background-color: $pallette-very-light-royal-blue;
+}
+
+.job_offer {
+  padding: 20px;
+  margin-bottom: 15px;
+
+  border-radius: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.job_offer_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offerer_avatar {
+  margin-right: 5px;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  border: 2px solid $pallette-royal-blue;
+}
+
+.offerer_name {
+  font-size: 1.3em;
+  color: $pallette-independence;
+}
+
+.job_offer_timestamp {
+  font-weight: bolder;
+  color: $pallette-light-independence;
+}
+
+.job_offer_overview {
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 10px;
+}
+
+.job_offer_content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  font-size: 1.2em;
+  color: $pallette-black-coffee;
+  border-bottom: 1px solid $pallette-light-royal-blue;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.ongoing_job_offer {
+  background-color: $state-ongoing;
+}
+
+.accepted_job_offer {
+  background-color: $state-accepted;
+}
+
+.rejected_job_offer {
+  background-color: $state-rejected;
+}

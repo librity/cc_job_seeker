@@ -5,6 +5,7 @@ require 'rails_helper'
 describe Job::Application::Offer, type: :model do
   describe 'relationships' do
     it { should respond_to(:application) }
+    it { should respond_to(:head_hunter) }
   end
 
   let(:subject) { create :job_application_offer }
@@ -19,6 +20,15 @@ describe Job::Application::Offer, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:application]).to include(I18n.t('errors.messages.blank'))
+    end
+  end
+
+  context 'validation: head_hunter' do
+    it 'cannot be blank' do
+      subject.head_hunter = nil
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:head_hunter]).to include(I18n.t('errors.messages.blank'))
     end
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_165854) do
+ActiveRecord::Schema.define(version: 2020_05_21_190615) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -68,6 +68,10 @@ ActiveRecord::Schema.define(version: 2020_05_21_165854) do
     t.text "bonus"
     t.text "feedback"
     t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "head_hunter_id", null: false
+    t.index ["head_hunter_id"], name: "index_job_application_offers_on_head_hunter_id"
     t.index ["job_application_id"], name: "index_job_application_offers_on_job_application_id"
   end
 
@@ -159,6 +163,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_165854) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_application_offers", "head_hunters"
   add_foreign_key "job_application_offers", "job_applications"
   add_foreign_key "job_applications", "job_seekers"
   add_foreign_key "job_applications", "jobs"

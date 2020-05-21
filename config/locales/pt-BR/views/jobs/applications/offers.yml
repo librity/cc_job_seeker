@@ -1,0 +1,5 @@
+---
+pt-BR:
+  views:
+    jobs/applications/offers:
+      empty_resource: Escreva uma proposta de trabalho detalhada para o candidato.

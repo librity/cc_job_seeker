@@ -8,7 +8,7 @@
     <header class='header'>
       <h1> <%= current_job_seeker.resolve_name %> </h1>
 
-      <p> <%= @profile.bio %> </p>
+      <p class="indent"> <%= @profile.bio %> </p>
     </header>
 
     <section class='contents row'>
@@ -47,7 +47,7 @@
       </dl>
     </section>
 
-    <section class='contents row'>
+    <section class='contents'>
 
       <% if @profile.comments.empty? %>
         <p class="empty_resource"><%= t('views.job_seekers/profiles/comments.empty_resource') %></p>
@@ -56,24 +56,26 @@
           <h2><%= t('activerecord.models.job_seeker/profile/comment.other') %></h2>
 
           <% @profile.comments.each do |comment| %>
-            <dt id="comment-<%= comment.id %>" class="comment_head">
-              <span class="comment_creator">
-                <%= image_tag url_for(comment.head_hunter.avatar),
-                  alt: comment.head_hunter.resolve_name,
-                  class: 'commenter_avatar' %>
+            <div id="comment-<%= comment.id %>">
+              <dt class="comment_head">
+                <span class="comment_creator">
+                  <%= image_tag url_for(comment.head_hunter.avatar),
+                    alt: comment.head_hunter.resolve_name,
+                    class: 'commenter_avatar' %>
 
-                <span class="commenter_name">
-                  <%= comment.head_hunter.resolve_name %>
+                  <span class="commenter_name">
+                    <%= comment.head_hunter.resolve_name %>
+                  </span>
                 </span>
-              </span>
-              <span class="comment_timestamp">
-                <%= l(comment.created_at, format: :long) %>
-              </span>
-            </dt>
+                <span class="comment_timestamp">
+                  <%= l(comment.created_at, format: :long) %>
+                </span>
+              </dt>
 
-            <dd id="comment-<%= comment.id %>" class="comment_content">
-              <%= comment.content %>
-            </dd>
+              <dd class="comment_content">
+                <%= comment.content %>
+              </dd>
+            </div>
           <% end %>
         </dl>
       <% end %>

@@ -6,6 +6,9 @@ class HeadHunter < ApplicationRecord
 
   has_one_attached :avatar
   has_many :jobs, dependent: :nullify
+  has_many :job_offers, dependent: :nullify
+  has_many :job_offers, dependent: :destroy, class_name: Job::Application::Offer.name,
+                        foreign_key: 'head_hunter_id'
 
   before_save { email.downcase! }
   before_save { self.name = name.titleize }

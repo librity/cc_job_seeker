@@ -17,7 +17,7 @@
 
 .small_active_standout {
   @include small_standout_thumbtack;
-  color: #f53729;
+  color: $state-standout;
 }
 
 @mixin standout_thumbtack {
@@ -39,9 +39,9 @@
 
 .active_standout {
   @include standout_thumbtack;
-  color: #f53729;
+  color: $state-standout;
 }
 
 .fa-star {
-  color: #f8cf5f;
+  color: $favorite-star;
 }

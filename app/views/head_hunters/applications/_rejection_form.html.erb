@@ -3,7 +3,7 @@
 
   <div class='form-group'>
     <%= f.label :rejection_feedback %>
-    <%= f.text_area :rejection_feedback, required: true, min: 50, class: 'form-control' %>
+    <%= f.text_area :rejection_feedback, required: true, minlength: 50, class: 'form-control' %>
   </div>
 
   <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>

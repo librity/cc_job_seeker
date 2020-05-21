@@ -20,10 +20,13 @@ Rails.application.routes.draw do
       resources :applicants, only: %i[show] do
         post 'comment'
       end
+
       resources :applications, only: %i[show] do
         post 'standout'
         get 'rejection'
         patch 'reject'
+
+        resources :offers, only: %i[new create]
       end
     end
   end

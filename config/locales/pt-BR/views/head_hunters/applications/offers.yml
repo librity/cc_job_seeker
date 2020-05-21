@@ -3,3 +3,5 @@ pt-BR:
   views:
     head_hunters:
       offers:
+        title: Proposta de Trabalho
+        description: Escreva uma proposta de trabalho detalhada para o candidato.
