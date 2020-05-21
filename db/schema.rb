@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_203752) do
+ActiveRecord::Schema.define(version: 2020_05_21_165854) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,19 @@ ActiveRecord::Schema.define(version: 2020_05_20_203752) do
     t.index ["reset_password_token"], name: "index_head_hunters_on_reset_password_token", unique: true
     t.index ["social_name"], name: "index_head_hunters_on_social_name"
     t.index ["unlock_token"], name: "index_head_hunters_on_unlock_token", unique: true
+  end
+
+  create_table "job_application_offers", force: :cascade do |t|
+    t.integer "job_application_id", null: false
+    t.date "start_date", null: false
+    t.integer "salary", null: false
+    t.text "responsabilities", null: false
+    t.text "benefits", null: false
+    t.text "expectations"
+    t.text "bonus"
+    t.text "feedback"
+    t.integer "status", default: 0
+    t.index ["job_application_id"], name: "index_job_application_offers_on_job_application_id"
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -146,6 +159,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_203752) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_application_offers", "job_applications"
   add_foreign_key "job_applications", "job_seekers"
   add_foreign_key "job_applications", "jobs"
   add_foreign_key "job_seeker_profile_comments", "head_hunters"

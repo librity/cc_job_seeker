@@ -108,6 +108,6 @@ feature 'Job Seeker can signup' do
     end
 
     expect(page).to have_content I18n
-      .t('activerecord.errors.models.job_seeker/profile.attributes.date_of_birth.at_least_sixteen_years_ago')
+      .t('activerecord.errors.models.job_seeker/profile.attributes.date_of_birth.under_sixteen')
   end
 end

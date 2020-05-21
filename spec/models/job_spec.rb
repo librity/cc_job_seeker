@@ -175,7 +175,7 @@ describe Job, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:expires_on]).to include(I18n
-        .t('activerecord.errors.models.job.attributes.expires_on.at_least_one_month_from_now'))
+        .t('activerecord.errors.models.job.attributes.expires_on.before_one_month'))
     end
   end
 

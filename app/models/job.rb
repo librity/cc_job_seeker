@@ -16,13 +16,12 @@ class Job < ApplicationRecord
                             less_than: 50_000 }, presence: true
   validates :salary_roof, numericality: { only_integer: true, less_than: 50_200 },
                           presence: true
-  validate :salary_roof_is_greater_than_salary_floor_by_at_least_200
+  validate :whether_the_salary_range_is_reasonable
   validates :position, presence: true
   validates :location, presence: true
   validates :retired, inclusion: { in: [true, false] }
-  VALID_DATE_REGEX = /\d{4}-\d{2}-\d{2}/.freeze
-  validates :expires_on, presence: true, format: { with: VALID_DATE_REGEX }
-  validate :whether_expires_on_at_least_one_month_from_now
+  validates :expires_on, presence: true, format: { with: ApplicationHelper::DATE_REGEX }
+  validate :whether_it_expires_in_a_month
   validates :head_hunter, presence: true
 
   before_save :titleize_attributes
@@ -55,20 +54,20 @@ class Job < ApplicationRecord
 
   private
 
-  def salary_roof_is_greater_than_salary_floor_by_at_least_200
+  def whether_the_salary_range_is_reasonable
     return if salary_floor.nil?
     return if salary_roof && salary_roof >= salary_floor + 200
 
     errors.add :salary_roof, :greater_than_or_equal_to, count: salary_floor + 200
   end
 
-  def whether_expires_on_at_least_one_month_from_now
-    return if expires_on_is_at_least_one_month_from_now?
+  def whether_it_expires_in_a_month
+    return if expires_on_is_at_least_one_month_away?
 
-    errors.add :expires_on, :at_least_one_month_from_now
+    errors.add :expires_on, :before_one_month
   end
 
-  def expires_on_is_at_least_one_month_from_now?
+  def expires_on_is_at_least_one_month_away?
     expires_on && 1.month.from_now <= expires_on
   end
 

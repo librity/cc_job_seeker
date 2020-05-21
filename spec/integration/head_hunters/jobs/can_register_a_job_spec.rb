@@ -91,7 +91,7 @@ feature 'Head Hunter can register a job' do
     click_on I18n.t('views.actions.send')
 
     expect(page).to have_content I18n
-      .t('activerecord.errors.models.job.attributes.expires_on.at_least_one_month_from_now')
+      .t('activerecord.errors.models.job.attributes.expires_on.before_one_month')
   end
 
   scenario 'and salary floor should be at least minimum wage' do

@@ -5,6 +5,9 @@ class Job
     belongs_to :job
     belongs_to :job_seeker
 
+    has_many :offers, dependent: :destroy, class_name: Job::Application::Offer.name,
+                      foreign_key: 'job_application_id'
+
     validates :job_seeker, presence: true
     validates :job, presence: true
     validates :cover_letter, presence: true, length: { minimum: 50 }

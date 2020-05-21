@@ -44,7 +44,7 @@ describe JobSeeker::Profile, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:date_of_birth]).to include(I18n
-        .t('activerecord.errors.models.job_seeker/profile.attributes.date_of_birth.at_least_sixteen_years_ago'))
+        .t('activerecord.errors.models.job_seeker/profile.attributes.date_of_birth.under_sixteen'))
     end
   end
 

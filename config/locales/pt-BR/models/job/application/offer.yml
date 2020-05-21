@@ -1,0 +1,32 @@
+---
+pt-BR:
+  activemodel:
+    errors:
+
+  activerecord:
+    models:
+      job/application/offer:
+        one: Proposta de Emprego
+        other: Propostas de Emprego
+
+    attributes:
+      attr_defaults: &attr_defaults
+        id: ID
+        created_at: Criado
+        updated_at: Alterado
+        deleted_at: Excluído
+
+      job/application/offer:
+        <<: *attr_defaults
+        start_date: Data de início
+        salary: Salário
+        responsabilities: Resposabilidades
+        benefits: Benefícios
+        expectations: Expectativas
+        bonus: Bonus
+        feedback: Resposta do Candidato
+
+      job/application/offer/status:
+        ongoing: Em andamento
+        accepted: Aceitada
+        rejected: Rejeitada
