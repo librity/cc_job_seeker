@@ -45,6 +45,17 @@
   border: 3px solid $pallette-rhythm;
 }
 
+.profile_group {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+
+  background-color: $pallette-light-royal-blue;
+}
+
 .application_container {
   display: flex;
   align-items: center;

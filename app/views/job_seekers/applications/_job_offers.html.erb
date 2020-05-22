@@ -1,6 +1,6 @@
 <section class='contents'>
 
-  <% if @application.offers.empty? %>
+  <% if @offers.empty? %>
     <p class="empty_resource"><%= t('views.jobs/applications/offers.empty_resource') %></p>
   <% else %>
     <dl class="job_offer_feed col-12">
@@ -8,7 +8,7 @@
         <%= t('activerecord.models.job/application/offer.other') %>
       </h2>
 
-      <% @application.offers.each do |offer| %>
+      <% @offers.each do |offer| %>
         <div id="offer-<%= offer.id %>" class="job_offer <%= offer.status %>_job_offer">
           <dt class="job_offer_head">
             <span class="job_offer_creator">

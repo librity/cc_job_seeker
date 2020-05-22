@@ -36,7 +36,7 @@
                 <td><%= job.position %></td>
                 <td><%= job.title %></td>
                 <td>
-                  <span class="job_status_dot <%= job.active? ? 'active_job_dot' : 'inactive_job_dot' %>"></span>
+                  <span class="status_dot <%= job.active? ? 'active_dot' : 'inactive_dot' %>"></span>
                   <%= l(job.expires_on) %>
                 </td>
 

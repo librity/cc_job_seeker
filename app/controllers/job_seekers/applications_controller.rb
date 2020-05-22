@@ -4,9 +4,14 @@ module JobSeekers
   class ApplicationsController < BaseController
     before_action :check_active_job, only: %i[new create]
     before_action :check_if_already_applied, only: %i[new create]
+    before_action :check_applicant, only: %i[show]
 
     def index
       @applications = current_job_seeker.applications
+    end
+
+    def show
+      @offers = @application.offers
     end
 
     def new
@@ -51,6 +56,14 @@ module JobSeekers
 
       flash[:danger] = t 'flash.already_applied'
       redirect_to job_seekers_job_path(@job)
+    end
+
+    def check_applicant
+      @application = Job::Application.find params[:id]
+      return if @application.job_seeker == current_job_seeker
+
+      flash[:danger] = t 'flash.unauthorized'
+      redirect_to job_seekers_applications_path
     end
   end
 end

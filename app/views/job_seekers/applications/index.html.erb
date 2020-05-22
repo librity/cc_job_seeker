@@ -20,8 +20,9 @@
           <thead class="index_table_head">
             <tr class="index_table_row">
               <th><%= t('activerecord.attributes.job.title') %></th>
-              <th><%= t('activerecord.attributes.job/application.cover_letter') %></th>
               <th><%= t('activerecord.attributes.job.expires_on') %></th>
+              <th><%= t('activerecord.attributes.job/application.status') %></th>
+              <th></th>
             </tr>
           </thead>
 
@@ -29,15 +30,26 @@
             <% @applications.each do |application| %>
               <tr class="index_table_row" id="application-<%= application.id %>">
                 <td>
-                  <%= application.job.title %>
+                  <%= link_to application.job.title, job_seekers_job_path(application.job) %>
                 </td>
-                <td><%= application.cover_letter %></td>
                 <td>
-                  <span class="job_status_dot <%= application.job.active? ?
-                                                    'active_job_dot' :
-                                                    'inactive_job_dot' %>">
+                  <span class="status_dot <%= application.job.active? ?
+                                                'active_dot' :
+                                                'inactive_dot' %>">
                   </span>
                   <%= l(application.job.expires_on) %>
+                </td>
+                <td>
+                  <span class="status_dot <%= application.rejected? ?
+                                                'inactive_dot' :
+                                                'active_dot' %>">
+                  </span>
+                  <%= application.status %>
+                </td>
+                <td>
+                  <%= link_to t('views.navigation.details'),
+                              job_seekers_application_path(application),
+                              id: "details-#{application.id}" %>
                 </td>
               </tr>
             <% end %>

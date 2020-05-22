@@ -28,6 +28,6 @@ pt-BR:
         status: Status
 
       job/application/offer/status:
-        ongoing: Em andamento
+        ongoing: Aberta
         accepted: Aceitada
         rejected: Rejeitada

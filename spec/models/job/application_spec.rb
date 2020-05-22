@@ -81,4 +81,16 @@ describe Job::Application, type: :model do
       expect(subject.rejected?).to eq false
     end
   end
+
+  context 'method: status' do
+    it 'shoud return \"rejected" if rejected' do
+      subject = create :job_application, :rejected
+
+      expect(subject.status).to eq I18n.t('activerecord.attributes.job/application/status.rejected')
+    end
+
+    it 'shoud return \"ongoing" otherwise' do
+      expect(subject.status).to eq I18n.t('activerecord.attributes.job/application/status.ongoing')
+    end
+  end
 end

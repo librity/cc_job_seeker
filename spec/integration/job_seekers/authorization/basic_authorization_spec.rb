@@ -32,7 +32,7 @@ feature 'Job Seeker browses' do
                               href: job_seekers_show_profile_path
     expect(page).to have_link I18n.t('activerecord.models.job.other'),
                               href: job_seekers_jobs_path
-    expect(page).to have_link I18n.t('views.navigation.my_applications'),
+    expect(page).to have_link I18n.t('views.navigation.my_jobs'),
                               href: job_seekers_applications_path
   end
 

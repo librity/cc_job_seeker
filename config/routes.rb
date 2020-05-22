@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :jobs, only: %i[index show] do
       resources :applications, only: %i[new create]
     end
-    get '/applications', to: 'applications#index', as: :applications
+
+    resources :applications, only: %i[index show]
   end
 end

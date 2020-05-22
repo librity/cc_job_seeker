@@ -12,7 +12,7 @@
       <p class="indent"> <%= @profile.bio %> </p>
     </header>
 
-    <section class='contents row'>
+    <section class='contents row mb-3'>
 
       <aside class="col-3">
         <% if @profile.avatar.attached? %>
@@ -32,18 +32,32 @@
       </aside>
 
       <dl class="col">
-        <dt><%= t('activerecord.attributes.job_seeker/profile.date_of_birth') %>:</dt>
-        <dd> <%= l(@profile.date_of_birth) %> </dd>
-        <dt><%= t('activerecord.attributes.job_seeker/profile.high_school') %>:</dt>
-        <dd> <%= @profile.high_school %> </dd>
-        <dt><%= t('activerecord.attributes.job_seeker/profile.college') %>:</dt>
-        <dd> <%= @profile.college %> </dd>
+        <div class="profile_group">
+          <span>
+            <dt><%= t('activerecord.attributes.job_seeker/profile.date_of_birth') %>:</dt>
+            <dd> <%= l(@profile.date_of_birth) %> </dd>
+          </span>
+
+          <span>
+            <dt><%= t('activerecord.attributes.job_seeker/profile.high_school') %>:</dt>
+            <dd> <%= @profile.high_school %> </dd>
+          </span>
+
+          <span>
+            <dt><%= t('activerecord.attributes.job_seeker/profile.college') %>:</dt>
+            <dd> <%= @profile.college %> </dd>
+          </span>
+        </div>
+
         <dt><%= t('activerecord.attributes.job_seeker/profile.degrees') %>:</dt>
         <dd> <%= @profile.degrees %> </dd>
+
         <dt><%= t('activerecord.attributes.job_seeker/profile.courses') %>:</dt>
         <dd> <%= @profile.courses %> </dd>
+
         <dt><%= t('activerecord.attributes.job_seeker/profile.interests') %>:</dt>
         <dd> <%= @profile.interests %> </dd>
+
         <dt><%= t('activerecord.attributes.job_seeker/profile.work_experience') %>:</dt>
         <dd> <%= @profile.work_experience %> </dd>
       </dl>
@@ -52,7 +66,7 @@
 
     <%= render 'comment_form' %>
 
-    <section class='contents'>
+    <section class='contents row'>
 
         <% if @profile.comments.empty? %>
           <p class="empty_resource col-12"><%= t('views.job_seekers/profiles/comments.empty_resource') %></p>

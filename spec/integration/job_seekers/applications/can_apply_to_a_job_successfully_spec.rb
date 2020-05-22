@@ -7,8 +7,6 @@ feature 'Job Seeker can apply to an active job' do
     let!(:job_seeker) { log_job_seeker_in! }
 
     scenario 'successfully' do
-      Faker::Job.unique.clear
-
       job_a = create :job
       application = build :job_application
 
@@ -24,16 +22,22 @@ feature 'Job Seeker can apply to an active job' do
               with: application.cover_letter
       click_on I18n.t('views.actions.send')
 
+      expect(Job::Application.count).to eq 1
+      application = Job::Application.last
       expect(job_a.applications.count).to eq 1
+
       expect(current_path).to eq job_seekers_jobs_path
       expect(page).to have_content I18n.t('flash.created',
                                           resource: I18n.t('activerecord.models.job/application.one'))
 
-      click_on I18n.t('views.navigation.my_applications')
+      click_on I18n.t('views.navigation.my_jobs')
 
       expect(current_path).to eq job_seekers_applications_path
-      expect(page).to have_content job_a.title
-      expect(page).to have_content application.cover_letter
+      expect(page).to have_link job_a.title, href: job_seekers_job_path(job_a)
+      expect(page).to have_link I18n.t('views.navigation.details'),
+                                href: job_seekers_application_path(application)
+      expect(page).to have_content application.status
+      expect(page).to have_css('.active_dot', count: 2)
     end
   end
 end

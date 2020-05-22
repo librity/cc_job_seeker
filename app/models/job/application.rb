@@ -17,5 +17,11 @@ class Job
     def rejected?
       rejection_feedback.present?
     end
+
+    def status
+      return Job::Application.human_attribute_name 'status.rejected' if rejected?
+
+      Job::Application.human_attribute_name 'status.ongoing'
+    end
   end
 end

@@ -21,3 +21,8 @@ pt-BR:
         cover_letter: Carta de apresentação
         standout: Destaque
         rejection_feedback: Feedback de rejeição
+        status: Status
+
+      job/application/status:
+        ongoing: Em andamento
+        rejected: Rejeitada

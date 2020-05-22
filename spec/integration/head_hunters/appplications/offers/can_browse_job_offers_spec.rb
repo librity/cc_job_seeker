@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Head Hunter can browse a job application' do
+feature 'Head Hunter can browse job applications' do
   context 'when logged-in' do
     let!(:head_hunter) { log_head_hunter_in! }
 
@@ -11,7 +11,8 @@ feature 'Head Hunter can browse a job application' do
       applicant = create :job_seeker
       create :job_seeker_profile, job_seeker: applicant
       application = create :job_application, job: job_a, job_seeker: applicant
-      offer = create :job_application_offer, :without_expectations, :without_bonus
+      offer = create :job_application_offer, :without_expectations, :without_bonus,
+                     head_hunter: head_hunter, application: application
 
       visit head_hunters_job_application_path job_a, application
 
@@ -36,7 +37,8 @@ feature 'Head Hunter can browse a job application' do
       applicant = create :job_seeker
       create :job_seeker_profile, job_seeker: applicant
       application = create :job_application, job: job_a, job_seeker: applicant
-      offer = create :job_application_offer, :with_feedback
+      offer = create :job_application_offer, :with_feedback, head_hunter: head_hunter,
+                                                             application: application
 
       visit head_hunters_job_application_path job_a, application
 
@@ -50,7 +52,8 @@ feature 'Head Hunter can browse a job application' do
       applicant = create :job_seeker
       create :job_seeker_profile, job_seeker: applicant
       application = create :job_application, job: job_a, job_seeker: applicant
-      offer = create :job_application_offer, :with_feedback
+      offer = create :job_application_offer, :with_feedback,
+                     head_hunter: head_hunter, application: application
 
       visit head_hunters_job_application_path job_a, application
       page.should have_css('.ongoing_job_offer', count: 1)

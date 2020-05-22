@@ -34,7 +34,7 @@ FactoryBot.define do
     end
 
     trait :without_bonus do
-      expectations { nil }
+      bonus { nil }
     end
   end
 end

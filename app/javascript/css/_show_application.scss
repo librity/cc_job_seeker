@@ -1,0 +1,19 @@
+.application_status {
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  padding: 10px 0;
+  text-align: center;
+
+  font-weight: 500;
+}
+
+.ongoing_application {
+  background-color: $mint-green;
+  color: $mint-green-dark;
+}
+
+.rejected_application {
+  background-color: $simple-background;
+  color: $gray;
+}
