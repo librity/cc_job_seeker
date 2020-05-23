@@ -55,7 +55,7 @@ feature 'Job Seeker can browse their job offers' do
       expect(page).to have_content offer.expectations
       expect(page).to have_content offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name("status.#{offer.status}")
-      page.should have_css('.ongoing_job_offer', count: 1)
+      expect(page).to have_css('.ongoing_job_offer', count: 1)
     end
   end
 end

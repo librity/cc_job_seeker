@@ -44,6 +44,8 @@ pt-BR:
       filter: Filtrar
       retire: Aposentar
       comment: Comentar
+      accept: Aceitar
+      reject: Rejeitar
 
     placeholders:
       search_jobs: Procure vagas...

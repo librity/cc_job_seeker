@@ -1,0 +1,11 @@
+<%= form_with local: true, html: { method: :post } do |f| %>
+  <div class='form-group'>
+    <%= f.label :feedback, t('views.job_seekers/offers.your_feedback') %>
+    <%= f.text_area :feedback, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('views.actions.accept'), class: 'btn btn-primary',
+               formaction: job_seekers_offer_accept_path(offer) %>
+  <%= f.submit t('views.actions.reject'), class: 'btn btn-danger',
+               formaction: job_seekers_offer_reject_path(offer) %>
+<% end %>

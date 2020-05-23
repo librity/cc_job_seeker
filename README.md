@@ -126,7 +126,7 @@ Head Hunters:
 - [x] Can check a Job Application as a standout
 - [x] Can reject an Applicant
 - [x] Can propose Job Offers to Applicants
-- [ ] Recieves feedback for accepted/rejected Job Offers
+- [x] Recieves feedback for accepted/rejected Job Offers
 - [ ] Can retire a Job Opening
 
 Job Seeker:
@@ -137,7 +137,7 @@ Job Seeker:
 - [x] Searches active Job Openings by title and description
 - [x] Applies to a Job Opening
 - [x] Can browse rejected Job Applications
-- [ ] Can browse Job Offers
+- [x] Can browse Job Offers
 - [ ] Can accept Job Offers
 - [ ] Can reject Job Offers
 

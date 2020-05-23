@@ -11,8 +11,7 @@ module HeadHunters
 
     def standout
       @application = @job.applications.find params[:application_id]
-      @application.standout = !@application.standout
-      @application.save
+      @application.update standout: @application.standout.!
       redirect_to request.referer
     end
 

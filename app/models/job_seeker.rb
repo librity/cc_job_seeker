@@ -7,6 +7,7 @@ class JobSeeker < ApplicationRecord
   has_one :profile, dependent: :destroy, class_name: JobSeeker::Profile.name
   has_many :applications, dependent: :destroy, class_name: Job::Application.name
   has_many :applied_jobs, through: :applications, source: :job
+  has_many :offers, through: :applications
 
   before_save { email.downcase! }
   before_save { self.name = name.titleize }

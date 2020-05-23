@@ -9,10 +9,17 @@ feature "Job Seeker can browse their application's" do
     scenario 'related job offers' do
       job_a = create :job
       application = create :job_application, job: job_a, job_seeker: job_seeker
-      offer_a = create :job_application_offer, application: application
-      offer_b = create :job_application_offer, application: application
+      offer_a = create :job_application_offer,
+                       application: application,
+                       created_at: 1.hour.ago,
+                       start_date: 1.day.from_now
+      offer_b = create :job_application_offer,
+                       application: application,
+                       created_at: 2.hour.ago,
+                       start_date: 2.day.from_now
 
-      offer_c = create :job_application_offer, created_at: 1.hour.ago
+      offer_c = create :job_application_offer, created_at: 3.hour.ago,
+                                               start_date: 3.day.from_now
 
       visit job_seekers_applications_path
       within "tr#application-#{application.id}" do

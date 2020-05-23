@@ -13,3 +13,6 @@ pt-BR:
     inactive_job: Applicações para esta vaga já foram encerradas!
     profile_not_found: Perfil não encontrado!
     application_rejected: Applicação rejeitada
+    closed_offer: Não é possível alterar uma proposta uma vez aceitada ou rejeitada!
+    offer_accepted: Proposta aceitada com sucesso!
+    offer_rejected: Proposta rejeitada com sucesso!

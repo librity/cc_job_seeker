@@ -57,14 +57,17 @@ feature 'Head Hunter can browse job applications' do
 
       visit head_hunters_job_application_path job_a, application
       page.should have_css('.ongoing_job_offer', count: 1)
+      expect(page).to have_content offer.feedback
 
       offer.accepted!
       visit head_hunters_job_application_path job_a, application
       page.should have_css('.accepted_job_offer', count: 1)
+      expect(page).to have_content offer.feedback
 
       offer.rejected!
       visit head_hunters_job_application_path job_a, application
       page.should have_css('.rejected_job_offer', count: 1)
+      expect(page).to have_content offer.feedback
     end
   end
 end

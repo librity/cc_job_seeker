@@ -34,10 +34,15 @@
         <dd class="indent"> <%= @offer.bonus %> </dd>
       <% end %>
 
-      <% if @offer.feedback.present? %>
-        <dt><%= t('activerecord.attributes.job/application/offer.feedback') %>:</dt>
-        <dd class="indent"> <%= @offer.feedback %> </dd>
+      <% unless @offer.ongoing? %>
+        <% if @offer.feedback.present? %>
+          <dt><%= t('activerecord.attributes.job/application/offer.feedback') %>:</dt>
+          <dd class="indent"> <%= @offer.feedback %> </dd>
+        <% end %>
+      <% else %>
+        <%= render 'feedback_form' %>
       <% end %>
+
     </div>
   </dl>
 </section>

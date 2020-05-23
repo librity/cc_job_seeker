@@ -18,13 +18,13 @@ Rails.application.routes.draw do
 
     resources :jobs, only: %i[index show new create] do
       resources :applicants, only: %i[show] do
-        post 'comment'
+        post :comment
       end
 
       resources :applications, only: %i[show] do
-        post 'standout'
-        get 'rejection'
-        patch 'reject'
+        post  :standout
+        get   :rejection
+        patch :reject
 
         resources :offers, only: %i[new create]
       end
@@ -45,6 +45,9 @@ Rails.application.routes.draw do
     end
 
     resources :applications, only: %i[index show]
-    resources :offers, only: %i[index show]
+    resources :offers, only: %i[index show] do
+      post :accept
+      post :reject
+    end
   end
 end
