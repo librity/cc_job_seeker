@@ -12,8 +12,8 @@ feature 'Head Hunter can browse jobs' do
       job_a = create :job, head_hunter: head_hunter, position: 'Analyst'
       job_b = create :job, head_hunter: head_hunter, position: 'Janitor'
 
-      job_c = create :job, position: 'Director'
-      job_d = create :job, position: 'Engineer'
+      job_c = create :job, position: 'Director', expires_on: 32.days.from_now
+      job_d = create :job, position: 'Engineer', expires_on: 33.days.from_now
 
       visit root_path
       click_on I18n.t('activerecord.models.job.other')

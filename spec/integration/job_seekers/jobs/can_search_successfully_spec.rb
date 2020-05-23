@@ -20,7 +20,7 @@ feature 'Job Seeker can search active jobs ' do
                            expires_on: 8.weeks.from_now
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
 
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title

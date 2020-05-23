@@ -25,6 +25,7 @@ pt-BR:
       head_hunter: Sou Head Hunter
       job_seeker: Procuro emprego
       apply: Aplicar
+      browse_jobs: Procurar Vagas
       my_jobs: Minhas Vagas
       my_offers: Minhas Propostas
       letter: Carta
@@ -56,3 +57,4 @@ pt-BR:
 
     support:
       of: de
+      sent: Enviada

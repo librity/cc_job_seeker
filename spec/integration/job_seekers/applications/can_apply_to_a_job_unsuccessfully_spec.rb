@@ -11,7 +11,7 @@ feature 'Job Seeker can apply to an active job' do
       job_a = create :job
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end
@@ -30,7 +30,7 @@ feature 'Job Seeker can apply to an active job' do
       job_a = create :job
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end
@@ -52,7 +52,7 @@ feature 'Job Seeker can apply to an active job' do
       create :job_application, job_seeker: job_seeker, job: job_a
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
 
       expect(page).not_to have_content job_a.title
       expect(page).not_to have_content job_b.title
@@ -73,7 +73,7 @@ feature 'Job Seeker can apply to an active job' do
       create :job_application, job_seeker: job_seeker, job: job_a
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end

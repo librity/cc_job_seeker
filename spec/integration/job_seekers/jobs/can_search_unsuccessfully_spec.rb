@@ -15,7 +15,7 @@ feature 'Job Seeker can search active jobs ' do
       job_d = create :job
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
 
       fill_in I18n.t('views.jobs.search'),
               with: Faker::Books::Lovecraft.location

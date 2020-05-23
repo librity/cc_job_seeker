@@ -45,5 +45,6 @@ Rails.application.routes.draw do
     end
 
     resources :applications, only: %i[index show]
+    resources :offers, only: %i[index show]
   end
 end

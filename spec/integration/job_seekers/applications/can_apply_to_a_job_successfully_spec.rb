@@ -11,7 +11,7 @@ feature 'Job Seeker can apply to an active job' do
       application = build :job_application
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end

@@ -16,7 +16,7 @@ feature 'Job Seeker can browse active jobs' do
       job_d = create :job, retired: true, position: 'Engineer', expires_on: 6.weeks.from_now
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
 
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title
@@ -38,7 +38,7 @@ feature 'Job Seeker can browse active jobs' do
       job_b = create :job
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end
@@ -68,7 +68,7 @@ feature 'Job Seeker can browse active jobs' do
       job_a.head_hunter.update social_name: Faker::Name.unique.name
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end
@@ -78,14 +78,14 @@ feature 'Job Seeker can browse active jobs' do
 
     scenario 'when there are no active jobs' do
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
 
       expect(page).to have_content I18n.t('views.jobs.empty_resource')
     end
 
     scenario 'and return to home page' do
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       click_on I18n.t('views.navigation.go_back')
 
       expect(current_path).to eq job_seekers_dashboard_path
@@ -96,7 +96,7 @@ feature 'Job Seeker can browse active jobs' do
       create :job
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
+      click_on I18n.t('views.navigation.browse_jobs')
       within "tr#job-#{job_a.id}" do
         click_on I18n.t('views.navigation.details')
       end

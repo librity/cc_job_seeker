@@ -78,3 +78,13 @@
     text-decoration: none;
   }
 }
+
+.avatar_large {
+  margin-right: 5px;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+  border: 2px solid $pallette-royal-blue;
+}

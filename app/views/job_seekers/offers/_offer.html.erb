@@ -1,0 +1,43 @@
+<section class='contents mt-4'>
+  <dl class="col-12">
+    <div id="offer-<%= @offer.id %>" class="job_offer <%= @offer.status %>_job_offer">
+      <div class="job_offer_overview">
+        <span>
+          <dt><%= t('activerecord.attributes.job/application/offer.status') %>:</dt>
+          <dd> <%= t("activerecord.attributes.job/application/offer/status.#{@offer.status}") %> </dd>
+        </span>
+
+        <span>
+          <dt><%= t('activerecord.attributes.job/application/offer.start_date') %>:</dt>
+          <dd> <%= l(@offer.start_date) %> </dd>
+        </span>
+
+        <span>
+          <dt><%= t('activerecord.attributes.job/application/offer.salary') %>:</dt>
+          <dd> <%= number_to_currency(@offer.salary) %> </dd>
+        </span>
+      </div>
+
+      <dt><%= t('activerecord.attributes.job/application/offer.responsabilities') %>:</dt>
+      <dd class="indent"> <%= @offer.responsabilities %> </dd>
+
+      <dt><%= t('activerecord.attributes.job/application/offer.benefits') %>:</dt>
+      <dd class="indent"> <%= @offer.benefits %> </dd>
+
+      <% if @offer.expectations.present? %>
+        <dt><%= t('activerecord.attributes.job/application/offer.expectations') %>:</dt>
+        <dd class="indent"> <%= @offer.expectations %> </dd>
+      <% end %>
+
+      <% if @offer.bonus.present? %>
+        <dt><%= t('activerecord.attributes.job/application/offer.bonus') %>:</dt>
+        <dd class="indent"> <%= @offer.bonus %> </dd>
+      <% end %>
+
+      <% if @offer.feedback.present? %>
+        <dt><%= t('activerecord.attributes.job/application/offer.feedback') %>:</dt>
+        <dd class="indent"> <%= @offer.feedback %> </dd>
+      <% end %>
+    </div>
+  </dl>
+</section>

@@ -1,0 +1,55 @@
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1><%= t('activerecord.models.job/application/offer.other') %></h1>
+
+        <p><%= t('views.jobs/applications/offers.job_seeker_description') %></p>
+    </header>
+
+    <section class='contents'>
+
+      <% if @offers.empty? %>
+        <p class="empty_resource"><%= t('views.jobs/applications/offers.empty_resource') %></p>
+      <% else %>
+
+      <table class="col index_table">
+          <thead class="index_table_head">
+            <tr class="index_table_row">
+              <th><%= t('activerecord.models.head_hunter.one') %></th>
+              <th><%= t('activerecord.attributes.job.title') %></th>
+              <th><%= t('activerecord.attributes.job/application/offer.start_date') %></th>
+              <th><%= t('activerecord.attributes.job/application/offer.salary') %></th>
+              <th><%= t('activerecord.attributes.job/application/offer.status') %></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="index_table_body">
+            <% @offers.each do |offer| %>
+              <tr class="index_table_row" id="offer-<%= offer.id %>">
+                <td><%= offer.head_hunter.resolve_name %></td>
+                <td><%= offer.application.job.title %></td>
+                <td><%= l(offer.start_date) %></td>
+                <td><%= number_to_currency(offer.salary) %></td>
+                <td>
+                  <span class="status_dot <%= offer.ongoing? ? 'active_dot' : 'inactive_dot' %>"></span>
+                  <%= Job::Application::Offer.human_attribute_name("status.#{offer.status}") %>
+                </td>
+
+                <td><%= link_to t('views.navigation.details'), job_seekers_offer_path(offer), id: "details-#{offer.id}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+
+    </section>
+
+    <div class='actions mt-4'>
+    </div>
+  </div>
+</main>

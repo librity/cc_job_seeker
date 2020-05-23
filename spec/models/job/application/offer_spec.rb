@@ -6,6 +6,7 @@ describe Job::Application::Offer, type: :model do
   describe 'relationships' do
     it { should respond_to(:application) }
     it { should respond_to(:head_hunter) }
+    it { should respond_to(:job_seeker) }
   end
 
   let(:subject) { create :job_application_offer }

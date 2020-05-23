@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :job_application_offer, class: 'Job::Application::Offer' do
-    application { create :job_application }
+    association :application, factory: :job_application
     head_hunter
 
     start_date { Faker::Date.forward days: 90 }

@@ -27,5 +27,7 @@ FactoryBot.create_list :job, 5, :skip_validate, :expired
 FactoryBot.create_list :job_application, 5, job_seeker: JobSeeker.first, job: Job.first
 
 # Job Offers
-FactoryBot.create_list :job_application_offer, 2, application: Job::Application.first
-FactoryBot.create_list :job_application_offer, 1, application: Job::Application.second
+FactoryBot.create_list :job_application_offer, 2,
+                       application: Job::Application.first
+FactoryBot.create_list :job_application_offer, 1,
+                       application: Job::Application.second
