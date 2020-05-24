@@ -7,6 +7,7 @@ class Job
                                foreign_key: 'job_application_id'
       belongs_to :head_hunter
       has_one :job_seeker, through: :application
+      has_one :job, through: :application
 
       enum status: { ongoing: 0, accepted: 1, rejected: 2 }
 

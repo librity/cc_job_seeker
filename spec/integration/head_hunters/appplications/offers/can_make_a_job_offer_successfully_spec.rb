@@ -46,7 +46,7 @@ feature 'Head Hunter can make a job offer' do
       expect(page).to have_content prototype_offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name("status.#{offer.status}")
       expect(page).to have_content I18n.t('activerecord.attributes.job/application/offer/status.ongoing')
-      page.should have_css('.ongoing_job_offer', count: 1)
+      expect(page).to have_css('.ongoing_job_offer', count: 1)
     end
   end
 end

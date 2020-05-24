@@ -74,16 +74,60 @@ The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/s
 
 ## 🤖 Requirements
 
-- System dependencies
+- [Ruby 2.6.5](https://www.ruby-lang.org/en/news/2019/10/01/ruby-2-6-5-released/), [**RBENV recommended**](https://github.com/rbenv/rbenv#installation)
+- [Bundle 2.1.4](https://bundler.io/)
+- [Rails 6.0.3](https://weblog.rubyonrails.org/2020/5/6/Rails-6-0-3-has-been-released/)
+- [Node 12.16.x](https://nodejs.org/en/download/), [**NVM recommended**](https://github.com/nvm-sh/nvm#install--update-script)
+- [Yarn 1.22.4](https://yarnpkg.com/getting-started/install#global-install)
 
 ## 🗺️ Instructions
 
-- Configuration
-- Database creation
-- Database initialization
-- How to run the test suite
-- Services (job queues, cache servers, search engines, etc.)
-- Deployment instructions
+After installing all requirements, clone the repo locally:
+
+```bash
+$ git clone git@github.com:librity/campus_code_job_seeker.git
+```
+
+Navigate into the repo and install all the gems:
+
+```bash
+$ cd campus_code_job_seeker
+$ bundle install
+```
+
+Install all the npm packages with yarn:
+
+```bash
+$ yarn install
+```
+
+Create, migrate and seed the SQLite database:
+
+```bash
+$ bundle exec rails db:create db:migrate db:seed
+```
+
+Run all the tests with rspec:
+
+```bash
+$ bundle exec rspec
+```
+
+Run a development server with:
+
+```bash
+$ bundle exec rails s
+```
+
+And connect to it through http://localhost:3000.
+
+You can also interact directly with the application using the rails console:
+
+```bash
+$ bundle exec rails c
+```
+
+<small>`bundle exec` makes sure that every command uses the gem versions specified within the `Gemfile`</small>
 
 ## ⛓️ Dependencies
 
@@ -140,7 +184,6 @@ Job Seeker:
 - [x] Can browse Job Offers
 - [x] Can accept Job Offers
 - [x] Can reject Job Offers
-
 
 ## 🏆 Bonus Features
 

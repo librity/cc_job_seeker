@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 describe JobSeeker::Profile::Comment, type: :model do
-  describe 'relationships' do
-    it { should respond_to(:profile) }
-    it { should respond_to(:head_hunter) }
-  end
-
   let(:subject) { create :job_seeker_profile_comment }
+
+  it 'has relations' do
+    expect(subject).to respond_to(:profile)
+    expect(subject).to respond_to(:head_hunter)
+  end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid

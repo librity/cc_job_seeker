@@ -25,7 +25,7 @@ feature 'Head Hunter can browse job applications' do
       expect(page).to have_content offer.expectations
       expect(page).to have_content offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name("status.#{offer.status}")
-      page.should have_css('.ongoing_job_offer', count: 1)
+      expect(page).to have_css('.ongoing_job_offer', count: 1)
 
       expect(page).not_to have_content I18n.t('activerecord.attributes.job/application/offer.expectations')
       expect(page).not_to have_content I18n.t('activerecord.attributes.job/application/offer.bonus')
@@ -56,17 +56,17 @@ feature 'Head Hunter can browse job applications' do
                      head_hunter: head_hunter, application: application
 
       visit head_hunters_job_application_path job_a, application
-      page.should have_css('.ongoing_job_offer', count: 1)
+      expect(page).to have_css('.ongoing_job_offer', count: 1)
       expect(page).to have_content offer.feedback
 
       offer.accepted!
       visit head_hunters_job_application_path job_a, application
-      page.should have_css('.accepted_job_offer', count: 1)
+      expect(page).to have_css('.accepted_job_offer', count: 1)
       expect(page).to have_content offer.feedback
 
       offer.rejected!
       visit head_hunters_job_application_path job_a, application
-      page.should have_css('.rejected_job_offer', count: 1)
+      expect(page).to have_css('.rejected_job_offer', count: 1)
       expect(page).to have_content offer.feedback
     end
   end

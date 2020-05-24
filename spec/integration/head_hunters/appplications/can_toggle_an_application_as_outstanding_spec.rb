@@ -22,21 +22,21 @@ feature 'Head Hunter can browse job applications' do
         click_on I18n.t('views.navigation.letter')
       end
 
-      page.should have_css('.inactive_standout', count: 1)
+      expect(page).to have_css('.inactive_standout', count: 1)
 
       within '.applicant_title' do
         click_button
       end
 
       expect(current_path).to eq head_hunters_job_application_path(job_a, application)
-      page.should have_css('.active_standout', count: 1)
+      expect(page).to have_css('.active_standout', count: 1)
 
       within '.applicant_title' do
         click_button
       end
 
       expect(current_path).to eq head_hunters_job_application_path(job_a, application)
-      page.should have_css('.inactive_standout', count: 1)
+      expect(page).to have_css('.inactive_standout', count: 1)
     end
   end
 end

@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 describe Job, type: :model do
-  describe 'relationships' do
-    it { should respond_to(:head_hunter) }
-    it { should respond_to(:applications) }
-    it { should respond_to(:applicants) }
-  end
-
   let!(:subject) { create :job }
+
+  it 'has relations' do
+    expect(subject).to respond_to(:head_hunter)
+    expect(subject).to respond_to(:applications)
+    expect(subject).to respond_to(:applicants)
+  end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
