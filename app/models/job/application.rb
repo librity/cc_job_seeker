@@ -16,6 +16,8 @@ class Job
     validates :rejection_feedback, allow_nil: true, allow_blank: false,
                                    length: { minimum: 50 }
 
+    scope :ongoing, -> { where rejection_feedback: nil }
+
     def rejected?
       rejection_feedback.present?
     end

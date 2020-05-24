@@ -1,0 +1,7 @@
+---
+pt-BR:
+  views:
+    hunter:
+      applicants:
+        description: Todos os candidatos que preencheram applicações nas tuas vagas.
+        empty_resource: Nenhum candidato aplicou nas tuas vagas ainda

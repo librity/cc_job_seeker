@@ -24,19 +24,20 @@ feature 'Head Hunter can browse job applications' do
                                 href: hunter_application_path(application_a)
 
       expect(page).to have_content application_b.job_seeker.resolve_name
-      expect(page).to have_link job_a.title, href: hunter_job_path(job_b)
+      expect(page).to have_link job_b.title, href: hunter_job_path(job_b)
       expect(page).to have_link I18n.t('views.navigation.details'),
                                 href: hunter_application_path(application_b)
 
       expect(page).not_to have_content application_c.job_seeker.resolve_name
-      expect(page).not_to have_link job_a.title, href: hunter_job_path(job_c)
+      expect(page).not_to have_link job_c.title, href: hunter_job_path(job_c)
       expect(page).not_to have_link I18n.t('views.navigation.details'),
                                     href: hunter_application_path(application_c)
     end
 
     scenario 'and view details' do
       job = create :job, head_hunter: head_hunter
-      application = create :job_application, job: job
+      profile = create :job_seeker_profile
+      application = create :job_application, job: job, job_seeker: profile.job_seeker
 
       visit root_path
       click_on I18n.t('views.navigation.my_applications')
@@ -45,14 +46,15 @@ feature 'Head Hunter can browse job applications' do
       end
 
       expect(current_path).to eq hunter_application_path application
-      expect(page).to have_content application_a.job_seeker.resolve_name
-      expect(page).to have_content application_a.job_seeker.profile.bio
-      expect(page).to have_content application_a.cover_letter
+      expect(page).to have_content application.job_seeker.resolve_name
+      expect(page).to have_content application.job_seeker.profile.bio
+      expect(page).to have_content application.cover_letter
     end
 
     scenario 'and return to jobs page' do
       job = create :job, head_hunter: head_hunter
-      application = create :job_application, job: job
+      profile = create :job_seeker_profile
+      application = create :job_application, job: job, job_seeker: profile.job_seeker
 
       visit root_path
       click_on I18n.t('views.navigation.my_applications')

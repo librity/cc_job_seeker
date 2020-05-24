@@ -13,7 +13,7 @@ feature 'Head Hunter can make a job offer' do
 
       visit new_hunter_application_offer_path application
 
-      expect(current_path).to eq hunter_jobs_path
+      expect(current_path).to eq hunter_offers_path
       expect(page).to have_content I18n.t 'flash.unauthorized'
     end
   end

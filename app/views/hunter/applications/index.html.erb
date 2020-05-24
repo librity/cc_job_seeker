@@ -30,8 +30,8 @@
             <% @applications.each do |application| %>
               <tr class="index_table_row" id="application-<%= application.id %>">
                 <td> <i class="fas fa-thumbtack <%= application.standout? ? 'active_standout' : 'inactive_standout' %>"></i> </td>
-                <td> <%= application.job.title %> </td>
-                <td> <%= link_to application.job_seeker.resolve_name, '#' %> </td>
+                <td> <%= link_to application.job.title, hunter_job_path(application.job) %> </td>
+                <td> <%= link_to application.job_seeker.resolve_name, hunter_applicant_path(application.job_seeker) %> </td>
 
                 <td><%= link_to t('views.navigation.details'), hunter_application_path(application), id: "details-#{application.id}" %></td>
               </tr>

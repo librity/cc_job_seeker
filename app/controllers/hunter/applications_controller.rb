@@ -5,7 +5,7 @@ module Hunter
     before_action :check_head_hunter, except: %i[index]
 
     def index
-      @applications = current_head_hunter.applications
+      @applications = current_head_hunter.applications.ongoing
     end
 
     def show
@@ -35,7 +35,7 @@ module Hunter
     end
 
     def check_head_hunter
-      @application = Job::Application.find params[:id]
+      @application = Job::Application.find params[:id] || params[:application_id]
       return if @application.head_hunter == current_head_hunter
 
       flash[:danger] = t 'flash.unauthorized'

@@ -26,7 +26,7 @@ feature "Head Hunter can comment on an applicant's profile" do
 
       expect(JobSeeker::Profile::Comment.count).to eq 1
       comment = JobSeeker::Profile::Comment.last
-      expect(current_path).to eq hunter_job_applicant_path(job_a, applicant)
+      expect(current_path).to eq hunter_applicant_path(applicant)
       expect(page).to have_content comment.content
       expect(page).to have_content I18n.l(comment.created_at, format: :long)
       expect(page).to have_content head_hunter.resolve_name

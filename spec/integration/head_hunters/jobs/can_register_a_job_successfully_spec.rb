@@ -45,6 +45,6 @@ feature 'Head Hunter can register a job' do
     expect(page).to have_content number_to_currency(job_attributes.salary_roof)
 
     expect(page).to have_content I18n.l(job_attributes.expires_on)
-    expect(page).to have_link I18n.t('views.navigation.go_back'), href: hunter_jobs_path
+    expect(page).to have_link I18n.t('views.navigation.go_back')
   end
 end

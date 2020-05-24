@@ -33,10 +33,10 @@ feature 'Head Hunter can make a job offer' do
       expect(Job::Application::Offer.count).to eq 1
       offer = Job::Application::Offer.last
 
-      expect(current_path).to eq hunter_application_path application
+      expect(current_path).to eq hunter_offer_path offer
       expect(page).to have_content I18n.t('flash.created',
                                           resource: I18n.t('activerecord.models.job/application/offer.one'))
-      expect(page).to have_content head_hunter.resolve_name
+      expect(page).to have_content applicant.resolve_name
       expect(page).to have_content I18n.l(offer.created_at, format: :long)
       expect(page).to have_content I18n.l(prototype_offer.start_date)
       expect(page).to have_content number_to_currency(prototype_offer.salary)

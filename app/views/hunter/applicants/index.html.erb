@@ -1,0 +1,44 @@
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1><%= t('activerecord.models.job_seeker.other') %></h1>
+
+      <p><%= t('views.hunter.applicants.description') %></p>
+    </header>
+
+    <section class='contents'>
+
+      <% if @applicants.empty? %>
+        <p class="empty_resource"><%= t('views.hunter.applicants.empty_resource') %></p>
+      <% else %>
+
+      <table class="col index_table">
+          <thead class="index_table_head">
+            <tr class="index_table_row">
+              <th><%= t('activerecord.models.job_seeker.one') %></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="index_table_body">
+            <% @applicants.each do |applicant| %>
+              <tr class="index_table_row" id="applicant-<%= applicant.id %>">
+                <td> <%= applicant.resolve_name %> </td>
+
+                <td><%= link_to t('views.navigation.details'), hunter_applicant_path(applicant), id: "details-#{application.id}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+
+    </section>
+
+    <div class='actions mt-4'>
+    </div>
+  </div>
+</main>

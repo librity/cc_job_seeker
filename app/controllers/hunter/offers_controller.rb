@@ -22,7 +22,7 @@ module Hunter
       if @offer.save
         flash[:success] = t 'flash.created',
                             resource: t('activerecord.models.job/application/offer.one')
-        redirect_to request.referer
+        redirect_to hunter_offer_path @offer
       else
         render :new
       end

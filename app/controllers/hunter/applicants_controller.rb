@@ -4,7 +4,9 @@ module Hunter
   class ApplicantsController < BaseController
     before_action :check_profile, only: %i[show comment]
 
-    def index; end
+    def index
+      @applicants = current_head_hunter.applicants.uniq
+    end
 
     def show
       @comment = JobSeeker::Profile::Comment.new

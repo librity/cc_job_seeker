@@ -30,7 +30,7 @@ feature 'Head Hunter can reject a job application' do
               with: rejected_application.rejection_feedback
       click_on I18n.t('views.actions.send')
 
-      expect(current_path).to eq hunter_job_path job_a
+      expect(current_path).to eq hunter_applications_path
       expect(page).to have_content I18n.t 'flash.application_rejected'
       expect(page).not_to have_link applicant.resolve_name,
                                     href: hunter_applicant_path(applicant)

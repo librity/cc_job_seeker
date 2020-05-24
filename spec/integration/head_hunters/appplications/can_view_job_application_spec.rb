@@ -52,7 +52,7 @@ feature 'Head Hunter can browse job applications' do
 
       visit hunter_application_path application
 
-      expect(current_path).to eq hunter_jobs_path
+      expect(current_path).to eq hunter_applications_path
       expect(page).to have_content I18n.t 'flash.unauthorized'
     end
   end

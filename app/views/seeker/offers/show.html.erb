@@ -7,10 +7,10 @@
 
     <header class='header'>
       <h1>
-        <%= "#{t('activerecord.models.job/application/offer.one')} #{t('views.support.to')} #{@offer.job_seeker.resolve_name}" %>
+        <%= "#{t('activerecord.models.job/application/offer.one')} #{t('views.support.of')} #{@offer.head_hunter.resolve_name}" %>
 
-        <%= image_tag url_for(@offer.job_seeker.avatar),
-                      alt: @offer.job_seeker.resolve_name,
+        <%= image_tag url_for(@offer.head_hunter.avatar),
+                      alt: @offer.head_hunter.resolve_name,
                       class: 'avatar_large' %>
       </h1>
 

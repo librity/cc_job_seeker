@@ -7,6 +7,7 @@ class HeadHunter < ApplicationRecord
   has_one_attached :avatar
   has_many :jobs, dependent: :nullify
   has_many :applications, through: :jobs
+  has_many :applicants, through: :jobs
   has_many :offers, dependent: :destroy, class_name: Job::Application::Offer.name,
                         foreign_key: 'head_hunter_id'
 

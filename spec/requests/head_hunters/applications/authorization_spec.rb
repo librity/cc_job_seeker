@@ -13,7 +13,7 @@ describe 'Logged-in Head Hunter' do
 
       patch hunter_application_standout_path application
 
-      expect(response).to redirect_to(hunter_jobs_path)
+      expect(response).to redirect_to(hunter_applications_path)
       follow_redirect!
 
       expect(response.body).to include(I18n.t('flash.unauthorized'))
