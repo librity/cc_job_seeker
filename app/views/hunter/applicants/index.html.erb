@@ -29,7 +29,7 @@
               <tr class="index_table_row" id="applicant-<%= applicant.id %>">
                 <td> <%= applicant.resolve_name %> </td>
 
-                <td><%= link_to t('views.navigation.details'), hunter_applicant_path(applicant), id: "details-#{application.id}" %></td>
+                <td><%= link_to t('views.navigation.details'), hunter_applicant_path(applicant), id: "details-#{applicant.id}" %></td>
               </tr>
             <% end %>
           </tbody>

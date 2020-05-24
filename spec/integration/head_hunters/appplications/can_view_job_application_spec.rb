@@ -42,7 +42,7 @@ feature 'Head Hunter can browse job applications' do
       end
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq hunter_job_path(job_a)
+      expect(current_path).to eq hunter_applications_path
     end
 
     scenario "and gets redirected when accessing another's job application" do

@@ -26,6 +26,7 @@ pt-BR:
         bonus: Bonus
         feedback: Resposta do Candidato
         status: Status
+        accepted_another_offer: Candidato aceitou outra proposta de emprego.
 
       job/application/offer/status:
         ongoing: Aberta

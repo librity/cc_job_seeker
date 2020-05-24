@@ -24,6 +24,21 @@ class Job
 
       default_scope -> { order created_at: :desc }
 
+      def reject! feedback
+        update_attribute :status, :rejected
+        update_attribute :feedback, feedback if feedback
+      end
+
+      def reject_with_default_feedback!
+        update_attribute :status, :rejected
+        update_attribute :feedback, I18n.t('activerecord.attributes.job/application/offer.accepted_another_offer')
+      end
+
+      def accept! feedback
+        update_attribute :status, :accepted
+        update_attribute :feedback, feedback if feedback
+      end
+
       private
 
       def whether_it_starts_in_the_future

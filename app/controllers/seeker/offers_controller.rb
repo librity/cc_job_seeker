@@ -6,25 +6,23 @@ module Seeker
 
     before_action :check_job_seeker, only: %i[show accept reject]
     before_action :check_status, only: %i[accept reject]
-    before_action :load_seeker_offers, only: %i[index accept]
+    before_action :reject_ongoing_offers, only: %i[accept]
 
-    def index; end
+    def index
+      @offers = current_job_seeker.offers
+    end
 
     def show; end
 
     def accept
-      @offer.update feedback: params[:feedback]
-      @other_offers = @offers.filter { |offer| offer != @offer }
-      @other_offers.each(&:rejected!)
-      @offer.accepted!
+      @offer.accept! params[:feedback]
 
       flash[:success] = t 'flash.offer_accepted'
       redirect_to request.referer
     end
 
     def reject
-      @offer.update feedback: params[:feedback]
-      @offer.rejected!
+      @offer.reject! params[:feedback]
 
       flash[:success] = t 'flash.offer_rejected'
       redirect_to request.referer
@@ -47,8 +45,10 @@ module Seeker
       redirect_to seeker_offer_path(@offer)
     end
 
-    def load_seeker_offers
-      @offers = current_job_seeker.offers
+    def reject_ongoing_offers
+      @ongoing_offers = current_job_seeker.offers.ongoing
+      @rejected_offers = @ongoing_offers.filter { |offer| offer != @offer }
+      @rejected_offers.each(&:reject_with_default_feedback!)
     end
   end
 end

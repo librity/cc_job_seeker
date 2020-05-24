@@ -2,7 +2,7 @@
 <main class='row'>
   <div class='col-12'>
     <nav class='context_navigation'>
-      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+      <%= link_to t('views.navigation.go_back'), hunter_jobs_path, class: 'btn btn-outline-secondary' %>
 
       <%= link_to t('views.actions.retire'), hunter_job_retire_path(@job),
                   data: { confirm: t('views.messages.retire_job') },
@@ -59,7 +59,7 @@
             <% @applications.each do |application| %>
               <dd id="application-<%= application.id %>" class="application_container">
                   <span class="applicant_container">
-                    <%= render 'standout_form', application: application %>
+                    <%= render 'hunter/shared/small_standout_form', application: application %>
 
                     <%= link_to application.job_seeker.resolve_name,
                                 hunter_applicant_path(application.job_seeker), 

@@ -1,7 +1,7 @@
 <main class='row'>
   <div class='col-md-12'>
     <nav class='context_navigation'>
-      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+      <%= link_to t('views.navigation.go_back'), hunter_applications_path, class: 'btn btn-outline-secondary' %>
 
       <span>
         <%= link_to t('views.navigation.offer'), new_hunter_application_offer_path(@application),
@@ -15,7 +15,7 @@
       <div class="applicant_title">
         <h1> <%= @applicant.resolve_name %> </h1>
 
-        <%= render 'standout_form', application: @application %>
+        <%= render 'hunter/shared/standout_form', application: @application %>
       </div>
 
       <p class="indent"> <%= @applicant.profile.bio %> </p>
