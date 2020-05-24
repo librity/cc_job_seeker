@@ -1,15 +1,15 @@
-.job_offer_feed {
+.offer_feed {
   padding: 15px;
   border-radius: 5px;
 
   background-color: $pallette-very-light-royal-blue;
 }
 
-.job_offer_feed_title {
+.offer_feed_title {
   margin-bottom: 20px;
 }
 
-.job_offer {
+.offer {
   padding: 20px;
   margin-bottom: 15px;
 
@@ -20,7 +20,7 @@
   }
 }
 
-.job_offer_head {
+.offer_head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,19 +41,19 @@
   color: $pallette-independence;
 }
 
-.job_offer_timestamp {
+.offer_timestamp {
   font-weight: bolder;
   color: $pallette-light-independence;
 }
 
-.job_offer_overview {
+.offer_overview {
   display: flex;
   justify-content: space-around;
 
   margin-bottom: 10px;
 }
 
-.job_offer_content {
+.offer_content {
   margin-top: 10px;
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -68,14 +68,14 @@
   }
 }
 
-.ongoing_job_offer {
+.ongoing_offer {
   background-color: $state-ongoing;
 }
 
-.accepted_job_offer {
+.accepted_offer {
   background-color: $state-accepted;
 }
 
-.rejected_job_offer {
+.rejected_offer {
   background-color: $state-rejected;
 }

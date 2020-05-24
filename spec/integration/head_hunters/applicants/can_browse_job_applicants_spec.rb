@@ -23,7 +23,7 @@ feature 'Head Hunter can browse job applicants' do
 
       job_a.applicants.each do |applicant|
         expect(page).to have_link applicant.resolve_name,
-                                  href: head_hunters_job_applicant_path(job_a, applicant)
+                                  href: hunter_job_applicant_path(job_a, applicant)
       end
 
       job_b.applicants.each do |applicant|
@@ -44,7 +44,7 @@ feature 'Head Hunter can browse job applicants' do
       end
       click_on applicant.resolve_name
 
-      expect(current_path).to eq head_hunters_job_applicant_path(job_a, applicant)
+      expect(current_path).to eq hunter_job_applicant_path(job_a, applicant)
       expect(page).to have_content applicant.resolve_name
       expect(page).to have_content I18n.l(applicant.profile.date_of_birth)
       expect(page).to have_content applicant.profile.high_school
@@ -83,7 +83,7 @@ feature 'Head Hunter can browse job applicants' do
       click_on applicant.resolve_name
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq head_hunters_job_path(job_a)
+      expect(current_path).to eq hunter_job_path(job_a)
     end
   end
 end

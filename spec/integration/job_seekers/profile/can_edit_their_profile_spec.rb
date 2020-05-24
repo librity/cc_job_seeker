@@ -34,7 +34,7 @@ feature 'Job Seeker can edit their profile' do
         click_on I18n.t('views.actions.send')
       end
 
-      expect(current_path).to eq job_seekers_show_profile_path
+      expect(current_path).to eq seeker_show_profile_path
 
       expect(page).to have_content job_seeker.name
       expect(page).to have_content I18n.l(edited_profile.date_of_birth)

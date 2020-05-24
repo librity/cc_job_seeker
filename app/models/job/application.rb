@@ -5,6 +5,8 @@ class Job
     belongs_to :job
     belongs_to :job_seeker
 
+    has_one :head_hunter, through: :job
+
     has_many :offers, dependent: :destroy, class_name: Job::Application::Offer.name,
                       foreign_key: 'job_application_id'
 

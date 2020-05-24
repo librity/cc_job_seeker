@@ -7,7 +7,7 @@ feature 'Job Seeker logs out' do
     job_seeker = job_seeker_with_profile
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
 

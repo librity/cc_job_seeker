@@ -88,7 +88,7 @@ feature 'Head Hunter can browse jobs' do
       click_on I18n.t('activerecord.models.job.other')
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq head_hunters_dashboard_path
+      expect(current_path).to eq hunter_dashboard_path
     end
 
     scenario 'and return to jobs page' do
@@ -102,7 +102,7 @@ feature 'Head Hunter can browse jobs' do
       end
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq head_hunters_jobs_path
+      expect(current_path).to eq hunter_jobs_path
     end
   end
 end

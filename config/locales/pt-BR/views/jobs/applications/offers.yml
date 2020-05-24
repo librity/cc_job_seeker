@@ -3,4 +3,6 @@ pt-BR:
   views:
     jobs/applications/offers:
       empty_resource: Nenhuma proposta recebida. Inscreva-se em vagas e agende entrevistas.
+      hunter_empty_resource: Nenhuma proposta feita. Entre nas applicações das suas vagas para fazer propostas
       job_seeker_description: Todas as tuas propostas de emprego.
+      hunter_description: Todas as propostas que você fez.

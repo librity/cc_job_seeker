@@ -18,7 +18,7 @@ feature 'Head Hunter can retire a job' do
       end
       click_on I18n.t('views.actions.retire')
 
-      expect(current_path).to eq head_hunters_job_path job
+      expect(current_path).to eq hunter_job_path job
       expect(head_hunter.jobs.active.count).to eq 0
       expect(page).to have_content I18n.t('flash.job_retired')
       expect(page).to have_css '.inactive_job', count: 1

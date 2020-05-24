@@ -7,7 +7,7 @@ feature 'Head Hunter logs out' do
     head_hunter = create :head_hunter
 
     visit root_path
-    within 'li#head_hunters_dropdown' do
+    within 'li#hunter_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
 

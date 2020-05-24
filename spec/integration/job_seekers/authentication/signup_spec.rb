@@ -8,7 +8,7 @@ feature 'Job Seeker can signup' do
     profile = build :job_seeker_profile
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
@@ -20,7 +20,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.sign_up')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     attach_file I18n.t('activerecord.attributes.job_seeker/profile.avatar'), FileUploadSupport.png_path

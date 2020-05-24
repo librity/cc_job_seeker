@@ -7,7 +7,7 @@ feature 'Job Seeker can signup' do
     job_seeker = build :job_seeker
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
@@ -19,7 +19,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.sign_up')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     within 'form' do
@@ -33,7 +33,7 @@ feature 'Job Seeker can signup' do
     job_seeker = build :job_seeker
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
@@ -45,7 +45,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.sign_up')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.bio'), with: 'a' * 49
@@ -60,7 +60,7 @@ feature 'Job Seeker can signup' do
     job_seeker = build :job_seeker
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
@@ -72,7 +72,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.sign_up')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.date_of_birth'), with: 'dsa211$'
@@ -87,7 +87,7 @@ feature 'Job Seeker can signup' do
     job_seeker = build :job_seeker
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
@@ -99,7 +99,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.sign_up')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
 
     fill_in I18n.t('activerecord.attributes.job_seeker/profile.date_of_birth'), with: 15.years.ago

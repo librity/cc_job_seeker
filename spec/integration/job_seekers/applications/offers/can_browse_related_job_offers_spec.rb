@@ -21,12 +21,12 @@ feature "Job Seeker can browse their application's" do
       offer_c = create :job_application_offer, created_at: 3.hour.ago,
                                                start_date: 3.day.from_now
 
-      visit job_seekers_applications_path
+      visit seeker_applications_path
       within "tr#application-#{application.id}" do
         click_on I18n.t('views.navigation.details')
       end
 
-      expect(current_path).to eq job_seekers_application_path(application)
+      expect(current_path).to eq seeker_application_path(application)
       expect(page).to have_content offer_a.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer_a.start_date)
       expect(page).to have_content I18n.l(offer_a.created_at, format: :long)

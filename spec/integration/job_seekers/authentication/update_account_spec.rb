@@ -22,7 +22,7 @@ feature 'Job Seekers' do
 
     expect(page).to have_content I18n.t('devise.registrations.updated')
     click_on I18n.t('views.actions.log_out')
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
 
@@ -33,6 +33,6 @@ feature 'Job Seekers' do
     end
 
     expect(page).to have_content I18n.t('devise.sessions.signed_in')
-    expect(current_path).to eq job_seekers_dashboard_path
+    expect(current_path).to eq seeker_dashboard_path
   end
 end

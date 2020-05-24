@@ -12,7 +12,7 @@ feature 'Job Seeker can view their profile' do
       visit root_path
       click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
 
-      expect(current_path).to eq job_seekers_show_profile_path
+      expect(current_path).to eq seeker_show_profile_path
       expect(page).to have_content I18n.t('activerecord.models.job_seeker/profile/comment.other')
       comments.each do |comment|
         expect(page).to have_content comment.content
@@ -25,7 +25,7 @@ feature 'Job Seeker can view their profile' do
       visit root_path
       click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
 
-      expect(current_path).to eq job_seekers_show_profile_path
+      expect(current_path).to eq seeker_show_profile_path
       expect(page).to have_content I18n.t('views.job_seekers/profiles/comments.empty_resource')
     end
   end

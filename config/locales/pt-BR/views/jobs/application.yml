@@ -1,0 +1,6 @@
+---
+pt-BR:
+  views:
+    jobs/applications:
+      description: Todas as applicações das tuas vagas.
+      empty_resource: Nenhuma applicação feita

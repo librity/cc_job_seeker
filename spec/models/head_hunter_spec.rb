@@ -7,7 +7,8 @@ describe HeadHunter, type: :model do
 
   it 'has relations' do
     expect(subject).to respond_to(:jobs)
-    expect(subject).to respond_to(:job_offers)
+    expect(subject).to respond_to(:applications)
+    expect(subject).to respond_to(:offers)
   end
 
   it 'is valid with valid attributes' do

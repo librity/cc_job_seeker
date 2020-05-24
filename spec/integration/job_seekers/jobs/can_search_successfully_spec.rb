@@ -40,7 +40,7 @@ feature 'Job Seeker can search active jobs ' do
               with: 'undertaker'
       click_on I18n.t('views.actions.search')
 
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title
       expect(page).to have_content I18n.l(job_a.expires_on)
@@ -59,7 +59,7 @@ feature 'Job Seeker can search active jobs ' do
               with: 'dertak'
       click_on I18n.t('views.actions.search')
 
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title
       expect(page).to have_content I18n.l(job_a.expires_on)
@@ -78,7 +78,7 @@ feature 'Job Seeker can search active jobs ' do
               with: 'Undertaker'
       click_on I18n.t('views.actions.search')
 
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content job_a.position
       expect(page).to have_content job_a.title
       expect(page).to have_content I18n.l(job_a.expires_on)

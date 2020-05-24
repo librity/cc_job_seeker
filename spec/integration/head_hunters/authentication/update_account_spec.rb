@@ -22,7 +22,7 @@ feature 'Head Hunters ' do
 
     expect(page).to have_content I18n.t('devise.registrations.updated')
     click_on I18n.t('views.actions.log_out')
-    within 'li#head_hunters_dropdown' do
+    within 'li#hunter_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
 
@@ -33,7 +33,7 @@ feature 'Head Hunters ' do
     end
 
     expect(page).to have_content I18n.t('devise.sessions.signed_in')
-    expect(current_path).to eq head_hunters_dashboard_path
+    expect(current_path).to eq hunter_dashboard_path
   end
 
   xscenario "can't change their email" do

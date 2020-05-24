@@ -8,6 +8,7 @@ describe Job::Application, type: :model do
   it 'has relations' do
     expect(subject).to respond_to(:job_seeker)
     expect(subject).to respond_to(:job)
+    expect(subject).to respond_to(:head_hunter)
     expect(subject).to respond_to(:offers)
   end
 

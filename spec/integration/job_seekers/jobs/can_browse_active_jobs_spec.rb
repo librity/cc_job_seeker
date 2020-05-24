@@ -81,7 +81,7 @@ feature 'Job Seeker can browse active jobs' do
       click_on I18n.t('views.navigation.browse_jobs')
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq job_seekers_dashboard_path
+      expect(current_path).to eq seeker_dashboard_path
     end
 
     scenario 'and return to jobs page' do
@@ -95,7 +95,7 @@ feature 'Job Seeker can browse active jobs' do
       end
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
     end
   end
 end

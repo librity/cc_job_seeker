@@ -12,7 +12,7 @@ feature 'Job Seeker can browse their job offers' do
       offer = create :job_application_offer, application: application
       create :job_application_offer, application: application
 
-      visit job_seekers_applications_path
+      visit seeker_applications_path
       within "tr#application-#{application.id}" do
         click_on I18n.t('views.navigation.details')
       end
@@ -20,7 +20,7 @@ feature 'Job Seeker can browse their job offers' do
         click_on I18n.t('views.actions.reject')
       end
 
-      expect(current_path).to eq job_seekers_application_path(application)
+      expect(current_path).to eq seeker_application_path(application)
       expect(page).to have_content I18n.t('flash.offer_rejected')
       expect(page).to have_content offer.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer.start_date)
@@ -31,7 +31,7 @@ feature 'Job Seeker can browse their job offers' do
       expect(page).to have_content offer.expectations
       expect(page).to have_content offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name('status.rejected')
-      expect(page).to have_css('.rejected_job_offer', count: 1)
+      expect(page).to have_css('.rejected_offer', count: 1)
     end
 
     scenario 'and reject them with feedback' do
@@ -41,7 +41,7 @@ feature 'Job Seeker can browse their job offers' do
       prototype_offer = build :job_application_offer, :with_feedback
       create :job_application_offer, application: application
 
-      visit job_seekers_applications_path
+      visit seeker_applications_path
       within "tr#application-#{application.id}" do
         click_on I18n.t('views.navigation.details')
       end
@@ -51,7 +51,7 @@ feature 'Job Seeker can browse their job offers' do
         click_on I18n.t('views.actions.reject')
       end
 
-      expect(current_path).to eq job_seekers_application_path(application)
+      expect(current_path).to eq seeker_application_path(application)
       expect(page).to have_content I18n.t('flash.offer_rejected')
       expect(page).to have_content offer.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer.start_date)
@@ -63,7 +63,7 @@ feature 'Job Seeker can browse their job offers' do
       expect(page).to have_content offer.bonus
       expect(page).to have_content prototype_offer.feedback
       expect(page).to have_content Job::Application::Offer.human_attribute_name('status.rejected')
-      expect(page).to have_css('.rejected_job_offer', count: 1)
+      expect(page).to have_css('.rejected_offer', count: 1)
     end
   end
 end

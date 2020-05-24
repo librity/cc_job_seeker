@@ -29,10 +29,12 @@ pt-BR:
       apply: Aplicar
       browse_jobs: Procurar Vagas
       my_jobs: Minhas Vagas
+      my_applications: Minhas Applicações
+      my_applicants: Meus Candidatos
       my_offers: Minhas Propostas
       letter: Carta
       reject: Rejeitar
-      job_offer: Fazer uma proposta
+      offer: Fazer uma proposta
 
     actions:
       log_out: Sair
@@ -61,4 +63,5 @@ pt-BR:
 
     support:
       of: de
+      to: para
       sent: Enviada

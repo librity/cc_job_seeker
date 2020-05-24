@@ -1,0 +1,20 @@
+<% provide(:resource_path, hunter_job_application_offers_path(@job, @application)) %>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <nav>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1> <%= t 'views.head_hunters.offers.title' %> </h1>
+
+      <p> <%=  t 'views.head_hunters.offers.description' %> </p>
+    </header>
+
+    <section class='contents'>
+      <%= render 'form' %>
+    </section>
+
+  </div>
+</main>

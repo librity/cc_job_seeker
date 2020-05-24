@@ -1,0 +1,55 @@
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1><%= t('activerecord.models.job.other') %></h1>
+
+      <div class="inline_filter">
+        <p><%= t('views.jobs.job_seeker_description') %></p>
+
+        <%= render 'searchbar' %>
+      </div>
+    </header>
+
+    <section class='contents'>
+
+      <% if @jobs.empty? %>
+        <p class="empty_resource"><%= t('views.jobs.empty_resource') %></p>
+      <% else %>
+
+      <table class="col index_table">
+          <thead class="index_table_head">
+            <tr class="index_table_row">
+              <th><%= t('activerecord.attributes.job.position') %></th>
+              <th><%= t('activerecord.attributes.job.title') %></th>
+              <th><%= t('activerecord.attributes.job.expires_on') %></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="index_table_body">
+            <% @jobs.each do |job| %>
+              <tr class="index_table_row" id="job-<%= job.id %>">
+                <td><%= job.position %></td>
+                <td><%= job.title %></td>
+                <td>
+                  <span class="status_dot <%= job.active? ? 'active_dot' : 'inactive_dot' %>"></span>
+                  <%= l(job.expires_on) %>
+                </td>
+
+                <td><%= link_to t('views.navigation.details'), seeker_job_path(job), id: "details-#{job.id}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+
+    </section>
+
+    <div class='actions mt-4'>
+    </div>
+  </div>
+</main>

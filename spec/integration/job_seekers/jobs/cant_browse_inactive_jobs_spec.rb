@@ -20,15 +20,15 @@ feature 'Job Seeker can browse jobs' do
       job_a = create :job, :expired, :skip_validate
       job_b = create :job, :retired
 
-      visit job_seekers_job_path job_a
+      visit seeker_job_path job_a
 
       expect(page).to have_content I18n.t('flash.inactive_job')
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
 
-      visit job_seekers_job_path job_b
+      visit seeker_job_path job_b
 
       expect(page).to have_content I18n.t('flash.inactive_job')
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
     end
   end
 end

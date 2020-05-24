@@ -17,7 +17,7 @@ feature 'Job Seeker can apply to an active job' do
       end
       click_on I18n.t('views.navigation.apply')
 
-      expect(current_path).to eq new_job_seekers_job_application_path(job_a)
+      expect(current_path).to eq new_seeker_job_application_path(job_a)
       fill_in I18n.t('activerecord.attributes.job/application.cover_letter'),
               with: ' '
       click_on I18n.t('views.actions.send')
@@ -36,7 +36,7 @@ feature 'Job Seeker can apply to an active job' do
       end
       click_on I18n.t('views.navigation.apply')
 
-      expect(current_path).to eq new_job_seekers_job_application_path(job_a)
+      expect(current_path).to eq new_seeker_job_application_path(job_a)
       fill_in I18n.t('activerecord.attributes.job/application.cover_letter'),
               with: 'a' * 49
       click_on I18n.t('views.actions.send')
@@ -57,12 +57,12 @@ feature 'Job Seeker can apply to an active job' do
       expect(page).not_to have_content job_a.title
       expect(page).not_to have_content job_b.title
 
-      visit new_job_seekers_job_application_path(job_a)
-      expect(current_path).to eq job_seekers_jobs_path
+      visit new_seeker_job_application_path(job_a)
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content I18n.t 'flash.inactive_job'
 
-      visit new_job_seekers_job_application_path(job_b)
-      expect(current_path).to eq job_seekers_jobs_path
+      visit new_seeker_job_application_path(job_b)
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content I18n.t 'flash.inactive_job'
     end
 
@@ -80,9 +80,9 @@ feature 'Job Seeker can apply to an active job' do
 
       expect(page).not_to have_content I18n.t('views.navigation.apply')
 
-      visit new_job_seekers_job_application_path(job_a)
+      visit new_seeker_job_application_path(job_a)
 
-      expect(current_path).to eq job_seekers_job_path(job_a)
+      expect(current_path).to eq seeker_job_path(job_a)
       expect(page).to have_content I18n.t 'flash.already_applied'
     end
   end

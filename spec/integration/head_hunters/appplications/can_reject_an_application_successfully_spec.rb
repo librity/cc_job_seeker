@@ -24,18 +24,18 @@ feature 'Head Hunter can reject a job application' do
 
       click_on I18n.t('views.navigation.reject')
 
-      expect(current_path).to eq head_hunters_job_application_rejection_path job_a, application
+      expect(current_path).to eq hunter_application_rejection_path(application)
 
       fill_in I18n.t('activerecord.attributes.job/application.rejection_feedback'),
               with: rejected_application.rejection_feedback
       click_on I18n.t('views.actions.send')
 
-      expect(current_path).to eq head_hunters_job_path job_a
+      expect(current_path).to eq hunter_job_path job_a
       expect(page).to have_content I18n.t 'flash.application_rejected'
       expect(page).not_to have_link applicant.resolve_name,
-                                    href: head_hunters_job_applicant_path(job_a, applicant)
+                                    href: hunter_applicant_path(applicant)
       expect(page).not_to have_link I18n.t('views.navigation.letter'),
-                                    href: head_hunters_job_application_path(job_a, application)
+                                    href: hunter_application_path(application)
     end
   end
 end

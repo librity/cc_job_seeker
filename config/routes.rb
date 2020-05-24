@@ -1,40 +1,42 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :job_seekers, path: 'job_seeker_accounts', controllers: {
-    registrations: 'job_seekers/registrations',
-    sessions: 'job_seekers/sessions'
-  }
   devise_for :head_hunters, path: 'head_hunter_accounts', controllers: {
-    registrations: 'head_hunters/registrations',
-    sessions: 'head_hunters/sessions'
+    registrations: 'hunter/registrations',
+    sessions: 'hunter/sessions'
+  }
+  devise_for :job_seekers, path: 'job_seeker_accounts', controllers: {
+    registrations: 'seeker/registrations',
+    sessions: 'seeker/sessions'
   }
 
   root 'home#index'
 
-  namespace :head_hunters do
-    get '', to: 'dashboard#index', as: :root
+  namespace :hunter do
+    root 'dashboard#index'
     get '/dashboard', to: 'dashboard#index', as: :dashboard
 
     resources :jobs, only: %i[index show new create] do
       patch :retire
-
-      resources :applicants, only: %i[show] do
-        post :comment
-      end
-
-      resources :applications, only: %i[show] do
-        patch :standout
-        get   :rejection
-        patch :reject
-
-        resources :offers, only: %i[new create]
-      end
     end
+
+    resources :applications, only: %i[index show] do
+      patch :standout
+      get   :rejection
+      patch :reject
+
+      resources :offers, only: %i[new create]
+    end
+
+    resources :applicants, only: %i[index show] do
+      post :comment
+    end
+
+    resources :offers, only: %i[index show]
   end
 
-  namespace :job_seekers do
-    get '', to: 'dashboard#index', as: :root
+  namespace :seeker do
+    root 'dashboard#index'
     get '/dashboard', to: 'dashboard#index', as: :dashboard
 
     resources :profiles, only: %i[new create]

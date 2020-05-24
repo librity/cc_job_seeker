@@ -7,7 +7,7 @@ feature 'Job Seeker can signup' do
     job_seeker = build :job_seeker
 
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
@@ -19,12 +19,12 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.sign_up')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
     click_on I18n.t('views.actions.log_out')
 
     expect(current_path).to eq root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
     expect(current_path).to eq new_job_seeker_session_path
@@ -35,7 +35,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.log_in')
     end
 
-    expect(current_path).to eq new_job_seekers_profile_path
+    expect(current_path).to eq new_seeker_profile_path
     expect(page).to have_content I18n.t('flash.fill_out_profile')
   end
 
@@ -46,7 +46,7 @@ feature 'Job Seeker can signup' do
       visit root_path
       click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
 
-      expect(current_path).to eq new_job_seekers_profile_path
+      expect(current_path).to eq new_seeker_profile_path
     end
   end
 end

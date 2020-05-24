@@ -11,9 +11,9 @@ feature 'Head Hunter can browse job applications' do
       applicant = create :job_seeker
       create :job_application, job: job_a, job_seeker: applicant
 
-      visit head_hunters_job_path job_a
+      visit hunter_job_path job_a
 
-      expect(current_path).to eq head_hunters_jobs_path
+      expect(current_path).to eq hunter_jobs_path
       expect(page).to have_content I18n.t 'flash.unauthorized'
     end
   end

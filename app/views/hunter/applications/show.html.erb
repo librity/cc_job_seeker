@@ -1,0 +1,34 @@
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+
+      <span>
+        <%= link_to t('views.navigation.offer'), new_hunter_application_offer_path(@application),
+                    class: 'btn btn-primary' %>
+        <%= link_to t('views.navigation.reject'), hunter_application_rejection_path(@application),
+                    class: 'btn btn-danger' %>
+      </span>
+    </nav>
+
+    <header class='header'>
+      <div class="applicant_title">
+        <h1> <%= @applicant.resolve_name %> </h1>
+
+        <%= render 'standout_form', application: @application %>
+      </div>
+
+      <p class="indent"> <%= @applicant.profile.bio %> </p>
+    </header>
+
+    <section class='contents row'>
+      <dl class="col">
+        <dt><%= t('activerecord.attributes.job/application.cover_letter') %>:</dt>
+        <dd class="indent"> <%= @application.cover_letter %> </dd>
+      </dl>
+    </section>
+
+    <%= render 'offers' %>
+
+  </div>
+</main>

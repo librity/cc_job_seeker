@@ -29,11 +29,11 @@ feature 'Head Hunter browses' do
                                   href: new_head_hunter_registration_path
 
     expect(page).to have_link I18n.t('activerecord.models.job.other'),
-                              href: head_hunters_jobs_path
+                              href: hunter_jobs_path
   end
 
   scenario "application and can't access dashboard unless logged in" do
-    visit head_hunters_dashboard_path
+    visit hunter_dashboard_path
 
     expect(current_path).to eq new_head_hunter_session_path
 
@@ -50,21 +50,21 @@ feature 'Head Hunter browses' do
     scenario 'successfully' do
       log_head_hunter_in!
 
-      visit head_hunters_jobs_path
-      expect(current_path).to eq head_hunters_jobs_path
+      visit hunter_jobs_path
+      expect(current_path).to eq hunter_jobs_path
     end
 
     scenario 'and gets redirected to log in view if not logged-in' do
-      visit head_hunters_jobs_path
+      visit hunter_jobs_path
       expect(current_path).to eq new_head_hunter_session_path
 
-      visit new_head_hunters_job_path
+      visit new_hunter_job_path
       expect(current_path).to eq new_head_hunter_session_path
 
-      visit head_hunters_job_path(1)
+      visit hunter_job_path(1)
       expect(current_path).to eq new_head_hunter_session_path
 
-      # visit edit_head_hunters_job_path(1)
+      # visit edit_hunter_job_path(1)
       # expect(current_path).to eq new_head_hunter_session_path
     end
   end

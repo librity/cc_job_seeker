@@ -29,15 +29,15 @@ feature 'Job Seeker browses' do
                                   href: new_job_seeker_registration_path
 
     expect(page).to have_link I18n.t('activerecord.models.job_seeker/profile.my_profile'),
-                              href: job_seekers_show_profile_path
+                              href: seeker_show_profile_path
     expect(page).to have_link I18n.t('activerecord.models.job.other'),
-                              href: job_seekers_jobs_path
+                              href: seeker_jobs_path
     expect(page).to have_link I18n.t('views.navigation.my_jobs'),
-                              href: job_seekers_applications_path
+                              href: seeker_applications_path
   end
 
   scenario "application and can't access dashboard unless logged in" do
-    visit job_seekers_dashboard_path
+    visit seeker_dashboard_path
 
     expect(current_path).to eq new_job_seeker_session_path
 

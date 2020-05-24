@@ -8,7 +8,7 @@ feature 'User opens home page' do
 
     visit root_path
 
-    expect(current_path).to eq head_hunters_dashboard_path
+    expect(current_path).to eq hunter_dashboard_path
     expect(page).to have_link I18n.t('views.navigation.home')
     expect(page).to have_link href: root_path, count: 2
 

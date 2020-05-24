@@ -23,7 +23,7 @@ feature 'Head Hunter can reject a job application' do
 
       click_on I18n.t('views.navigation.reject')
 
-      expect(current_path).to eq head_hunters_job_application_rejection_path job_a, application
+      expect(current_path).to eq hunter_job_application_rejection_path job_a, application
 
       fill_in I18n.t('activerecord.attributes.job/application.rejection_feedback'), with: 'a' * 49
       click_on I18n.t('views.actions.send')

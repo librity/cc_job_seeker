@@ -12,7 +12,7 @@ feature 'Head Hunter can register a job' do
     visit root_path
     click_on I18n.t('activerecord.models.job.other')
 
-    expect(page).to have_link I18n.t('views.navigation.new'), href: new_head_hunters_job_path
+    expect(page).to have_link I18n.t('views.navigation.new'), href: new_hunter_job_path
   end
 
   scenario 'successfully' do
@@ -31,7 +31,7 @@ feature 'Head Hunter can register a job' do
     fill_in I18n.t('activerecord.attributes.job.expires_on'), with: job_attributes.expires_on
     click_on I18n.t('views.actions.send')
 
-    expect(current_path).to eq head_hunters_job_path(Job.last.id)
+    expect(current_path).to eq hunter_job_path(Job.last.id)
     expect(page).to have_content I18n.t('flash.created',
                                         resource: I18n.t('activerecord.models.job.one'))
 
@@ -45,6 +45,6 @@ feature 'Head Hunter can register a job' do
     expect(page).to have_content number_to_currency(job_attributes.salary_roof)
 
     expect(page).to have_content I18n.l(job_attributes.expires_on)
-    expect(page).to have_link I18n.t('views.navigation.go_back'), href: head_hunters_jobs_path
+    expect(page).to have_link I18n.t('views.navigation.go_back'), href: hunter_jobs_path
   end
 end

@@ -21,7 +21,7 @@ feature 'Head Hunter can browse job applications' do
         click_on I18n.t('views.navigation.letter')
       end
 
-      expect(current_path).to eq head_hunters_job_application_path(job_a, application)
+      expect(current_path).to eq hunter_application_path(application)
       expect(page).to have_content applicant.resolve_name
       expect(page).to have_content application.cover_letter
     end
@@ -42,7 +42,7 @@ feature 'Head Hunter can browse job applications' do
       end
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq head_hunters_job_path(job_a)
+      expect(current_path).to eq hunter_job_path(job_a)
     end
 
     scenario "and gets redirected when accessing another's job application" do
@@ -50,9 +50,9 @@ feature 'Head Hunter can browse job applications' do
       applicant = create :job_seeker
       application = create :job_application, job: job_a, job_seeker: applicant
 
-      visit head_hunters_job_application_path job_a, application
+      visit hunter_application_path application
 
-      expect(current_path).to eq head_hunters_jobs_path
+      expect(current_path).to eq hunter_jobs_path
       expect(page).to have_content I18n.t 'flash.unauthorized'
     end
   end

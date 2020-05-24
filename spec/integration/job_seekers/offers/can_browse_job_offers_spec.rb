@@ -17,7 +17,7 @@ feature 'Job Seeker can browse their job offers' do
       visit root_path
       click_on I18n.t('views.navigation.my_offers')
 
-      expect(current_path).to eq job_seekers_offers_path
+      expect(current_path).to eq seeker_offers_path
       expect(page).to have_content job_a.title, count: 2
       expect(page).to have_content offer_a.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer_a.start_date)
@@ -45,7 +45,7 @@ feature 'Job Seeker can browse their job offers' do
         click_on I18n.t('views.navigation.details')
       end
 
-      expect(current_path).to eq job_seekers_offer_path(offer)
+      expect(current_path).to eq seeker_offer_path(offer)
       expect(page).to have_content offer.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer.start_date)
       expect(page).to have_content I18n.l(offer.created_at, format: :long)
@@ -55,7 +55,7 @@ feature 'Job Seeker can browse their job offers' do
       expect(page).to have_content offer.expectations
       expect(page).to have_content offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name("status.#{offer.status}")
-      expect(page).to have_css('.ongoing_job_offer', count: 1)
+      expect(page).to have_css('.ongoing_offer', count: 1)
     end
   end
 end

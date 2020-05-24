@@ -19,13 +19,13 @@ module Accessible
     flash.clear
     flash[:danger] = t 'flash.cross_model_access'
 
-    redirect_to(head_hunters_dashboard_path) && return
+    redirect_to(hunter_dashboard_path) && return
   end
 
   def redirect_job_seeker!
     flash.clear
     flash[:danger] = t 'flash.cross_model_access'
 
-    redirect_to(job_seekers_dashboard_path) && return
+    redirect_to(seeker_dashboard_path) && return
   end
 end

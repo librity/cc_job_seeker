@@ -1,0 +1,21 @@
+<% provide(:resource_path, seeker_job_applications_path(@job)) %>
+<% provide(:method, :post) %>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1><%= t('views.job_seekers/applications.create') %></h1>
+
+      <p><%= t('views.job_seekers/applications.context', job_title: @job.title) %></p>
+    </header>
+
+    <section class='contents'>
+      <%= render 'form' %>
+    </section>
+
+  </div>
+</main>

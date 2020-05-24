@@ -7,7 +7,7 @@ feature 'Head Hunter logs in' do
     head_hunter = create :head_hunter
 
     visit root_path
-    within 'li#head_hunters_dropdown' do
+    within 'li#hunter_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
     expect(current_path).to eq new_head_hunter_session_path
@@ -27,12 +27,12 @@ feature 'Head Hunter logs in' do
     expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_head_hunter_registration_path
 
-    expect(current_path).to eq head_hunters_dashboard_path
+    expect(current_path).to eq hunter_dashboard_path
   end
 
   scenario 'and must fill in all fields' do
     visit root_path
-    within 'li#head_hunters_dropdown' do
+    within 'li#hunter_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
     expect(current_path).to eq new_head_hunter_session_path

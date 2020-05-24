@@ -8,7 +8,7 @@ feature 'Job Seeker logs in' do
 
     visit root_path
 
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
 
@@ -29,12 +29,12 @@ feature 'Job Seeker logs in' do
     expect(page).not_to have_link I18n.t('views.navigation.create_account'),
                                   href: new_job_seeker_registration_path
 
-    expect(current_path).to eq job_seekers_dashboard_path
+    expect(current_path).to eq seeker_dashboard_path
   end
 
   scenario 'and must fill in all fields' do
     visit root_path
-    within 'li#job_seekers_dropdown' do
+    within 'li#seeker_dropdown' do
       click_on I18n.t('views.navigation.log_in')
     end
     expect(current_path).to eq new_job_seeker_session_path

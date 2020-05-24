@@ -25,7 +25,7 @@ feature 'Head Hunter can browse job applications' do
         click_button
       end
 
-      expect(current_path).to eq head_hunters_job_path(job_a)
+      expect(current_path).to eq hunter_job_path(job_a)
       expect(page).to have_css('.small_active_standout', count: 1)
       expect(page).to have_css('.small_inactive_standout', count: 3)
 
@@ -33,7 +33,7 @@ feature 'Head Hunter can browse job applications' do
         click_button
       end
 
-      expect(current_path).to eq head_hunters_job_path(job_a)
+      expect(current_path).to eq hunter_job_path(job_a)
       expect(page).to have_css('.small_inactive_standout', count: 4)
     end
   end

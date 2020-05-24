@@ -11,9 +11,9 @@ describe 'Logged-in Head Hunter' do
       applicant = create :job_seeker
       application = create :job_application, job: job_a, job_seeker: applicant
 
-      patch head_hunters_job_application_standout_path job_a, application
+      patch hunter_application_standout_path application
 
-      expect(response).to redirect_to(head_hunters_jobs_path)
+      expect(response).to redirect_to(hunter_jobs_path)
       follow_redirect!
 
       expect(response.body).to include(I18n.t('flash.unauthorized'))

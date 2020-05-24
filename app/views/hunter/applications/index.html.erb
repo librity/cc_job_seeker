@@ -1,0 +1,48 @@
+<main class='row'>
+  <div class='col-md-12'>
+    <nav class='context_navigation'>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1><%= t('activerecord.models.job/application.other') %></h1>
+
+      <p><%= t('views.jobs/applications.description') %></p>
+    </header>
+
+    <section class='contents'>
+
+      <% if @applications.empty? %>
+        <p class="empty_resource"><%= t('views.jobs/applications.empty_resource') %></p>
+      <% else %>
+
+      <table class="col index_table">
+          <thead class="index_table_head">
+            <tr class="index_table_row">
+              <th><%= t('activerecord.attributes.job/application.standout') %></th>
+              <th><%= t('activerecord.models.job.one') %></th>
+              <th><%= t('activerecord.models.job_seeker.one') %></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="index_table_body">
+            <% @applications.each do |application| %>
+              <tr class="index_table_row" id="application-<%= application.id %>">
+                <td> <i class="fas fa-thumbtack <%= application.standout? ? 'active_standout' : 'inactive_standout' %>"></i> </td>
+                <td> <%= application.job.title %> </td>
+                <td> <%= link_to application.job_seeker.resolve_name, '#' %> </td>
+
+                <td><%= link_to t('views.navigation.details'), hunter_application_path(application), id: "details-#{application.id}" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+
+    </section>
+
+    <div class='actions mt-4'>
+    </div>
+  </div>
+</main>

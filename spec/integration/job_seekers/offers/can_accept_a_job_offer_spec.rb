@@ -29,7 +29,7 @@ feature 'Job Seeker can browse their job offers' do
         end
       end
 
-      expect(current_path).to eq job_seekers_offer_path(offer)
+      expect(current_path).to eq seeker_offer_path(offer)
       expect(page).to have_content I18n.t('flash.offer_accepted')
       expect(page).to have_content offer.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer.start_date)
@@ -40,7 +40,7 @@ feature 'Job Seeker can browse their job offers' do
       expect(page).to have_content offer.expectations
       expect(page).to have_content offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name('status.accepted')
-      expect(page).to have_css('.accepted_job_offer', count: 1)
+      expect(page).to have_css('.accepted_offer', count: 1)
     end
 
     scenario 'and accept them with feedback' do
@@ -69,7 +69,7 @@ feature 'Job Seeker can browse their job offers' do
         end
       end
 
-      expect(current_path).to eq job_seekers_offer_path(offer)
+      expect(current_path).to eq seeker_offer_path(offer)
       expect(page).to have_content I18n.t('flash.offer_accepted')
       expect(page).to have_content offer.head_hunter.resolve_name
       expect(page).to have_content I18n.l(offer.start_date)
@@ -81,7 +81,7 @@ feature 'Job Seeker can browse their job offers' do
       expect(page).to have_content offer.bonus
       expect(page).to have_content prototype_offer.feedback
       expect(page).to have_content Job::Application::Offer.human_attribute_name('status.accepted')
-      expect(page).to have_css('.accepted_job_offer', count: 1)
+      expect(page).to have_css('.accepted_offer', count: 1)
     end
   end
 end

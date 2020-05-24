@@ -21,7 +21,7 @@ feature 'Job Seeker can search active jobs ' do
               with: Faker::Books::Lovecraft.location
       click_on I18n.t('views.actions.search')
 
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content I18n.t('flash.job_not_found')
 
       expect(page).to have_content job_a.position
@@ -42,7 +42,7 @@ feature 'Job Seeker can search active jobs ' do
               with: Faker::Books::Lovecraft.location
       click_on I18n.t('views.actions.search')
 
-      expect(current_path).to eq job_seekers_jobs_path
+      expect(current_path).to eq seeker_jobs_path
       expect(page).to have_content I18n.t('flash.job_not_found')
 
       expect(page).to have_content job_a.position

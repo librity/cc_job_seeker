@@ -74,10 +74,10 @@ The first of TreinaDev's [final challenges](https://s3.us-west-2.amazonaws.com/s
 
 ## 🤖 Requirements
 
-- [Ruby 2.6.5](https://www.ruby-lang.org/en/news/2019/10/01/ruby-2-6-5-released/), [**RBENV recommended**](https://github.com/rbenv/rbenv#installation)
+- [Ruby 2.6.5](https://www.ruby-lang.org/en/news/2019/10/01/ruby-2-6-5-released/) ([**RBENV recommended**](https://github.com/rbenv/rbenv#installation))
 - [Bundle 2.1.4](https://bundler.io/)
 - [Rails 6.0.3](https://weblog.rubyonrails.org/2020/5/6/Rails-6-0-3-has-been-released/)
-- [Node 12.16.x](https://nodejs.org/en/download/), [**NVM recommended**](https://github.com/nvm-sh/nvm#install--update-script)
+- [Node 12.16.x](https://nodejs.org/en/download/) ([**NVM recommended**](https://github.com/nvm-sh/nvm#install--update-script))
 - [Yarn 1.22.4](https://yarnpkg.com/getting-started/install#global-install)
 
 ## 🗺️ Instructions

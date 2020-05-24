@@ -1,7 +1,7 @@
 <% if job_seeker_signed_in? %>
   <li class='nav_item'>
     <%= link_to t('activerecord.models.job_seeker/profile.my_profile'), 
-                job_seekers_show_profile_path, class: 'nav_item' %>
+                seeker_show_profile_path, class: 'nav_item' %>
   </li>
 
   <li class='nav_item dropdown' id="jobs_dropdown">
@@ -12,13 +12,13 @@
 
     <div class='dropdown-menu dropdown-menu-right' aria-labelledby='resourcesDropdown'>
       <%= link_to t('views.navigation.browse_jobs'),
-                  job_seekers_jobs_path,
+                  seeker_jobs_path,
                   class: 'nav_dropdown_item dropdown-item' %>
       <%= link_to t('views.navigation.my_jobs'),
-                  job_seekers_applications_path,
+                  seeker_applications_path,
                   class: 'nav_dropdown_item dropdown-item' %>
       <%= link_to t('views.navigation.my_offers'),
-                  job_seekers_offers_path,
+                  seeker_offers_path,
                   class: 'nav_dropdown_item dropdown-item' %>
     </div>
   </li>
@@ -37,7 +37,7 @@
     </div>
   </li>
 <% elsif !head_hunter_signed_in? %>
-  <li class='nav_item dropdown' id="job_seekers_dropdown">
+  <li class='nav_item dropdown' id="seeker_dropdown">
     <a class='nav_item dropdown-toggle' role='button' id='resourcesDropdown' 
       data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
       <%= t('views.navigation.job_seeker') %>

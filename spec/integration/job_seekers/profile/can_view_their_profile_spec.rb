@@ -11,7 +11,7 @@ feature 'Job Seeker can view their profile' do
       expect(page).to have_css 'img', count: 2
 
       click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
-      expect(current_path).to eq job_seekers_show_profile_path
+      expect(current_path).to eq seeker_show_profile_path
 
       expect(page).to have_content job_seeker.name
       expect(page).to have_content I18n.l(job_seeker.profile.date_of_birth)
@@ -39,7 +39,7 @@ feature 'Job Seeker can view their profile' do
       click_on I18n.t('activerecord.models.job_seeker/profile.my_profile')
       click_on I18n.t('views.navigation.go_back')
 
-      expect(current_path).to eq job_seekers_dashboard_path
+      expect(current_path).to eq seeker_dashboard_path
     end
   end
 end

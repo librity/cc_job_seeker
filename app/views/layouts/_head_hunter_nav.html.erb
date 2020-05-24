@@ -1,7 +1,21 @@
 <% if head_hunter_signed_in? %>
-  <li class='nav_item'>
-    <%= link_to t('activerecord.models.job.other'), head_hunters_jobs_path,
-                class: 'nav_item' %>
+
+  <li class='nav_item dropdown' id="jobs_dropdown">
+    <a class='nav_item dropdown-toggle' role='button' id='resourcesDropdown' 
+      data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+      <%= t('activerecord.models.job.other') %>
+    </a>
+
+    <div class='dropdown-menu dropdown-menu-right' aria-labelledby='resourcesDropdown'>
+      <%= link_to t('views.navigation.my_jobs'), hunter_jobs_path,
+                  class: 'nav_dropdown_item dropdown-item' %>
+      <%= link_to t('views.navigation.my_applications'), hunter_applications_path,
+                  class: 'nav_dropdown_item dropdown-item' %>
+      <%= link_to t('views.navigation.my_applicants'), hunter_applicants_path,
+                  class: 'nav_dropdown_item dropdown-item' %>
+      <%= link_to t('views.navigation.my_offers'), hunter_offers_path,
+                  class: 'nav_dropdown_item dropdown-item' %>
+    </div>
   </li>
 
   <li class='nav_item dropdown' id="account_dropdown">
@@ -18,7 +32,7 @@
     </div>
   </li>
 <% elsif !job_seeker_signed_in? %>
-  <li class='nav_item dropdown' id="head_hunters_dropdown">
+  <li class='nav_item dropdown' id="hunter_dropdown">
     <a class='nav_item dropdown-toggle' role='button' id='resourcesDropdown' 
       data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
       <%= t('views.navigation.head_hunter') %>

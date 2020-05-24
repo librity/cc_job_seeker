@@ -1,0 +1,18 @@
+<% provide(:resource_path, hunter_jobs_path) %>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <nav>
+      <%= link_to t('views.navigation.go_back'), :back, class: 'btn btn-outline-secondary' %>
+    </nav>
+
+    <header class='header'>
+      <h1><%= t('views.jobs.create') %></h1>
+    </header>
+
+    <section class='contents'>
+      <%= render 'form' %>
+    </section>
+
+  </div>
+</main>

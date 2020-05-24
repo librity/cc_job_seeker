@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Head Hunter can signup' do
   scenario 'successfully' do
     visit root_path
-    within 'li#head_hunters_dropdown' do
+    within 'li#hunter_dropdown' do
       click_on I18n.t('views.navigation.create_account')
     end
 
