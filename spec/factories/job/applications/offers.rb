@@ -13,7 +13,7 @@ FactoryBot.define do
     expectations { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
     bonus { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
 
@@ -35,6 +35,10 @@ FactoryBot.define do
 
     trait :without_bonus do
       bonus { nil }
+    end
+
+    trait :old do
+      start_date { Faker::Date.backward days: 30 }
     end
   end
 end

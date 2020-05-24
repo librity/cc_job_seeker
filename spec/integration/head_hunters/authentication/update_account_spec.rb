@@ -35,7 +35,4 @@ feature 'Head Hunters ' do
     expect(page).to have_content I18n.t('devise.sessions.signed_in')
     expect(current_path).to eq hunter_dashboard_path
   end
-
-  xscenario "can't change their email" do
-  end
 end

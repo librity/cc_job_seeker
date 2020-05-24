@@ -9,40 +9,31 @@ feature 'Head Hunter can browse job applicants' do
     scenario 'successfully' do
       Faker::Job.unique.clear
 
-      job_a = create :job, head_hunter: head_hunter
-      create_list :job_application, 3, job: job_a
-
-      job_b = create :job, head_hunter: head_hunter
-      create_list :job_application, 3, job: job_b
+      job = create :job, head_hunter: head_hunter
+      applications = create_list :job_application, 3, job: job
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
-      within "tr#job-#{job_a.id}" do
-        click_on I18n.t('views.navigation.details')
-      end
+      click_on I18n.t('views.navigation.my_applicants')
 
-      job_a.applicants.each do |applicant|
-        expect(page).to have_link applicant.resolve_name,
-                                  href: hunter_applicant_path(applicant)
-      end
-
-      job_b.applicants.each do |applicant|
-        expect(page).not_to have_content applicant.resolve_name
+      expect(current_path).to eq hunter_applicants_path
+      applications.each do |application|
+        expect(page).to have_content application.job_seeker.resolve_name
+        expect(page).to have_link I18n.t('views.navigation.details'),
+                                  href: hunter_applicant_path(application.job_seeker)
       end
     end
 
     scenario 'and view profile' do
-      job_a = create :job, head_hunter: head_hunter
+      job = create :job, head_hunter: head_hunter
       applicant = create :job_seeker
       create :job_seeker_profile, job_seeker: applicant
-      create :job_application, job: job_a, job_seeker: applicant
+      create :job_application, job: job, job_seeker: applicant
 
       visit root_path
-      click_on I18n.t('activerecord.models.job.other')
-      within "tr#job-#{job_a.id}" do
+      click_on I18n.t('views.navigation.my_applicants')
+      within "tr#applicant-#{applicant.id}" do
         click_on I18n.t('views.navigation.details')
       end
-      click_on applicant.resolve_name
 
       expect(current_path).to eq hunter_applicant_path(applicant)
       expect(page).to have_content applicant.resolve_name
@@ -55,35 +46,6 @@ feature 'Head Hunter can browse job applicants' do
       expect(page).to have_content applicant.profile.bio
       expect(page).to have_content applicant.profile.work_experience
       expect(page).to have_css 'img', count: 3
-    end
-
-    scenario 'and job has no applications' do
-      job_a = create :job, head_hunter: head_hunter
-
-      visit root_path
-      click_on I18n.t('activerecord.models.job.other')
-      within "tr#job-#{job_a.id}" do
-        click_on I18n.t('views.navigation.details')
-      end
-
-      expect(page).to have_content I18n.t('views.job_seekers/applications.empty_resource')
-    end
-
-    scenario 'and return to jobs page' do
-      job_a = create :job, head_hunter: head_hunter
-      applicant = create :job_seeker
-      create :job_seeker_profile, job_seeker: applicant
-      create :job_application, job: job_a, job_seeker: applicant
-
-      visit root_path
-      click_on I18n.t('activerecord.models.job.other')
-      within "tr#job-#{job_a.id}" do
-        click_on I18n.t('views.navigation.details')
-      end
-      click_on applicant.resolve_name
-      click_on I18n.t('views.navigation.go_back')
-
-      expect(current_path).to eq hunter_applicants_path
     end
   end
 end

@@ -6,7 +6,7 @@ FactoryBot.define do
     head_hunter
     content { Faker::Lorem.paragraph_by_chars number: 256, supplemental: false }
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
   end

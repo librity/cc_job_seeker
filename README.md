@@ -189,11 +189,11 @@ Job Seeker:
 
 Application:
 
-- [ ] React Rails for Chat interface and notifications
 - [ ] Add pagination
 - [ ] Add breadcrumbs
 - [ ] Implement Omniauth Signup and Login for Head Hunters and Job Seekers
 - [ ] Implement Email Confirmation for Head Hunters and Job Seekers
+- [ ] React Rails for Chat interface and notifications
 
 Head Hunters:
 

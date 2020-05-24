@@ -32,7 +32,7 @@
             <% @offers.each do |offer| %>
               <tr class="index_table_row" id="offer-<%= offer.id %>">
                 <td><%= offer.job_seeker.resolve_name %></td>
-                <td><%= offer.application.job.title %></td>
+                <td><%= offer.job.title %></td>
                 <td><%= l(offer.start_date) %></td>
                 <td><%= number_to_currency(offer.salary) %></td>
                 <td>

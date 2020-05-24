@@ -6,7 +6,7 @@ FactoryBot.define do
     password { Faker::Internet.unique.password min_length: 8 }
     name { Faker::Name.unique.name }
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
 

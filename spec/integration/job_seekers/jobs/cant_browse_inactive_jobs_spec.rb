@@ -7,7 +7,7 @@ feature 'Job Seeker can browse jobs' do
     let!(:job_seeker) { log_job_seeker_in! }
 
     scenario "and there aren't any active jobs" do
-      create :job, :expired, :skip_validate
+      create :job, :expired, :skip_validation
       create :job, :retired
 
       visit root_path
@@ -17,7 +17,7 @@ feature 'Job Seeker can browse jobs' do
     end
 
     scenario "and gets redirected when job isn't active" do
-      job_a = create :job, :expired, :skip_validate
+      job_a = create :job, :expired, :skip_validation
       job_b = create :job, :retired
 
       visit seeker_job_path job_a

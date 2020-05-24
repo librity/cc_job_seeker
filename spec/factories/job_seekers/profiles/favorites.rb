@@ -5,7 +5,7 @@ FactoryBot.define do
     profile { create :job_seeker_profile }
     head_hunter
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
   end

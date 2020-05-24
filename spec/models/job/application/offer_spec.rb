@@ -143,4 +143,52 @@ describe Job::Application::Offer, type: :model do
       expect(subject.status).to eq 'rejected'
     end
   end
+
+  context 'validation: reject!' do
+    it 'should change status to rejected and skip validation' do
+      subject = create :job_application_offer, :skip_validation, :old
+      subject.reject!
+
+      expect(subject.rejected?).to eq true
+      expect(subject.feedback).to eq nil
+    end
+
+    it 'and also update feedback' do
+      subject = create :job_application_offer, :skip_validation, :old
+      feedback = build(:job_application_offer, :with_feedback).feedback
+      subject.reject! feedback
+
+      expect(subject.rejected?).to eq true
+      expect(subject.feedback).to eq feedback
+    end
+  end
+
+  context 'validation: reject_with_default_feedback!' do
+    it 'should change status to rejected, feedback to accepted_another_offer and skip validation' do
+      subject = create :job_application_offer, :skip_validation, :old
+      subject.reject_with_default_feedback!
+
+      expect(subject.rejected?).to eq true
+      expect(subject.feedback).to eq I18n.t('activerecord.attributes.job/application/offer.accepted_another_offer')
+    end
+  end
+
+  context 'validation: accept!' do
+    it 'should change status to accepted and skip validation' do
+      subject = create :job_application_offer, :skip_validation, :old
+      subject.accept!
+
+      expect(subject.accepted?).to eq true
+      expect(subject.feedback).to eq nil
+    end
+
+    it 'and also update feedback' do
+      subject = create :job_application_offer, :skip_validation, :old
+      feedback = build(:job_application_offer, :with_feedback).feedback
+      subject.accept! feedback
+
+      expect(subject.accepted?).to eq true
+      expect(subject.feedback).to eq feedback
+    end
+  end
 end

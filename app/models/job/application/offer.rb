@@ -24,7 +24,7 @@ class Job
 
       default_scope -> { order created_at: :desc }
 
-      def reject! feedback
+      def reject! feedback = nil
         update_attribute :status, :rejected
         update_attribute :feedback, feedback if feedback
       end
@@ -34,7 +34,7 @@ class Job
         update_attribute :feedback, I18n.t('activerecord.attributes.job/application/offer.accepted_another_offer')
       end
 
-      def accept! feedback
+      def accept! feedback = nil
         update_attribute :status, :accepted
         update_attribute :feedback, feedback if feedback
       end

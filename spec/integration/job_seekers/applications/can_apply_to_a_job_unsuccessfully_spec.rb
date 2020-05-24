@@ -47,7 +47,7 @@ feature 'Job Seeker can apply to an active job' do
     scenario "can't apply to an inactive job" do
       Faker::Job.unique.clear
 
-      job_a = create :job, :skip_validate, :expired
+      job_a = create :job, :skip_validation, :expired
       job_b = create :job, retired: true
       create :job_application, job_seeker: job_seeker, job: job_a
 

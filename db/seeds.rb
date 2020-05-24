@@ -20,8 +20,8 @@ JobSeeker.all.each { |job_seeker| FactoryBot.create :job_seeker_profile, job_see
 
 # Jobs
 FactoryBot.create_list :job, 10, head_hunter: HeadHunter.first
-FactoryBot.create_list :job, 5, :skip_validate, :expired, head_hunter: HeadHunter.first
-FactoryBot.create_list :job, 5, :skip_validate, :expired
+FactoryBot.create_list :job, 5, :skip_validation, :expired, head_hunter: HeadHunter.first
+FactoryBot.create_list :job, 5, :skip_validation, :expired
 
 # Job Applications
 FactoryBot.create_list :job_application, 5, job_seeker: JobSeeker.first, job: Job.first

@@ -12,7 +12,7 @@ FactoryBot.define do
     location { Faker::Address.unique.full_address }
     expires_on { Faker::Date.forward(days: 90) + 5.weeks }
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
 

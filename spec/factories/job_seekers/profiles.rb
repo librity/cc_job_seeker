@@ -13,7 +13,7 @@ FactoryBot.define do
     work_experience { (1..3).map { |_n| "#{Faker::Job.title} at #{Faker::Company.name}" }.join ', ' }
     avatar { FileUploadSupport.png }
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
   end

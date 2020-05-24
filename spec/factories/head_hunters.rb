@@ -7,7 +7,7 @@ FactoryBot.define do
     name { Faker::Name.unique.name }
     avatar { FileUploadSupport.png }
 
-    trait :skip_validate do
+    trait :skip_validation do
       to_create { |instance| instance.save validate: false }
     end
 

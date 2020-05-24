@@ -231,7 +231,7 @@ describe Job, type: :model do
     end
 
     it 'should return true if expires_on is in the past' do
-      subject = create :job, :skip_validate, :expired
+      subject = create :job, :skip_validation, :expired
 
       expect(subject.expired?).to be true
     end
@@ -245,7 +245,7 @@ describe Job, type: :model do
     end
 
     it 'should return false if expired' do
-      subject = create :job, :skip_validate, :expired
+      subject = create :job, :skip_validation, :expired
 
       expect(subject.active?).to be false
     end

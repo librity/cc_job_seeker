@@ -7,16 +7,42 @@ feature 'Head Hunter can browse job applications' do
     let!(:head_hunter) { log_head_hunter_in! }
 
     scenario 'successfully' do
-      job_a = create :job, head_hunter: head_hunter
-      applicant = create :job_seeker
-      create :job_seeker_profile, job_seeker: applicant
-      application = create :job_application, job: job_a, job_seeker: applicant
-      offer = create :job_application_offer, :without_expectations, :without_bonus,
-                     head_hunter: head_hunter, application: application
+      job = create :job, head_hunter: head_hunter
+      applications = create_list :job_application, 3, job: job
+      offers = applications.map do |application|
+        create :job_application_offer, head_hunter: head_hunter, application: application
+      end
 
-      visit hunter_application_path application
+      visit root_path
+      click_on I18n.t('views.navigation.my_offers')
 
-      expect(page).to have_content head_hunter.resolve_name
+      expect(current_path).to eq hunter_offers_path
+      offers.each do |offer|
+        expect(page).to have_content offer.job_seeker.resolve_name
+        expect(page).to have_content offer.job.title
+        expect(page).to have_content I18n.l(offer.start_date)
+        expect(page).to have_content number_to_currency(offer.salary)
+        expect(page).to have_content Job::Application::Offer.human_attribute_name("status.#{offer.status}")
+        expect(page).to have_link I18n.t('views.navigation.details'),
+                                  href: hunter_offer_path(offer)
+      end
+    end
+
+    scenario 'and view offer details' do
+      job = create :job, head_hunter: head_hunter
+      application = create :job_application, job: job
+      create :job_seeker_profile, job_seeker: application.job_seeker
+      offer = create :job_application_offer, head_hunter: head_hunter,
+                                             application: application
+
+      visit root_path
+      click_on I18n.t('views.navigation.my_offers')
+      within "tr#offer-#{offer.id}" do
+        click_on I18n.t('views.navigation.details')
+      end
+
+      expect(current_path).to eq hunter_offer_path(offer)
+      expect(page).to have_content offer.job_seeker.resolve_name
       expect(page).to have_content I18n.l(offer.created_at, format: :long)
       expect(page).to have_content I18n.l(offer.start_date)
       expect(page).to have_content number_to_currency(offer.salary)
@@ -26,48 +52,6 @@ feature 'Head Hunter can browse job applications' do
       expect(page).to have_content offer.bonus
       expect(page).to have_content Job::Application::Offer.human_attribute_name("status.#{offer.status}")
       expect(page).to have_css('.ongoing_offer', count: 1)
-
-      expect(page).not_to have_content I18n.t('activerecord.attributes.job/application/offer.expectations')
-      expect(page).not_to have_content I18n.t('activerecord.attributes.job/application/offer.bonus')
-      expect(page).not_to have_content I18n.t('activerecord.attributes.job/application/offer.feedback')
-    end
-
-    scenario 'and displays optional attributes' do
-      job_a = create :job, head_hunter: head_hunter
-      applicant = create :job_seeker
-      create :job_seeker_profile, job_seeker: applicant
-      application = create :job_application, job: job_a, job_seeker: applicant
-      offer = create :job_application_offer, :with_feedback, head_hunter: head_hunter,
-                                                             application: application
-
-      visit hunter_application_path application
-
-      expect(page).to have_content offer.expectations
-      expect(page).to have_content offer.bonus
-      expect(page).to have_content offer.feedback
-    end
-
-    scenario 'and changes css class when depending on status' do
-      job_a = create :job, head_hunter: head_hunter
-      applicant = create :job_seeker
-      create :job_seeker_profile, job_seeker: applicant
-      application = create :job_application, job: job_a, job_seeker: applicant
-      offer = create :job_application_offer, :with_feedback,
-                     head_hunter: head_hunter, application: application
-
-      visit hunter_application_path application
-      expect(page).to have_css('.ongoing_offer', count: 1)
-      expect(page).to have_content offer.feedback
-
-      offer.accepted!
-      visit hunter_application_path application
-      expect(page).to have_css('.accepted_offer', count: 1)
-      expect(page).to have_content offer.feedback
-
-      offer.rejected!
-      visit hunter_application_path application
-      expect(page).to have_css('.rejected_offer', count: 1)
-      expect(page).to have_content offer.feedback
     end
   end
 end

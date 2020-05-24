@@ -12,7 +12,7 @@ feature 'Job Seeker can browse active jobs' do
       job_a = create :job, position: 'Manager', expires_on: 2.month.from_now
       job_b = create :job, position: 'Director', expires_on: 5.weeks.from_now
 
-      job_c = create :job, :expired, :skip_validate, position: 'Analyst'
+      job_c = create :job, :expired, :skip_validation, position: 'Analyst'
       job_d = create :job, retired: true, position: 'Engineer', expires_on: 6.weeks.from_now
 
       visit root_path
