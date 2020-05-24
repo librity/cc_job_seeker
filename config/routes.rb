@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#index', as: :dashboard
 
     resources :jobs, only: %i[index show new create] do
+      patch :retire
+
       resources :applicants, only: %i[show] do
         post :comment
       end

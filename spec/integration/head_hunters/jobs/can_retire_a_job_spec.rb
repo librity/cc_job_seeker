@@ -3,47 +3,25 @@
 require 'rails_helper'
 
 feature 'Head Hunter can retire a job' do
-  before :each do
-    log_head_hunter_in!
-  end
+  context 'when logged-in' do
+    let!(:head_hunter) { log_head_hunter_in! }
 
-  xscenario 'successfully' do
-    car_category_one = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
-                                           insurance: 10.0, third_party_insurance: 5.0
+    scenario 'successfully' do
+      job = create :job, head_hunter: head_hunter
 
-    visit root_path
-    click_on I18n.t('activerecord.models.car_category.other')
-    within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.navigation.details')
+      expect(head_hunter.jobs.active.count).to eq 1
+
+      visit root_path
+      click_on I18n.t('activerecord.models.job.other')
+      within "tr#job-#{job.id}" do
+        click_on I18n.t('views.navigation.details')
+      end
+      click_on I18n.t('views.actions.retire')
+
+      expect(current_path).to eq head_hunters_job_path job
+      expect(head_hunter.jobs.active.count).to eq 0
+      expect(page).to have_content I18n.t('flash.job_retired')
+      expect(page).to have_css '.inactive_job', count: 1
     end
-    click_on I18n.t('views.actions.delete')
-
-    expect(current_path).to eq car_categories_path
-    expect(CarCategory.count).to eq 0
-    expect(page).to have_content(I18n.t('views.car_categories.empty_resource'))
-    expect(page).to have_content(I18n.t('flash.destroyed',
-                                        resource: I18n.t('activerecord.models.car_category.one')))
-  end
-
-  xscenario "and doesn't delete all of them" do
-    car_category_one = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
-                                           insurance: 10.0, third_party_insurance: 5.0
-
-    CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
-                        third_party_insurance: 15.0
-
-    visit root_path
-    click_on I18n.t('activerecord.models.car_category.other')
-    within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.navigation.details')
-    end
-    click_on I18n.t('views.actions.delete')
-
-    expect(current_path).to eq car_categories_path
-    expect(page).to have_content(I18n.t('flash.destroyed',
-                                        resource: I18n.t('activerecord.models.car_category.one')))
-    expect(CarCategory.count).to eq 1
-    expect(page).not_to have_content('Sedan')
-    expect(page).to have_content('Camião')
   end
 end

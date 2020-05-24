@@ -9,7 +9,7 @@ pt-BR:
     messages:
       arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
-      retire_job: "Tem certeza que deseja aposentar esta vaga?"
+      retire_job: Esta ação é irreversível. Tem certeza que deseja encerrar esta vaga?
       reject_offer: "Esta ação é irreversível. Tem certeza que deseja rejeitar esta oferta?"
       accept_offer: "Esta ação é irreversível. Você se compromete a iniciar no dia %{date}?"
 

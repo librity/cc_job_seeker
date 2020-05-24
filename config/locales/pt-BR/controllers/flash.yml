@@ -10,9 +10,10 @@ pt-BR:
     job_not_found: Nenhuma vaga por esses dados
     fill_out_profile: Preencha seu perfil para completar seu cadastro...
     already_applied: Você já se applicou para esta vaga!
-    inactive_job: Applicações para esta vaga já foram encerradas!
+    inactive_job: Applicações para esta vaga foram encerradas!
     profile_not_found: Perfil não encontrado!
     application_rejected: Applicação rejeitada
     closed_offer: Não é possível alterar uma proposta uma vez aceitada ou rejeitada!
     offer_accepted: Proposta aceitada com sucesso!
     offer_rejected: Proposta rejeitada com sucesso!
+    job_retired: Vaga encerrada com sucesso. Nenhuma applicação poderá ser feita mais nela.

@@ -2,7 +2,7 @@
 
 module HeadHunters
   class JobsController < BaseController
-    before_action :check_head_hunter, only: :show
+    before_action :check_head_hunter, only: %i[show retire]
 
     def index
       @jobs = current_head_hunter.jobs
@@ -28,6 +28,13 @@ module HeadHunters
       end
     end
 
+    def retire
+      @job.update retired: true
+
+      flash[:success] = t 'flash.job_retired'
+      redirect_to head_hunters_job_path @job
+    end
+
     private
 
     def job_params
@@ -36,7 +43,7 @@ module HeadHunters
     end
 
     def check_head_hunter
-      @job = Job.find params[:id]
+      @job = Job.find params[:id] || params[:job_id]
       return if @job.head_hunter == current_head_hunter
 
       flash[:danger] = t 'flash.unauthorized'

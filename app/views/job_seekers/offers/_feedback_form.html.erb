@@ -5,7 +5,7 @@
   </div>
 
   <%= f.submit t('views.actions.accept'), class: 'btn btn-primary',
-               data: { confirm: t('views.messages.accept_offer', date: l(@offer.start_date) )},
+               data: { confirm: t('views.messages.accept_offer', date: l(@offer.start_date)) },
                formaction: job_seekers_offer_accept_path(@offer) %>
   <%= f.submit t('views.actions.reject'), class: 'btn btn-danger',
                data: { confirm: t('views.messages.reject_offer') },

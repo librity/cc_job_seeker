@@ -19,5 +19,9 @@ FactoryBot.define do
     trait :expired do
       expires_on { Faker::Date.backward days: 30 }
     end
+
+    trait :retired do
+      retired { true }
+    end
   end
 end

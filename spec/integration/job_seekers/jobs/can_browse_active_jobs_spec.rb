@@ -76,13 +76,6 @@ feature 'Job Seeker can browse active jobs' do
       expect(page).to have_content job_a.head_hunter.social_name
     end
 
-    scenario 'when there are no active jobs' do
-      visit root_path
-      click_on I18n.t('views.navigation.browse_jobs')
-
-      expect(page).to have_content I18n.t('views.jobs.empty_resource')
-    end
-
     scenario 'and return to home page' do
       visit root_path
       click_on I18n.t('views.navigation.browse_jobs')

@@ -2,6 +2,8 @@
 
 module JobSeekers
   class JobsController < BaseController
+    before_action :check_active_job, only: %i[show]
+
     def index
       if params[:search]
         search_jobs
@@ -10,10 +12,7 @@ module JobSeekers
       end
     end
 
-    def show
-      @job = Job.find params[:id]
-      render :index unless @job.active?
-    end
+    def show; end
 
     private
 
@@ -23,6 +22,14 @@ module JobSeekers
 
       @jobs = Job.active
       flash.now[:info] = t 'flash.job_not_found'
+    end
+
+    def check_active_job
+      @job = Job.find params[:id]
+      return if @job.active?
+
+      flash[:danger] = t 'flash.inactive_job'
+      redirect_to job_seekers_jobs_path
     end
   end
 end

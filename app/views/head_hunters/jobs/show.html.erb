@@ -3,6 +3,10 @@
   <div class='col-12'>
     <nav class='context_navigation'>
       <%= link_to t('views.navigation.go_back'), head_hunters_jobs_path, class: 'btn btn-secondary' %>
+
+      <%= link_to t('views.actions.retire'), head_hunters_job_retire_path(@job),
+                  data: { confirm: t('views.messages.retire_job') },
+                  method: :patch, class: 'btn btn-danger' %>
     </nav>
 
     <header class='header'>

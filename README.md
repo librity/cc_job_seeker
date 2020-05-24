@@ -171,7 +171,7 @@ Head Hunters:
 - [x] Can reject an Applicant
 - [x] Can propose Job Offers to Applicants
 - [x] Recieves feedback for accepted/rejected Job Offers
-- [ ] Can retire a Job Opening
+- [x] Can retire a Job Opening
 
 Job Seeker:
 
