@@ -1,5 +1,5 @@
 <%= form_with url: head_hunters_job_application_standout_path(@job, application),
-        local: true, class: 'standout_form' do |f| %>
+              html: { method: :patch }, local: true, class: 'standout_form' do |f| %>
   <%= f.label :standout, t('activerecord.attributes.job/application.standout'), class: 'sr-only' %>
 
   <button type="submit">

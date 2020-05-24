@@ -138,8 +138,8 @@ Job Seeker:
 - [x] Applies to a Job Opening
 - [x] Can browse rejected Job Applications
 - [x] Can browse Job Offers
-- [ ] Can accept Job Offers
-- [ ] Can reject Job Offers
+- [x] Can accept Job Offers
+- [x] Can reject Job Offers
 
 
 ## 🏆 Bonus Features

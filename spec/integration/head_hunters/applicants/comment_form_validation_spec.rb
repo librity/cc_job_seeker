@@ -43,16 +43,5 @@ feature "Head Hunter can comment on an applicant's profile" do
 
       expect(page).to have_content I18n.t('errors.messages.too_short', count: 50)
     end
-
-    scenario 'and profile must exist' do
-      job_a = create :job, head_hunter: head_hunter
-      applicant = create :job_seeker
-
-      page.driver.post head_hunters_job_applicant_comment_path(job_a, applicant)
-      visit page.driver.response.location
-
-      expect(current_path).to eq head_hunters_job_path job_a
-      expect(page).to have_content I18n.t('flash.profile_not_found')
-    end
   end
 end

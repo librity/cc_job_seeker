@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       end
 
       resources :applications, only: %i[show] do
-        post  :standout
+        patch :standout
         get   :rejection
         patch :reject
 
@@ -46,8 +46,8 @@ Rails.application.routes.draw do
 
     resources :applications, only: %i[index show]
     resources :offers, only: %i[index show] do
-      post :accept
-      post :reject
+      patch :accept
+      patch :reject
     end
   end
 end

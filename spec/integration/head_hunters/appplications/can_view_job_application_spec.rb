@@ -54,12 +54,6 @@ feature 'Head Hunter can browse job applications' do
 
       expect(current_path).to eq head_hunters_jobs_path
       expect(page).to have_content I18n.t 'flash.unauthorized'
-
-      page.driver.post head_hunters_job_application_standout_path job_a, application
-      visit page.driver.response.location
-
-      expect(current_path).to eq head_hunters_jobs_path
-      expect(page).to have_content I18n.t 'flash.unauthorized'
     end
   end
 end
