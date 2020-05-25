@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_190615) do
+ActiveRecord::Schema.define(version: 2020_05_25_024339) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 2020_05_21_190615) do
     t.index ["reset_password_token"], name: "index_head_hunters_on_reset_password_token", unique: true
     t.index ["social_name"], name: "index_head_hunters_on_social_name"
     t.index ["unlock_token"], name: "index_head_hunters_on_unlock_token", unique: true
+  end
+
+  create_table "job_application_interviews", force: :cascade do |t|
+    t.integer "head_hunter_id", null: false
+    t.integer "job_application_id", null: false
+    t.string "address"
+    t.datetime "date"
+    t.boolean "public_feedback", default: false
+    t.text "feedback"
+    t.boolean "occurred"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["head_hunter_id"], name: "index_job_application_interviews_on_head_hunter_id"
+    t.index ["job_application_id"], name: "index_job_application_interviews_on_job_application_id"
   end
 
   create_table "job_application_offers", force: :cascade do |t|
@@ -163,6 +177,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_190615) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_application_interviews", "head_hunters"
+  add_foreign_key "job_application_interviews", "job_applications"
   add_foreign_key "job_application_offers", "head_hunters"
   add_foreign_key "job_application_offers", "job_applications"
   add_foreign_key "job_applications", "job_seekers"

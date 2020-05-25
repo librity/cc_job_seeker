@@ -1,0 +1,25 @@
+---
+pt-BR:
+  activemodel:
+    errors:
+
+  activerecord:
+    models:
+      job/application/interview:
+        one: Entrevista de Emprego
+        other: Entrevistas de Emprego
+
+    attributes:
+      attr_defaults: &attr_defaults
+        id: ID
+        created_at: Criado
+        updated_at: Alterado
+        deleted_at: Excluído
+
+      job/application/interview:
+        <<: *attr_defaults
+        date: Data e horário
+        address: Endereço
+        public_feedback: Visível para o candidato?
+        feedback: Commentário sobre a entrevista
+        occurred: Houve entrevista?

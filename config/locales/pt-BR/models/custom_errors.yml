@@ -13,6 +13,11 @@ pt-BR:
             start_date:
               retroactive: não pode ser retroativa
 
+        job/application/interview:
+          attributes:
+            date:
+              retroactive: não pode ser retroativa
+
         job_seeker/profile:
           attributes:
             date_of_birth:

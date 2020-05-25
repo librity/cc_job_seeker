@@ -26,7 +26,7 @@ feature 'Job Seeker can signup' do
       click_on I18n.t('views.actions.send')
     end
 
-    expect(page).to have_content I18n.t('errors.messages.blank'), count: 4
+    expect(page).to have_content I18n.t('errors.messages.blank'), count: 5
   end
 
   scenario 'and bio should be at least 50 characters long' do

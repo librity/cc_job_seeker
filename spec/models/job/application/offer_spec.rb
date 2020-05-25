@@ -144,7 +144,7 @@ describe Job::Application::Offer, type: :model do
     end
   end
 
-  context 'validation: reject!' do
+  context 'method: reject!' do
     it 'should change status to rejected and skip validation' do
       subject = create :job_application_offer, :skip_validation, :old
       subject.reject!
@@ -163,7 +163,7 @@ describe Job::Application::Offer, type: :model do
     end
   end
 
-  context 'validation: reject_with_default_feedback!' do
+  context 'method: reject_with_default_feedback!' do
     it 'should change status to rejected, feedback to accepted_another_offer and skip validation' do
       subject = create :job_application_offer, :skip_validation, :old
       subject.reject_with_default_feedback!
@@ -173,7 +173,7 @@ describe Job::Application::Offer, type: :model do
     end
   end
 
-  context 'validation: accept!' do
+  context 'method: accept!' do
     it 'should change status to accepted and skip validation' do
       subject = create :job_application_offer, :skip_validation, :old
       subject.accept!
