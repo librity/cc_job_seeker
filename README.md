@@ -201,15 +201,14 @@ Head Hunters:
 - [ ] Can write a feedback after the interview
 - [ ] Can Chat with Applicants
 - [ ] All Head Hunters with the same email domain are associated with a Company
-- [ ] Can't change their email
-- [ ] Must have profile pic
+- [x] Must have an avatar
 
 Job Seeker:
 
 - [ ] Gets notified when invited to an Interview
 - [ ] Can accept Interview invitation
 - [ ] Can reject Interview invitation
-- [ ] Recieves Interview feedback
+- [ ] Recieves Interview feedback when public
 - [ ] Can Chat with Head Hunters
 
 ## ⚖️ License

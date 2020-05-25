@@ -59,7 +59,7 @@
             <% @applications.each do |application| %>
               <dd id="application-<%= application.id %>" class="application_container">
                   <span class="applicant_container">
-                    <%= render 'hunter/shared/small_standout_form', application: application %>
+                    <%= render 'hunter/shared/standout_form', application: application, small: true %>
 
                     <%= link_to application.job_seeker.resolve_name,
                                 hunter_applicant_path(application.job_seeker), 

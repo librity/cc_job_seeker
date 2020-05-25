@@ -9,13 +9,14 @@ module Seeker
 
     def new
       flash.clear
-      flash[:info] = t 'flash.fill_out_profile'
+      flash.now[:info] = t 'flash.fill_out_profile'
       @profile = JobSeeker::Profile.new
     end
 
     def create
       @profile = JobSeeker::Profile.new profile_params
       @profile.job_seeker = current_job_seeker
+
       if @profile.save
         flash[:success] = t 'devise.registrations.signed_up'
         redirect_to seeker_dashboard_path

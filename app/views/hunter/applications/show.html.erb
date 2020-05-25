@@ -15,7 +15,7 @@
       <div class="applicant_title">
         <h1> <%= @applicant.resolve_name %> </h1>
 
-        <%= render 'hunter/shared/standout_form', application: @application %>
+        <%= render 'hunter/shared/standout_form', application: @application, small: false %>
       </div>
 
       <p class="indent"> <%= @applicant.profile.bio %> </p>

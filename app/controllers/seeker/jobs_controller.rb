@@ -18,7 +18,7 @@ module Seeker
 
     def search_jobs
       @jobs = Job.active.by_title_or_description params[:search]
-      return unless @jobs.blank?
+      return unless @jobs.empty?
 
       @jobs = Job.active
       flash.now[:info] = t 'flash.job_not_found'

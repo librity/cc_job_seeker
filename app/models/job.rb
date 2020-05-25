@@ -44,6 +44,10 @@ class Job < ApplicationRecord
     !retired
   end
 
+  def retire!
+    update_attribute :retired, true
+  end
+
   def minimum_wage
     BRAZILIAN_MINIMUM_WAGE
   end

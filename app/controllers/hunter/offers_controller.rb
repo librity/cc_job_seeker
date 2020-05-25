@@ -15,9 +15,7 @@ module Hunter
     end
 
     def create
-      @offer = Job::Application::Offer.new offer_params
-      @offer.application = @application
-      @offer.head_hunter = current_head_hunter
+      @offer = build_offer
 
       if @offer.save
         flash[:success] = t 'flash.created',
@@ -33,6 +31,13 @@ module Hunter
     def offer_params
       params.require(:job_application_offer).permit :start_date, :salary, :responsabilities,
                                                     :benefits, :expectations, :bonus
+    end
+
+    def build_offer
+      offer = Job::Application::Offer.new offer_params
+      offer.application = @application
+      offer.head_hunter = current_head_hunter
+      offer
     end
 
     def resolve_job

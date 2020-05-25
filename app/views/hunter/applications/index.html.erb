@@ -29,7 +29,7 @@
           <tbody class="index_table_body">
             <% @applications.each do |application| %>
               <tr class="index_table_row" id="application-<%= application.id %>">
-                <td> <%= render 'hunter/shared/small_standout_form', application: application %> </td>
+                <td> <%= render 'hunter/shared/standout_form', application: application, small: true %> </td>
                 <td> <%= link_to application.job.title, hunter_job_path(application.job) %> </td>
                 <td> <%= link_to application.job_seeker.resolve_name, hunter_applicant_path(application.job_seeker) %> </td>
 

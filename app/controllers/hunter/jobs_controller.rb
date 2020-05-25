@@ -29,7 +29,7 @@ module Hunter
     end
 
     def retire
-      @job.update retired: true
+      @job.retire!
 
       flash[:success] = t 'flash.job_retired'
       redirect_to hunter_job_path @job
